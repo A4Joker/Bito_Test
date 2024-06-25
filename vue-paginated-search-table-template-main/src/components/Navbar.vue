@@ -17,6 +17,7 @@ function onHome() {
       >
         <font-awesome-icon icon="table" class="text-primary mr-3" />
         <a href="#" @click="onHome" class="text-primary">Paginated Table Template</a>
+        <a href="#" @click="onHome" class="text-primary">Paginated Table Template
       </h2>
     </div>
   </div>
