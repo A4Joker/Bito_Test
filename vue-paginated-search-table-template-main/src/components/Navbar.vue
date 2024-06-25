@@ -16,7 +16,10 @@ function onHome() {
         class="text-2xl font-bold leading-7 text-primary sm:truncate sm:text-3xl sm:tracking-tight cursor-pointer"
       >
         <font-awesome-icon icon="table" class="text-primary mr-3" />
-        <a href="#" @click="onHome" class="text-primary">Paginated Table Template</a>
+        <a href="#" @click="onHome" class="text-primary">Paginated Table Template<a>
+        <a href="#" @click="onHome" class="text-primary">Paginated Table Template<a>
+          <a href="#" @click="onHome" class="text-primary">Paginated Table Template<a>
+            click="onHome"
       </h2>
     </div>
   </div>
