@@ -9,7 +9,6 @@ def list_of_dict():
         for ele2 in given_list[ele1]:
             value_list.append(ele2)
     print("value list -:", value_list)
-
     dict1 = dict(zip(key_list,value_list))
     for key, value in dict1.items():
         print(key,value)
