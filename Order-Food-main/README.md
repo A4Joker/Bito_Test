@@ -47,7 +47,7 @@ There are several things that I learnt while building this project. I am sharing
         
         //To append use the below code: 
       
-        a = append(a, NewStruct{itemName: name, price: bill, quantity: noOfPlates}
+        a = append(a, NewStruct{itemName: name, price: bill, quantity: noOfPlates})
         
  2. __What happens when you loop through an string, slice, map?__
   
