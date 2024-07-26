@@ -12,7 +12,7 @@ def rev(sentence):
         for char in words:
             if char.isspace():
                 print("here is space")
-                " ".join(char)
+                #" ".join(char)
             if char.isupper():
                 swap_case_chars += char.lower()
             elif char.islower():
