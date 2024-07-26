@@ -1,4 +1,0 @@
-some sample content to
-check the IDE functionality.
-this is to check the content of text file
-are being processed as expected.
