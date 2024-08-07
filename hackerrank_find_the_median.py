@@ -10,5 +10,5 @@ def findMedian(arr):
 
 
 
-findMedian([0,1,4,2,3])
+#findMedian([0,1,4,2,3])
 findMedian([0,1,4,2,3])
