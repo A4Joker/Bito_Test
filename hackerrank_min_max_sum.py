@@ -8,7 +8,7 @@ def min_max():
         for ele2 in range(ele1,len(list1)):
             print("ele2 -:",ele2,end=" ")
 
-   # print(list2)
+    print(list2)
     print(list1.index())
 
 min_max()
