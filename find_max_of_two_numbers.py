@@ -6,4 +6,4 @@ def max_of_two():
 
 
 max_of_two()
-max)_of_two()
+max_of_two()
