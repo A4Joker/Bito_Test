@@ -4,4 +4,4 @@ if __name__ == "__main__":
         list1.append(line
 
     print list1
-    print(list1
+    print(list1)
