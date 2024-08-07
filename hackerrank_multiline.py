@@ -3,5 +3,5 @@ if __name__ == "__main__":
     for line in iter(input,''):
         list1.append(line)
 
-
+    print list1
     print(list1)
