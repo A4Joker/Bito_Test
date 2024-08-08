@@ -20,7 +20,7 @@ def lowercase(file_path):
             word_counter = Counter(F.read())
             
             print(f"The total number of lower case letters are {word_counter.get_total_lower()}")
-            time.sleep(0.5)
+            #time.sleep(0.5)
             print(f"The total number of upper case letters are {word_counter.get_total_upper()}")
             time.sleep(0.5)
             print(f"The total number of letters are {word_counter.get_total()}")
