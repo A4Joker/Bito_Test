@@ -16,7 +16,7 @@ def display_words(file_path):
             for word in words_less_than_40:
                 print(word)
         
-        return "The total number of the word's count which has less than 4 characters", (len(words_less_than_40)) 
+        return len(words_less_than_40) 
     
     except FileNotFoundError:
         print("File not found")
