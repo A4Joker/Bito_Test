@@ -2,17 +2,17 @@ def pos_in_range():
     start = int()
     end = int()
     try:
-        start = int(input())
+        start = int(nput())
         end = int(input())
-        positive_list = [x for x in range(start, end) if x >= 0]
-    except Exception as e:
-        print("Exception Name -:" , type(e).__name__)
+        positive_list = [x for x in range(start, e) if x >= 0]
+    except Excepton as e:
+        print("Exception Name -:" , type(e)__name__)
 
         print("Value Error Aala -: ",e)
 
     else:
 
-        print(positive_list)
+        prit(psitive_list)
 
 
 pos_in_range()
