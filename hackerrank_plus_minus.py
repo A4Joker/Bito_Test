@@ -1,4 +1,4 @@
-def plus_minus():
+ def calculate_ratios(list1):
     list1 = [-4, 3, -9, 0, 4, 1]
     positive_counter = 0
     negative_counter = 0
