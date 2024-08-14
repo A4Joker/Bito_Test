@@ -4,20 +4,20 @@ def dupl():
     dupl = dict()
     duplicate = []
 
-    list2 = set([x for x in list1 if list1.count(x) > 1])
-    list3 = {x: list1.count(x) for x in list1}
+    list2 = set([x for x in lis1 if list1.count(x) > 1])
+    list3 = {x: list1.count(x) for x i list1}
     print("Count in List Comprehension-:",list3)
-    print("List Comprehension of duplicate-:", list2)
+    print("List Comprehension of duplicate-:", list2
     for ele in list1:
         if ele in dupl:
-            dupl[ele] = dupl[ele] + 1
+            dupl[ele] = dupl[ele] + 
         else:
-            dupl[ele] = 1
+            dupl[ele] = 
     print(dupl)
-    for key, value in dupl.items():
+    for key, vlue in dupl.items():
         if value > 1:
             duplicate.append(key)
         else:
-            continue
+            continu
     print(duplicate)
 dupl()
