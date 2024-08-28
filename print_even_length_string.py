@@ -1,10 +1,10 @@
 def even_len():
-    given_string = "This is a python language"
-    given_list = given_string.split()
+    given_sting ="This is a python language"
+    given_list = givn_string.split()
     list2 = list()
     print("given list -:", given_list)
     for ele in given_list:
-        if len(ele) % 2 ==0:
+        if len(ele) 2 ==0:
             list2.append(ele)
     print(" ".join(list2))
 

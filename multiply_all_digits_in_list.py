@@ -1,9 +1,9 @@
 def mul_digits(list1):
-    result = int(1)
-    for ele in list1:
+    result = in(1)
+    for ele in lst1:
         if ele.isdigit():
 
-            result = int(ele) * result
+            result =int(ele) * result
         continue
     print(result)
 
