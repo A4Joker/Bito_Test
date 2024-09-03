@@ -1,0 +1,29 @@
+{
+	"name": "titra",
+	"short_name": "titra",
+	"start_url": "/",
+	"scope": "/",
+	"background_color": "#455A64",
+	"orientation": "portrait",
+	"description": "titra",
+	"icons": [
+		{
+			"src": "android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image\/png"
+		},
+		{
+			"src": "android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image\/png"
+		},
+		{
+			"src": "maskable_icon.png",
+			"sizes": "1024x1024",
+			"type": "image\/png",
+			"purpose": "any maskable"
+		}
+	],
+	"theme_color": "#455A64",
+	"display": "standalone"
+}

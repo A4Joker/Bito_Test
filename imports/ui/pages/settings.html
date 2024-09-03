@@ -1,0 +1,204 @@
+<template name="settings">
+  <form>
+    <div class="card mb-3">
+      <div class="card-header">
+        {{t "settings.global_settings"}}
+      </div>
+      <div class="card-block">
+        <div class="mb-3 form-floating">
+          <input type="text" class="form-control" id="unit" value="{{unit}}" />
+          <label class="form-label" for="unit">{{t "settings.cost_unit"}}</label>
+        </div>
+        <div class="mb-3 form-floating">
+          <input type="number" class="form-control" id="precision" value="{{precision}}" />
+          <label class="form-label" for="precision">{{t "settings.decimal_precision"}}</label>
+        </div>
+        <div class="form-floating">
+          <input type="number" class="form-control" id="startOfWeek" value="{{startOfWeek}}" />
+          <label class="form-label" for="startOfWeek">{{t "settings.startof_week"}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+          {{t "settings.time_tracking"}}
+      </div>
+      <div class="card-block">
+          <div class="mb-3 form-floating">
+            <select class="form-select form-control" id="timetrackview">
+                <option value="d">{{t "globals.day"}}</option>
+                <option value="w">{{t "globals.week"}}</option>
+                <option value="M">{{t "globals.month"}}</option>
+                <option value="T">{{t "tracktime.timeline"}}</option>
+
+            </select>
+            <label class="form-label" for="timetrackview">{{t "settings.track_time_view"}}</label>
+          </div>
+          <div class="mb-3 form-floating">
+            <select class="form-select form-control" id="timeunit">
+              <option value="m">{{t "globals.minute"}}</option>
+              <option value="h">{{t "globals.hour"}}</option>
+              <option value="d">{{t "globals.day"}}</option>
+            </select>
+            <label class="form-label" for="timeunit">{{t "settings.time_unit"}}</label>
+            <!-- <span style="position: absolute; top: 0; right: 0; margin-top: 16px; margin-right: 18px;">
+              <i class="fas fa-chevron-down fa-sm"></i>
+            </span> -->
+          </div>
+          {{#if displayHoursToDays}}
+            <div class="mb-3 form-floating">
+              <input type="number" class="form-control" id="hoursToDays" value="{{hoursToDays}}" step="any" />
+              <label class="form-label" for="hoursToDays">{{t "settings.hours_per_day"}}</label>
+            </div>
+          {{/if}}
+          <div class="mb-1 form-floating">
+            <input type="number" class="form-control" id="rounding" value="{{rounding}}" step="any" />
+            <label class="form-label" for="rounding">{{t "settings.rounding"}}</label>
+          </div>
+          <div class="card bg-secondary mb-3">
+            <div class="card-body">
+              <small class="card-text">{{t "settings.rounding_tooltip"}}</small>
+            </div>
+          </div>
+          <div class="mb-3 form-floating">
+            <input type="time" class="form-control" id="dailyStartTime" value="{{dailyStartTime}}" />
+            <label class="form-label" for="dailyStartTime">{{t "settings.daily_start_time"}}</label>
+          </div>
+          <div class="mb-3 form-floating">
+            <input type="time" class="form-control" id="breakStartTime" value="{{breakStartTime}}" />
+            <label class="form-label" for="breakStartTime">{{t "settings.break_start_time"}}</label>
+          </div>
+          <div class="mb-3 form-floating">
+            <input type="number" class="form-control" id="breakDuration" value="{{breakDuration}}" step="any" />
+            <label class="form-label" for="breakDuration">{{t "settings.break_duration"}}</label>
+          </div>
+          <div class="mb-3 form-floating">
+            <input type="number" class="form-control" id="regularWorkingTime" value="{{regularWorkingTime}}" step="any" />
+            <label class="form-label" for="regularWorkingTime">{{t "details.regularWorkingTime"}}</label>
+          </div>
+          <div class="card">
+            <div class="card-header">{{t "settings.holiday"}}</div>
+            <div class="card-block">
+              <div class="mb-3 form-floating">
+                <select class="form-select form-control" id="holidayCountry"></select>
+                <label class="form-label" for="holidayCountry">{{t "settings.holiday_country"}}</label>
+              </div>
+              <div class="mb-3 form-floating">
+                <select class="form-select form-control" id="holidayState"></select>
+                <label class="form-label" for="holidayState">{{t "settings.holiday_state"}}</label>
+              </div>
+              <div class="form-floating">
+                <select class="form-select form-control" id="holidayRegion"></select>
+                <label class="form-label" for="holidayRegion">{{t "settings.holiday_region"}}</label>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        {{t "settings.userInterface_settings"}}
+      </div>
+      <div class="card-block">
+        <div class="mb-3 form-floating">
+          <select class="form-select form-control" id="theme">
+            <option value="auto">{{t "settings.auto_detect"}}</option>
+            <option value="light">{{t "settings.light_theme"}}</option>
+            <option value="dark">{{t "settings.dark_theme"}}</option>
+        </select>
+        <label class="form-label" for="theme">{{t "settings.theme"}}</label>
+        <small class="form-text text-muted">{{t "settings.auto_detect_help"}} <a href="https://caniuse.com/#feat=prefers-color-scheme" target="_blank">caniuse.com</a>.</small>
+      </div>
+        <div class="mb-3 form-floating">
+          <select class="form-select form-control" id="language">
+            <option value="auto">{{t "settings.auto_detect"}}</option>
+            <option value="en">{{t "settings.en"}}</option>
+            <option value="de">{{t "settings.de"}}</option>
+            <option value="fr">{{t "settings.fr"}}</option>
+            <option value="zh">{{t "settings.zh"}}</option>
+            <option value="uk">{{t "settings.ukr"}}</option>
+			<option value="es">{{t "settings.es"}}</option>
+        </select>
+        <label class="form-label" for="theme">{{t "settings.language"}}</label>   
+        </div> 
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-header">
+        {{t "settings.integrations"}}
+      </div>
+      <div class="card-block">
+        <div class="card mb-3">
+          <div class="card-header">titra</div>
+            <div class="card-block">
+                <div class="input-group">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="titraAPItoken" value="{{titraAPItoken}}" />
+                    <label class="form-label" for="titraAPItoken">titra API token</label>
+                  </div>
+                  <button type="button" class="btn btn-outline-secondary rounded-end" id="generateToken"><i class="fa fa-shuffle"></i> Generate</button>
+              </div>
+          </div>
+        </div>
+        {{#if getGlobalSetting "enableSiwapp"}}
+          <div class="card mb-3">
+            <div class="card-header">Siwapp</div>
+              <div class="card-block">
+                <div class="mb-3 form-floating">
+                  <input type="text" class="form-control" id="siwappurl" value="{{siwappurl}}" />
+                  <label class="form-label" for="siwappurl">{{t "settings.siwapp_url"}}</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="siwapptoken" value="{{siwapptoken}}" />
+                  <label class="form-label" for="siwapptoken">{{t "settings.siwapp_api_token"}}</label>
+                </div>
+              </div>
+          </div>
+        {{/if}}
+        {{#if getGlobalSetting "enableZammad"}}
+          <div class="card mb-3">
+            <div class="card-header">Zammad</div>
+            <div class="card-block">
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="zammadurl" value="{{zammadurl}}" placeholder="https://zammad.url/" />
+                <label class="form-label" for="zammadurl">{{t "settings.zammad_url"}}</label>
+              </div>
+              <div class="form-floating mb-1">
+                <input type="text" class="form-control" id="zammadtoken" value="{{zammadtoken}}" placeholder="abcdefghijklmnopq-rstuvwxyz123456789" />
+                <label class="form-label" for="zammadtoken">{{t "settings.zammad_api_token"}}</label>
+              </div>
+              <div class="card bg-secondary mb-3">
+                <div class="card-body">
+                  <small class="card-text">{{t "project.wekan_help"}} <a href="https://wiki.titra.io/books/deployment/page/zammad-interface" target="_blank">wiki</a>.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        {{#if getGlobalSetting "enableGitlab"}}
+          <div class="card">
+            <div class="card-header">GitLab</div>
+            <div class="card-block">
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="gitlaburl" value="{{gitlaburl}}" placeholder="https://gitlab.url/" />
+                <label class="form-label" for="gitlaburl">{{t "settings.gitlab_url"}}</label>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="gitlabtoken" value="{{gitlabtoken}}" placeholder="abcdefghijklmnopq-rstuvwxyz123456789" />
+                <label class="form-label" for="gitlabtoken">{{t "settings.gitlab_api_token"}}</label>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-6 col-md-3 me-auto d-grid">
+      <button type="button" class="btn btn-danger js-reset">{{t "settings.reset"}}</button>
+    </div>
+    <div class="col-6 col-md-3 d-grid">
+      <button type="button" class="btn btn-primary js-save">{{t "navigation.save"}}</button>
+    </div>
+  </div>
+</template>

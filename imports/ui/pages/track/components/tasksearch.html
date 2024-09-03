@@ -1,0 +1,25 @@
+<template name="tasksearch">
+  {{#if isComponent}}
+    <input type="text" aria-label='{{t "tracktime.task_placeholder"}}' value="{{task}}" class="js-tasksearch-input form-control" autocomplete="off" placeholder='{{t "tracktime.task_placeholder"}}'/>
+  {{else}}
+  <div class="input-group">
+    <div class="form-floating search-box">
+      <i class="fa fa-delete-left hover-remove-value-icon js-remove-value"></i>
+      <input type="text" aria-label='{{t "tracktime.task_placeholder"}}' value="{{task}}" name="task" id="task" class="js-tasksearch-input form-control" autocomplete="off" placeholder='{{t "tracktime.task_placeholder"}}'/>
+      <label class="form-label" for="task">{{t "globals.task"}}</label>
+    </div>
+    {{#if displayTaskSelectionIcon}}
+      <button type="button" class="btn btn-outline-secondary js-show-task-select-popup">
+          <i class="fas fa-list-alt text-body"></i>
+      </button>
+    {{/if}}
+    {{#if getGlobalSetting "allowIndividualTaskRates"}}
+      <button type="button" class="btn btn-outline-secondary js-show-task-rate"><i class="fa-solid fa-money-bill-1 text-body"></i></button>
+      <div class="form-floating js-task-rate-container d-none" style="max-width:10rem">
+        <input type="number" class="form-control" name="taskRate" id="taskRate" value="{{taskRate}}" placeholder="{{t "project.rate"}}"/>
+        <label class="form-label" for="taskRate">{{t "project.rate"}}</label>
+      </div>
+    {{/if}}
+  </div>
+  {{/if}}
+</template>

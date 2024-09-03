@@ -1,0 +1,12 @@
+<template name="multiselectfilter">
+    <div class="form-floating text-body">
+        <select id="{{name}}" class="form-control custom-select js-multiselect js-{{name}}" multiple="multiple">
+            <option value="all" selected="selected">{{t all}}</option>
+            {{#each item in items}}
+                <option value="{{item._id}}">{{item.name}}</option>
+            {{/each}}
+        </select>
+        <i class="fas fa-chevron-down fa-xs position-absolute top-0 end-0 m-3 opacity-50"></i>
+        <label for="{{name}}">{{t label}}</label>
+    </div>
+</template>

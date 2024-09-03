@@ -1,0 +1,43 @@
+<template name="periodpicker">
+  <div class="form-floating">
+    <select id="period" class="form-select form-control">
+      <option value="currentMonth">{{t "period.currentMonth"}}</option>
+      <option value="currentWeek">{{t "period.currentWeek"}}</option>
+      <option value="currentYear">{{t "period.currentYear"}}</option>
+      <option value="lastMonth">{{t "period.lastMonth"}}</option>
+      <option value="last3months">{{t "period.last3months"}}</option>
+      <option value="lastWeek">{{t "period.lastWeek"}}</option>
+      <option value="lastYear">{{t "period.lastYear"}}</option>
+      <option value="custom">{{t "period.custom"}}</option>
+      <option value="all">{{t "period.all"}}</option>
+      <!-- <option value="custom">Custom</option> -->
+    </select>
+    <i class="fas fa-chevron-down fa-xs position-absolute top-0 end-0 m-3 opacity-50"></i>
+    <label for="period">{{t "period.time_period"}}</label>
+  </div>
+  <div class="modal fade js-custom-period-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{t "period.custom_period"}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="customStartDate">{{t "details.startTime"}}:</label>
+            <input aria-label='{{t "details.startTime"}}' class="form-control" name="customStartDate" id="customStartDate" type="date" value="{{startDate}}"/>
+          </div>
+          <div class="mb-3">
+            <label for="customEndDate">{{t "details.endTime"}}:</label>
+            <input class="form-control" aria-label='{{t "details.endTime"}}' name="customEndDate" id="customEndDate" type="date" value="{{endDate}}"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary border" data-bs-dismiss="modal">{{t "navigation.close"}}</button>
+          <button type="button" class="btn btn-primary js-save">{{t "navigation.save"}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

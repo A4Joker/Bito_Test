@@ -1,0 +1,366 @@
+// @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
+// @import "{}/node_modules/bootstrap/scss/functions";
+// @import "{}/node_modules/bootstrap/scss/variables";
+// @import "{}/node_modules/bootstrap/scss/mixins";
+// @import "{}/node_modules/bootstrap/scss/root";
+// @import "{}/node_modules/bootstrap/scss/reboot";
+// @import "{}/node_modules/bootstrap/scss/type";
+// @import "{}/node_modules/bootstrap/scss/images";
+// // @import "code";
+// @import "{}/node_modules/bootstrap/scss/grid";
+// @import "{}/node_modules/bootstrap/scss/tables";
+// @import "{}/node_modules/bootstrap/scss/forms";
+// @import "{}/node_modules/bootstrap/scss/buttons";
+// @import "{}/node_modules/bootstrap/scss/transitions";
+// @import "{}/node_modules/bootstrap/scss/dropdown";
+// @import "{}/node_modules/bootstrap/scss/button-group";
+// @import "{}/node_modules/bootstrap/scss/input-group";
+// @import "{}/node_modules/bootstrap/scss/custom-forms";
+// @import "{}/node_modules/bootstrap/scss/nav";
+// @import "{}/node_modules/bootstrap/scss/navbar";
+// @import "{}/node_modules/bootstrap/scss/card";
+// // @import "breadcrumb";
+// @import "{}/node_modules/bootstrap/scss/pagination";
+// @import "{}/node_modules/bootstrap/scss/badge";
+// // @import "jumbotron";
+// @import "{}/node_modules/bootstrap/scss/alert";
+// // @import "progress";
+// // @import "media";
+// @import "{}/node_modules/bootstrap/scss/list-group";
+// @import "{}/node_modules/bootstrap/scss/close";
+// // @import "{}/node_modules/bootstrap/scss/toasts";
+// @import "{}/node_modules/bootstrap/scss/modal";
+// @import "{}/node_modules/bootstrap/scss/tooltip";
+// @import "{}/node_modules/bootstrap/scss/popover";
+// // @import "carousel";
+// // @import "spinners";
+// @import "{}/node_modules/bootstrap/scss/utilities";
+// @import "{}/node_modules/bootstrap/scss/print";
+
+@import "{}/node_modules/bootstrap/scss/functions";
+@import "{}/node_modules/bootstrap/scss/variables";
+$enable-dark-mode: false;
+@import "{}/node_modules/bootstrap/scss/maps";
+@import "{}/node_modules/bootstrap/scss/mixins";
+@import "{}/node_modules/bootstrap/scss/utilities";
+@import "{}/node_modules/bootstrap/scss/helpers";
+@import "{}/node_modules/bootstrap/scss/utilities/api";
+
+// Layout & components
+@import "{}/node_modules/bootstrap/scss/root";
+@import "{}/node_modules/bootstrap/scss/reboot";
+@import "{}/node_modules/bootstrap/scss/type";
+@import "{}/node_modules/bootstrap/scss/images";
+@import "{}/node_modules/bootstrap/scss/containers";
+@import "{}/node_modules/bootstrap/scss/grid";
+@import "{}/node_modules/bootstrap/scss/tables";
+@import "{}/node_modules/bootstrap/scss/forms";
+@import "{}/node_modules/bootstrap/scss/buttons";
+@import "{}/node_modules/bootstrap/scss/transitions";
+@import "{}/node_modules/bootstrap/scss/dropdown";
+@import "{}/node_modules/bootstrap/scss/button-group";
+@import "{}/node_modules/bootstrap/scss/nav";
+@import "{}/node_modules/bootstrap/scss/navbar";
+@import "{}/node_modules/bootstrap/scss/card";
+@import "{}/node_modules/bootstrap/scss/accordion";
+// @import "breadcrumb";
+@import "{}/node_modules/bootstrap/scss/pagination";
+@import "{}/node_modules/bootstrap/scss/badge";
+@import "{}/node_modules/bootstrap/scss/alert";
+@import "{}/node_modules/bootstrap/scss/progress";
+@import "{}/node_modules/bootstrap/scss/list-group";
+@import "{}/node_modules/bootstrap/scss/close";
+@import "{}/node_modules/bootstrap/scss/toasts";
+@import "{}/node_modules/bootstrap/scss/modal";
+@import "{}/node_modules/bootstrap/scss/tooltip";
+@import "{}/node_modules/bootstrap/scss/popover";
+// @import "carousel";
+// @import "spinners";
+// @import "offcanvas";
+
+$btn-link-color: $body-color;
+
+:root {
+  accent-color: $primary;
+}
+.form-label {
+  z-index: 3;
+}
+#cal a {
+  text-decoration: none;
+}
+.navbar .d-inline-block {
+    display: grid !important;
+}
+.custom-control-input {
+  &:active {
+   background-color: #009688;
+ }
+}
+.navbar .navbar-nav .nav-link {
+  color: white;
+}
+.navbar .navbar-nav {
+  flex-direction: row;
+}
+.navbar .navbar-nav .active {
+    border-bottom: 4px solid $primary;
+    padding-bottom: 4px;
+}
+.navbar .navbar-nav .nav-link {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.navbar {
+  padding-top: 0.1rem;
+  padding-bottom: 0;
+}
+.navbar-toggler {
+  padding: 0.1rem 0.3rem;
+}
+// underlining feature
+.underline {
+  padding-bottom: 5px;
+  background-position: 0 1.05em;
+  background-repeat: repeat-x;
+  background-size: 1px 5px;
+}
+.table-responsive > .form-control {
+  color: #00b9a6  !important;
+}
+// draggable
+.drag {
+  z-index: 1000;
+  & .card-block {
+    padding: .5rem;
+  }
+  &.card {
+    margin-top: .5rem;
+  }
+  &.card:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+}
+
+
+.card-block {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.handle {
+  cursor: pointer;
+}
+.dt-buttons {
+  padding-left: 15px;
+}
+.ql-container.ql-snow {
+  border-radius: 0 0 0.25rem 0.25rem !important;
+}
+.ql-toolbar.ql-snow {
+  border-radius: 0.25rem 0.25rem 0 0 !important;
+}
+.ql-container.ql-snow:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 150, 136, 0.25);
+  display: block;
+  color: #495057;
+  border: 1px solid #17ffe9;
+  border-radius: 0 0 0.25rem 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  outline-offset: -2px;
+}
+
+@include media-breakpoint-down(sm) {
+  .nav-tabs {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+  }
+  #cal > div.fc-toolbar.fc-header-toolbar > div.fc-left > h2 {
+    font-weight: lighter;
+    font-size: medium;
+  }
+  .js-previous {
+    padding: 0;
+  }
+  .js-next {
+    padding: 0;
+  }
+}
+.dt-scrollable {
+  width: 100% !important;
+}
+@include media-breakpoint-up(lg) {
+  .dt-scrollable {
+    overflow-x: hidden !important;
+  }
+  .navbar {
+    padding-left: calc(100vw - 100%);
+  }
+  .main-content {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}
+.btn:hover {
+  .fa-chevron-right {
+    -webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    transform: translateX(5px);
+    transition: 0.25s ease-in-out;
+  }
+  .fa-chevron-left {
+    -webkit-transform: translateX(-5px);
+    -moz-transform: translateX(-5px);
+    transform: translateX(-5px);
+    transition: 0.25s ease-in-out;
+  }
+  // .fa-circle {
+  //   transform: scale(1.4);
+  //   transition: 0.25s ease-in-out;
+  // }
+}
+.js-toggle-timecards:hover {
+  .fa-chevron-down {
+    transform: translateY(5px);
+    transition: 0.25s ease-in-out;
+  }
+}
+.js-hours::placeholder {
+  color: #eeeeee
+}
+
+.swal2-popup.swal2-toast {
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(64,64,64,0.5);
+  -moz-box-shadow: 3px 3px 3px 0px rgba(64,64,64,0.5);
+  box-shadow: 3px 3px 3px 0px rgba(64,64,64,0.5);
+}
+
+g.y.axis {
+  display: none;
+}
+g.chart-legend {
+  display:none;
+}
+
+.dp-modal {
+  z-index: 1100;
+}
+.dp {
+  z-index: 1200;
+}
+#cal {
+    margin-top: .5rem;
+    .fc-event {
+        color: #292b2c;
+        font-size: 80%;
+    }
+    .fc-toolbar-title {
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+    .fc-event:hover {
+      color: $primary !important;
+    }
+    .fc-below, .fc-modal {
+      z-index: 1060 !important;
+    }
+    .fc-daygrid-day.fc-day-today {
+      background: rgba(0,150,136,.5) !important;
+    }
+    .fc-modal {
+      background: rgba(0, 0, 0, 0.75);
+    }
+    .fc-cal-header {
+      background: $primary !important;
+      color: $gray-900;
+    }
+    .fc-cal-month, .fc-cal-year, .fc-day, .fc-month, .fc-year {
+      color: $gray-900;
+    }
+    .fc-cal-footer {
+      background: $primary !important;
+    }
+}
+
+button.dp-clear {
+  visibility: hidden !important;
+}
+
+.dropdown-item:hover {
+  background-color: $primary;
+}
+
+.project-menu::after {                               
+  content: none;                           // Hide arrow in dropdown Overview
+}
+
+.project-menu:hover svg path {
+  fill: $primary; 
+}
+.project-menug:hover {
+  border: 1px solid $primary;
+}
+.holiday {
+  background-color: $dark;
+  color: $light !important;
+}
+
+.fc-bg-event {
+  background-color: $dark !important;
+  color: $light !important;
+  opacity: 1 !important;
+}
+
+.js-setting-input.form-checkbox {
+  transform: scale(1.5);
+  vertical-align: middle;
+  margin-left: 10px !important;
+}
+
+.cl {
+  box-shadow: none !important;
+}
+.cl-actionbar {
+  background-color: var(--bs-card-cap-bg) !important;
+}
+.cl-button:hover {
+  background-color: $light !important;
+}
+.cl-content {
+  background-color: transparent !important;
+}
+.hover-remove-value-icon {
+  position: absolute; 
+  padding: 20px;
+  right:0;
+  opacity: 0.1;
+  cursor: pointer;
+}
+.search-box:hover > .hover-remove-value-icon {
+  opacity: 1;
+}
+.week-row.js-collapse:hover > .fa-chevron-right {
+  transform: rotate(90deg);
+  transition: ease;
+  transition-duration: 300ms;
+}
+.table > tr:hover {
+  background-color: $secondary;
+}
+.btn-reveal {
+  opacity: 0.1;
+  &:hover {
+    opacity: 1;
+  }
+}
+select#period {
+  background-image:     none;
+}

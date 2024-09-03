@@ -1,0 +1,60 @@
+<template name="navbar">
+  <nav class="navbar shadow navbar-expand bg-dark sticky-top d-print-none" style="position: sticky !important; min-height:42.283px">
+    <div class="container">
+      {{#if getGlobalSetting "customLogo"}}
+        <a class="navbar-brand text-white mx-auto" href="{{ prefix }}/"><img src='{{getGlobalSetting "customLogo"}}' alt="titra - open source time tracking for small companies" class="d-inline-block" height="24" width="24"/></a>
+      {{else}}
+        <a class="navbar-brand text-white mx-auto" href="{{ prefix }}/"><img src="{{ prefix }}/img/navbar_logo.svg" alt="titra - open source time tracking for small companies" class="d-inline-block" height="24" width="24"/></a>
+      {{/if}}
+      {{#if currentUser}}
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item"><a class="nav-link {{isRouteActive 'tracktime'}}" href="{{ prefix }}/tracktime"><i class="fa fa-plus"></i> {{#if displayLinkText 'tracktime'}}<span>{{t "navigation.track"}}</span>{{else}}<span class="d-none d-md-inline">{{t "navigation.track"}}</span>{{/if}}</a></li>
+              <li class="nav-item"><a class="nav-link {{isRouteActive 'projectlist'}}" href="{{ prefix }}/list/projects"><i class="fa fa-chart-pie"></i> {{#if displayLinkText 'projectlist'}}<span>{{t "navigation.overview"}}</span>{{else}}<span class="d-none d-md-inline">{{t "navigation.overview"}}</span>{{/if}}</a></li>
+              <li class="nav-item"><a class="nav-link {{isRouteActive 'timecards'}}" href="{{ prefix }}/list/timecards/all"><i class="fa fa-list"></i> {{#if displayLinkText 'timecards'}}<span>{{t "navigation.details"}}</span>{{else}}<span class="d-none d-md-inline">{{t "navigation.details"}}</span>{{/if}}</a></li>
+          </ul>
+          <div class="nav-item me-2 d-none d-md-inline-block" style="width:130px;">
+            {{#unless isRouteActive 'tracktime'}}
+              {{#if getUserSetting 'timer'}}
+                  {{>timetracker}}
+              {{/if}}
+            {{/unless}}
+          </div>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle {{isRouteActive 'settings'}}" href="#" aria-label="Menu dropdown" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{{avatar}}}
+              </a>
+              <div class="dropdown-menu mt-0 bg-dark" aria-label="navbarDropdownMenuLink" style="left:auto;right:-1rem;z-index:99999;border-radius: 0 0 var(--bs-dropdown-border-radius) var(--bs-dropdown-border-radius);border-top: 0px;">
+                  <a class="dropdown-item text-white" href="{{ prefix }}/profile"><i class="fa fa-user-circle"></i> {{t "navigation.profile"}}</a>
+                  <a class="dropdown-item text-white" href="{{ prefix }}/settings"><i class="fa fa-cogs"></i> {{t "navigation.settings"}}</a>
+                    <div class="dropdown-item text-white" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="{{t 'navigation.timeUnit_message'}}">
+                      <i class="fa-regular fa-clock"></i>
+                      <select id="timeunitnavbar" class="timeunitNavbar text-white border-0 bg-transparent">
+                        <!-- <option selected>{{t "settings.time_unit"}}</option> -->
+                        <option value="m">{{t "globals.minute"}}</option>
+                        <option value="h">{{t "globals.hour"}}</option>
+                        <option value="d">{{t "globals.day"}}</option>
+                      </select>
+                    </div>
+                  <a class="dropdown-item text-white" href="{{ prefix }}/about"><i class="fa fa-info-circle"></i> {{t "navigation.about"}}</a>
+                {{#unless currentUser.loggingIn}}
+                  {{#if Template.subscriptionsReady}}
+                    {{#if currentUser.isAdmin}}
+                    <a class="dropdown-item text-white" href="{{ prefix }}/admin"><i class="fa fa-lock"></i> {{t "navigation.administration"}}</a>
+                    {{/if}}
+                  {{/if}}
+                {{/unless}}
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-white js-logout" href="#"><i class="fa fa-sign-out"></i> {{t "navigation.logout"}}</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      {{/if}}
+    </div>
+  </nav>
+</template>

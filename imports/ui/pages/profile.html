@@ -1,0 +1,75 @@
+<template name="profile">
+    <form>
+        <div class="card mb-3">
+            <div class="card-header">
+                {{t "settings.user_profile"}}
+            </div>
+            <div class="card-block">
+                <div class="mb-3 form-floating">
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}" autocomplete="off" />
+                    <label class="form-label" for="name">{{t "globals.name"}}</label>
+                </div>  
+                <div class="card mb-3">
+                <div class="card-block">
+                    <div class="row">
+                    <div class="col-lg-2">
+                    <span class="d-block">{{t "settings.current"}}</span>
+                    {{#if currentUser.profile.avatar}}
+                        <img id="avatar" src="{{currentUser.profile.avatar}}" alt='{{t "settings.avatar"}}' class="img-responsive"/>
+                        <button type="button" class="btn btn-secondary d-block" id="removeAvatar">{{t "settings.reset"}}</button>
+                    {{else}}
+                        {{{svgAvatar}}}
+                    {{/if}}
+                    </div>
+                    <div class="col-lg-3">
+                        {{#unless currentUser.profile.avatar}}
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <input aria-label='{{t "globals.color"}}' name="avatarColor" id="avatarColor" type="color" value="{{avatarColor}}" class="form-control" />
+                                <label class="form-label" for="avatarColor">{{t "globals.color"}}</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="d-block" for="avatarImage">{{t "settings.custom_avatar"}}</label>
+                            <input aria-label='{{t "settings.custom_avatar"}}' class="form-control bg-secondary" type="file" name="avatarImage" id="avatarImage" accept="image/gif,image/jpeg,image/png"/>
+                        </div>
+                        {{/unless}}
+                        <input type="hidden" name="avatarData" id="avatarData" value="{{currentUser.profile.avatarData}}"/>
+                    </div>
+                    <div class="col-lg-3">
+                        {{#unless currentUser.profile.avatar}}
+                        <div id="imagePreview" style="display:none;">
+                        <p>{{t "settings.preview"}}:</p>
+                        <img class="img-responsive img-thumbnail" style="max-height:200px;" alt="avatar upload preview"/>
+                        </div>
+                        {{/unless}}
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {{#if currentUser.emails}}
+                {{#unless isSandstorm}}
+                <div class="row">
+                    <div class="col-6 col-md-3 me-auto d-grid">
+                    <a class="btn btn-secondary border" href="/changePwd">{{t "login.change_password"}}</a>
+                    </div>
+                </div>
+                {{/unless}}
+                {{else}}
+                <div class="alert alert-secondary" role="alert">
+                    {{t "login.anonymous_account_warning"}}
+                </div>
+                <a class="btn btn-primary border" href="/join">{{t "login.permanent_account"}}</a>
+                {{/if}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3 me-auto d-grid">
+              {{>backbutton}}
+            </div>
+            <div class="col-6 col-md-3 d-grid">
+              <button type="button" class="btn btn-primary js-save">{{t "navigation.save"}}</button>
+            </div>
+          </div>
+    </form>
+</template>

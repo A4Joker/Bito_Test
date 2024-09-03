@@ -1,0 +1,62 @@
+<template name="signIn">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="at-form">
+          <div class="at-title">
+            <h3>{{t "login.sign_in"}}</h3>
+          </div>
+          <div class="alert alert-danger notification d-none" role="alert">
+          </div>
+          {{#unless disableDefaultLoginForm}}
+          <div class="at-pwd-form">
+            <form role="form" id="at-pwd-form" novalidate="">
+              <fieldset>
+                <div class="at-input mb-3 has-feedback">
+                  <label class="control-label" for="at-field-email">
+                    E-mail
+                  </label>
+                  <input type="text" class="form-control" id="at-field-email" name="at-field-email" placeholder="Email" autocapitalize="none" autocorrect="off">
+                  <span class="help-block hide"></span>
+                </div>
+                <div class="at-input mb-3 has-feedback">
+                  <label class="control-label" for="at-field-password">
+                    {{t "login.password"}}
+                  </label>
+                  <input type="password" class="form-control" id="at-field-password" name="at-field-password" placeholder="{{t 'login.password'}}" autocapitalize="none" autocorrect="off">
+                  <span class="help-block hide"></span>
+                </div>
+                <div class="at-pwd-link">
+                  <p>
+                    <a href="#" id="at-forgotPwd" class="at-link at-pwd">{{t "login.forgot_password"}}</a>
+                  </p>
+                </div>
+                <button type="button" class="btn btn-dark form-control" id="signIn">
+                  {{t "login.sign_in"}}
+                </button>
+              </fieldset>
+            </form>
+          </div>
+          {{/unless}}
+
+          {{#if isOidcConfigured}}
+          <div class="mt-2">
+            <button type="button" class="btn btn-dark form-control" id="oidc">
+              {{t "login.sign_in_oidc"}}
+            </button>
+          </div>
+          {{/if}}
+
+          {{#unless disableUserRegistration}}
+            <div class="at-signup-link mt-2">
+              <p>
+                {{t "login.no_account"}}
+                <a href="#" id="at-signUp" class="at-link at-signup js-register">{{t "login.register"}}</a>
+              </p>
+            </div>
+          {{/unless}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
