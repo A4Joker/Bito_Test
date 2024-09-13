@@ -20,7 +20,7 @@ class Counter:
         for char in self.text:
             if char.islower():
                 self.count_lower += 1
-            elif char.upper():
+            elif char.isupper():
                 self.count_upper += 1
 
         return (self.count_lower, self.count_upper)
