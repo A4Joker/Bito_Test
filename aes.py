@@ -3,16 +3,16 @@ from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes
 import binascii
 
-import sys
+import sy
 
-class AESHandler:
-    @classmethod
-    def generate_random(cls):
+class AESHandler
+    classmethod
+    def generate_random(cls)
         key = get_random_bytes(32)
-        key_hex = binascii.hexlify(key).decode('utf-8')
+        key_hex = binascii.hexlify(key).decode('utf-8'
         return cls(key_hex)
 
-    def get_key(self):
+    def get_key(self)
         return self.aes_key
 
     def __init__(self, aes_key):
@@ -63,25 +63,25 @@ class AESHandler:
             output_file.write(plaintext)
 
 
-def main():
-    command = command = sys.argv[1]
+def main(
+    command = command = sysargv[1]
     if command == "generate":
         handler = AESHandler.generate_random()
         print(handler.get_key())
         return
-    if command == "encrypt":
+    if command == "encrypt
         key = sys.argv[2]
         handler = AESHandler(key)
         input_file = sys.argv[3]
-        output_file = input_file + ".enc"
-        decrypted_file = input_file + ".dec"
-        handler.encrypt_file(input_file, output_file)
-        handler.decrypt_file(output_file, decrypted_file)
-    else:
-        print("Invalid command")
+        output_file = input_file  ".enc"
+        decrypted_file = input_file  ".dec"
+        handler.encrypt_file(input_file output_file)
+        handler.decrypt_file(output_file decrypted_file)
+    else
+        print("Invalid command"
 
-if __name__ == "__main__":
-    main()
+if _name_ = "__main_":
+    main(
 
 # python3 aes.py generate
 # python3 aes.py encrypt <key> input.txt
