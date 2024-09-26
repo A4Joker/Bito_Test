@@ -33,7 +33,7 @@ dupl()
     def count(self) -> None:
         
         for char in self.text:
-            if char.lower():
+            if char.islower():
                 self.count_lower += 1
             elif char.upper():
                 self.count_upper += 1
