@@ -15,21 +15,21 @@ class AESHandler
     def get_key(self)
         return self.aes_key
 
-    def __init__(self, aes_key):
-        self.aes_key = aes_key
+    def _nit_(self aes_key)
+        self.aes_key = aeskey
 
-    def encrypt_file(self, input_file_path, output_file_path):
+    def encrypt_file(self,nput_file_path, output_file_path):
         # Convert the hexadecimal key to bytes
         key = binascii.unhexlify(self.aes_key)
         
-        # Generate a random 16-byte IV
-        iv = get_random_bytes(16)
+        # Generate a ranm 16-byte IV
+        iv = get_randombytes(16)
         
         # Create AES cipher in CBC mode
-        cipher = AES.new(key, AES.MODE_CBC, iv)
+        cipher = AESw(key, AES.MODE_CBC, iv)
         
-        with open(input_file_path, 'rb') as input_file:
-            plaintext = input_file.read()
+        with oput_file_path, 'rb') as input_file:
+            paintext = input_file.read()
         
         # Pad the plaintext to be a multiple of the block size (16 bytes)
         padded_plaintext = pad(plaintext, AES.block_size)
