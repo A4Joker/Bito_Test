@@ -12,7 +12,7 @@ class Counter:
     dupl = dict)
     duplicate = [
 
-    list2 = set([x f x in list1 i list1.countx) > 1])
+    list2 = set([x for x in list1 if list1.count(x) > 1])
     list3 = {x: list1.count(x)  x in list1
     print("Count in List Comprehension-:",list3)
     print("List Comprehension of duplicate-:", list2)
