@@ -1,84 +1,66 @@
-# 1000-ways-to-print-hello-world-in-python
-<img src="https://user-images.githubusercontent.com/63253596/104130147-d0b72380-5334-11eb-881b-52971dfb671a.png" width="500" height="300">
+# Paginated Table Template
 
-~~We hit the first checkpoint by having more than 50 different ways to print "Hello, World!" in python.~~ ✨📈
+Paginated Table Template is a web application, built with Vue.js 3 framework.
+Allows to demonstrate how to have a paginated table linked to an API.
 
-We have hit the second checkpoint by having more than 100 different ways to print "Hello, World!" in python. 🥂💫
+For test propose it's used the [Formula One API hosted at Ergast API](https://documenter.getpostman.com/view/11586746/SztEa7bL#intro).
 
-Thank you to all the contributors and learners for showing your love to this idea. 🧙‍♂️
+![Paginated Table Sample](./documentation/images/PaginatedTableSample.png)
 
+## Version
 
-# Guidelines
+1.0.0
 
-This project aims towards beginners to simplify and practice contributing to projects. If this is your first contribution, follow the steps:
+## Resources
 
-## Fork this repository
+- [VueJs](https://vuejs.org/guide/introduction.html)
+- [Pinia](https://pinia.vuejs.org/introduction.html)
+- [Tailwind CSS](https://v2.tailwindcss.com/docs)
+- [Font Awesome free icons](https://fontawesome.com/search?o=r&m=free)
 
-Fork this repository by clicking on the fork button on the top of this page.
-This will create a copy of this repository in your account.
+## Getting Started
 
-Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
+These instructions will guide you to copy the project from the repository and run it.
 
-Open the terminal and run the following git command:
+### Recommended IDE Setup
 
-```
-git clone "url you just copied"
-```
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project).
+### Project Requirements
 
-## Create a branch
+For the project run you need to have installed:
 
-Change to the repository directory on your computer (if you are not already there):
+- VueJs 3
+- Pinia
+- Tailwind CSS
+- Font Awesome free icons
 
-```
-cd 1000-ways-to-print-hello-world-in-python
-```
+### Local Installation
 
-Now create a branch using the `git checkout` command:
+Basically clone the project from the remote repository to the local machine, using the git commands.
 
-```
-git checkout -b your-new-branch-name
-```
-
-where "your-new-branch-name" should be of the format "using-_name of your implementation_"
-
-For example:
-
-```
-git checkout -b using-print
-```
-## Make necessary changes and commit those changes
-
-Now create a python file with the name "using-_name_of_your_implementation_.py" and make necessary changes.
-
-__Note__: _Go through the existing code in the repository and if you find your strategy isn't there, you can implement the strategy in the file you just created._
-
-For example if the method used is print, the python file name would be "using-print.py"
-
-Now commit those changes using the `git commit` command:
-
-```
-git commit -m "enter-your-commit-message-here"
+```sh
+npm install
 ```
 
-For example:
+### Compile and Hot-Reload for Development
 
-```
-git commit -m "add using print"
-```
-
-## Push changes to GitHub
-
-Push your changes using the command `git push`:
-
-```
-git push origin <add-your-branch-name>
+```sh
+npm run dev
 ```
 
-replacing `<add-your-branch-name>` with the name of the branch you created earlier.
+### Type-Check, Compile and Minify for Production
 
-## Submit your changes for review
+```sh
+npm run build
+```
 
-If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+### Lint with [ESLint](https://eslint.org/)
 
+```sh
+npm run lint
+```
+
+## Authors
+
+- **BEOM &copy; 2024**
