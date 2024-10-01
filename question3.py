@@ -1,4 +1,24 @@
 """Write a user-defined function named count() that will read
+# step1:
+print(file_name)
+
+
+
+def write_to_file(file_name):
+
+    if os.path.exists(file_name):
+        print(f"Error: {file_name} already exists.")
+
+    else:
+        with open(file_name, "a") as F:
+
+            while True:
+                text = input("enter any text")
+                F.write(f"{text}\n")
+
+                if input("do you want to enter more, y/n").lower() == "n":
+                    break
+
 the contents of text file named “happy.txt” and count
 the number of lines which starts with either “I‟ or “M‟."""
 
