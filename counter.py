@@ -4,7 +4,10 @@
     - Easier code management/debugging
     - Code readability
 """
-
+def dupl():
+    list1 = [10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
+    dupl = dict()
+    duplicate = [
 class Counter:
 
     def dupl():
