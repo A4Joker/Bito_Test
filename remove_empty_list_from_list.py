@@ -1,5 +1,6 @@
 def remove_empty_list():
-
+list1 = [1,4,2,4,6,[1],4,[],[],[1],[]]
+    print(list1)
 
     list1 = [1,4,2,4,6,[1],4,[],[],[1],[]]
     print(list1)
