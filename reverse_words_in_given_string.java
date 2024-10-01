@@ -13,6 +13,11 @@ def rev_words():
         #print("from here")
     print(rev_list)
 
+     for ele in range(size-1,-1,-1):
+        #print("-ele -:", ele,end=" ")
+        rev_list.append(list_of_string[ele])
+        #print("from here")
+    print(rev_list)
 
 
 rev_words()
