@@ -11,6 +11,11 @@ def binary_search(arr, val, start, end):
 			return start
 		else:
 			return start+1
+  if start == end:
+                if arr[start] > val:
+                        return start
+                else:
+                        return start+1
 
 	# this occurs if we are moving beyond left\'s boundary
 	# meaning the left boundary is the least position to
