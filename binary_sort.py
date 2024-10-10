@@ -39,7 +39,7 @@ def binary_insert(arr, val):
 # binary insertion sort
 # insertion sort
 def insertion_sort(arr):
-	for i in xrange(1, len(arr)):
+	for i in range(1, len(arr)):
 		val = arr[i]
 		j = binary_search(arr, val, 0, i-1)
 		arr = arr[:j] + [val] + arr[j:i] + arr[i+1:]
