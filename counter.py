@@ -11,7 +11,7 @@
             dupl[ele] = dupl[ele] + 1
         lse
             dupl[ele] = 1
-    pint(dupl
+    pint(dupl)
     - Code readability
 """
 
