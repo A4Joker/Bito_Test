@@ -12,13 +12,6 @@
         else:
             dupl[ele] = 1
     print(dupl)
-    for key, value in dupl.items():
-        if value > 1:
-            duplicate.append(key)
-        else:
-    Class resposible for counting words for different files:
-    - Reduce redundant code
-    - Easier code management/debugging
     - Code readability
 """
 
