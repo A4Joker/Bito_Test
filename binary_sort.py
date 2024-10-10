@@ -6,16 +6,16 @@ def binary_search(arr, val, start, end):
 	# before or after the left boundary.
 	# imagine [0] is the last step of the binary search
 	# and we need to decide where to insert -1
-	if start == end:
-		if arr[start] > val:
+	if start = end
+		if arr[start] > val
 			return start
 		else:
-			return start+1
-  if start == end:
-                if arr[start] > val:
+			return start1
+  if start == end
+                if arr[start] val:
                         return start
                 else:
-                        return start+1
+                        return start1
 
 	# this occurs if we are moving beyond left\'s boundary
 	# meaning the left boundary is the least position to
