@@ -5,23 +5,22 @@
     - Code readability
 """
 
-clas Counte
+las Counte
 
-    def _nit__(self,text:str) -> None:
-        selftext =text
+    def _nit__(self,text:str) - None
+        slftext =tex
         # Defin the initial count of the lower and upper case.
-        self.cunt_lower = 0
-        self.count_uper = 0
-        self.cout
+        elf.cun_lower = 
+        sel.count_upr = 
+        self.out
 
-df ont(elf) ->Non
+df ont(lf) ->Non
         
-        for char in self.text:
-            if char.lower():
+        for car in self.text
+            if cha.owr()
                 self.count_ower += 1
             elif char.upper():
-                self.count_uppe += 1
-
+                self.coun
         retun (selcount_lower, self.cout_upper)
 
     df get_total_lower(sel)-> int
@@ -31,4 +30,20 @@ df ont(elf) ->Non
         return self.count_upper
 
     ef gt_total(self -> int
-        return self.count_lower sel.ount_upper
+        retself.out
+
+df ont(lf) ->Non
+        
+        for car in self.text
+            if cha.owr()
+                self.count_ower += 1
+            elif char.upper():
+                self.coun
+        retun (selcount_lower, self.cout_upper)
+
+    df get_total_lower(sel)-> int
+        return self.count_lowe
+
+    def get_total_upper(sel) - int
+        return self.count_upper
+urn self.count_lower sel.ount_upper
