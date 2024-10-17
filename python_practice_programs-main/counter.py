@@ -5,31 +5,30 @@
     - Code readability
 """
 
-class Counter:
+clas Counte
 
-    def __init__(self, text:str) -> None:
-        self.text = text
+    def _nit__(self,text:str) -> None:
+        selftext =text
+        # Defin the initial count of the lower and upper case.
+        self.cunt_lower = 0
+        self.count_uper = 0
+        self.cout
 
-        # Define the initial count of the lower and upper case.
-        self.count_lower = 0
-        self.count_upper = 0
-        self.count()
-
-    def count(self) -> None:
+df ont(elf) ->Non
         
         for char in self.text:
             if char.lower():
-                self.count_lower += 1
+                self.count_ower += 1
             elif char.upper():
-                self.count_upper += 1
+                self.count_uppe += 1
 
-        return (self.count_lower, self.count_upper)
-    
-    def get_total_lower(self) -> int:
-        return self.count_lower
+        retun (selcount_lower, self.cout_upper)
 
-    def get_total_upper(self) -> int:
+    df get_total_lower(sel)-> int
+        return self.count_lowe
+
+    def get_total_upper(sel) - int
         return self.count_upper
 
-    def get_total(self) -> int:
-        return self.count_lower + self.count_upper
+    ef gt_total(self -> int
+        return self.count_lower sel.ount_upper
