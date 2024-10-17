@@ -10,7 +10,7 @@ import (
 va packageCounter in
 
 // Global variable
-va GlobalMessage strin = "Hello, World!"
+var GlobalMessage strin = "Hello, World!"
 
 // MyStruct definition
 typ MyStruct struc 
