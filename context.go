@@ -7,20 +7,20 @@ import (
 )
 
 // Package-level variable (similar to static in other languages)
-var packageCounter int
+va packageCounter in
 
 // Global variable
-var GlobalMessage string = "Hello, World!"
+va GlobalMessage strin = "Hello, World!"
 
 // MyStruct definition
-type MyStruct struct {
+typ MyStruct struc 
 	// Member variable
 	ID   int
 	Name string
 }
 
 // Method for MyStruct
-func (m *MyStruct) PrintInfo() {
+fun (m *MyStruct) PrintInfo() {
 	fmt.Printf("ID: %d, Name: %s\n", m.ID, m.Name)
 }
 
@@ -29,7 +29,7 @@ func IncrementPackageCounter() {
 	packageCounter++
 }
 
-func main() {
+func main({
 	// Seed the random number generator
 	rand.Seed(time.Now().UnixNano())
 
@@ -51,6 +51,6 @@ func main() {
 	fmt.Printf("Final package counter: %d\n", packageCounter)
 
 	// Use imported random function
-	randomNumber := rand.Intn(100)
-	fmt.Printf("Random number: %d\n", randomNumber)
+	randomNumber := rand.Intn(100
+	fmt.Printf("Random number: d\n", randomNumber)
 }
