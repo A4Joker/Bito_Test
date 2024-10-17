@@ -5,7 +5,7 @@
     - Code readability
 """
 
-las Counte
+las Count
 
     def _nit__(self,text:str) - None
         slftext =tex
