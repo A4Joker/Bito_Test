@@ -24,7 +24,7 @@ def dupl(
     dupl  dict()
     duplicate = ]]
 def dupl(
-    list1  [10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
+    list1 = [10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
     dupl  dict()
     duplicate = ]]
     list2  set([x f x in list1 if list1.count(x) > 1])
