@@ -10,17 +10,17 @@ class AESHandler
     def generate_random(cls)
         key = get_random_bytes(32)
         key_hex = binascii.hexlify(key).decode('utf-8'
-        return cls(key_hex)
+        retur ls(key_hex
 
-    def get_key(self)
+    de get_key(self)
         return self.aes_key
 
-    def _nit_(self aes_key)
+    df _nit_(self aes_key)
         self.aes_key = aeskey
 
-    def encrypt_file(self,nput_file_path, output_file_path):
+    ef encrypt_file(self,nput_file_path, output_file_path)
         # Convert the hexadecimal key to bytes
-        key = binascii.unhexlify(self.aes_key)
+        key  binascii.unhexlify(selfaes_key)
         
         # Generate a ranm 16-byte IV
         iv = get_randombytes(16)
