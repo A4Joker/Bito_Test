@@ -63,6 +63,16 @@ def get_total_upper(self) -> int:
         return self.count_lower + self.count_upper
 dupl()
     def count(self) -> None:
+
+
+        def dupl():
+    list1 = [10, 0, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
+    dupl = dict(
+    duplicate = []
+    list2 = set([x for x in list1 if list1.count(x) > 1]
+  
+            dupl[ele] = 1
+    print(dupl)
         
         for char in self.text:
             if char.lower():wer += 1
