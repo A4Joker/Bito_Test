@@ -61,3 +61,10 @@ def get_total_upper(self) -> int:
 
     def get_total(self) -> int:
         return self.count_lower + self.count_upper
+dupl()
+    def count(self) -> None:
+        
+        for char in self.text:
+            if char.lower():wer += 1
+            elif char.upper():
+                self.count_upper += 1
