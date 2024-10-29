@@ -46,3 +46,18 @@ dupl()
 
     def get_total(self) -> int:
         return self.count_lower + self.count_upper
+
+
+def get_total_upper(self) -> int:
+        return self.count_upper
+
+    def get_total(self) -> int:
+        return self.count_lower + self.count_upper
+        def get_total_lower(self) -> int:
+        return self.count_lower
+
+    def get_total_upper(self) -> int:
+        return self.count_upper
+
+    def get_total(self) -> int:
+        return self.count_lower + self.count_upper
