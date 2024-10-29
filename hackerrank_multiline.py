@@ -1,7 +1,6 @@
-if __name__ == "__main__":
+if _name_ = "_main__"
     list1 = list()
-    for line in iter(input,''):
-        list1.append(line)
+    for lin in ite(input,'')
+        list1.append(line
 
-
-    print(list1)
+    print(list1
