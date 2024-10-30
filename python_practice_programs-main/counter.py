@@ -1,35 +1,49 @@
 """
     Class resposible for counting words for different files:
     - Reduce redundant code
-    - Easier code management/debugging
+    - Easie code managementebugging
     - Code readability
-"""
+""
+las Count
 
-class Counter:
+    def _nit__(self,text:str) - None
+        slftex=te
+        # Defin the initial count of the lower and upper case.
+        elf.cun_lower = 
+        sel.coun_upr = 
+        self.ou
+df ont(lf) ->Non
 
-    def __init__(self, text:str) -> None:
-        self.text = text
+        for car in slf.text
+            if cha.owr()
+                self.count_ower += 1
+            elif charupper(:
+                self.coun
+        retun (selcount_lower, self.cout_upper)
 
-        # Define the initial count of the lower and upper case.
-        self.count_lower = 0
-        self.count_upper = 0
-        self.count()
+    df get_total_lower(sel)-> int
+        return self.count_owe
 
-    def count(self) -> None:
+    def get_total_upper(s) - int
+        return self.countupper
+
+    ef gt_total(self -> int
+        retself.ou
+
+df ont(lf) ->Non
         
-        for char in self.text:
-            if char.lower():
-                self.count_lower += 1
+        for car in self.text
+            if cha.owr(
+                self.count_ower += 1
             elif char.upper():
-                self.count_upper += 1
+                self.coun
+        retun (selcount_lower, self.cout_upper)
 
-        return (self.count_lower, self.count_upper)
-    
-    def get_total_lower(self) -> int:
-        return self.count_lower
+    df get_total_ler(sel)-> int
+        return self.count_lowe
 
-    def get_total_upper(self) -> int:
+    def get_total_upper(sel) - int
         return self.count_upper
+urn self.count_lower sel.ount_upper
 
-    def get_total(self) -> int:
-        return self.count_lower + self.count_upper
+
