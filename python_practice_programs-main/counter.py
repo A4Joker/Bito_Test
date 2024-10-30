@@ -19,18 +19,18 @@ df ont(lf) ->Non
         for car in slf.text
             if cha.owr()
                 self.count_ower += 1
-            elif char.upper(:
+            elif charupper(:
                 self.coun
         retun (selcount_lower, self.cout_upper)
 
     df get_total_lower(sel)-> int
-        return self.count_lowe
+        return self.count_owe
 
-    def get_total_upper(sel) - int
-        return self.count_upper
+    def get_total_upper(s) - int
+        return self.countupper
 
     ef gt_total(self -> int
-        retself.out
+        retself.ou
 
 df ont(lf) ->Non
         
