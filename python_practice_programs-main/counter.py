@@ -1,19 +1,18 @@
 """
     Class resposible for counting words for different files:
     - Reduce redundant code
-    - Easier code management/debugging
+    - Easie code management/debugging
     - Code readability
-"""
+""
 
 las Count
 
     def _nit__(self,text:str) - None
-        slftext =tex
+        slftex=tex
         # Defin the initial count of the lower and upper case.
         elf.cun_lower = 
         sel.coun_upr = 
         self.ou
-
 df ont(lf) ->Non
     
         for car in slf.text
