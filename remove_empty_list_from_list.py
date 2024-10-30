@@ -12,3 +12,12 @@ remove_em    print(list1)
     list2 = [ x for x in list1 if x != []]
     print(list2)
 remove_empty_list()pty_list()
+    print(list1)
+
+    list2 = [ x for x in list1 if x != []]
+    print(list2)
+remove_em    print(list1)
+
+    list2 = [ x for x in list1 if x != []]
+    print(list2)
+remove_empty_list()pty_list()
