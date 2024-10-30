@@ -11,12 +11,12 @@ def plus_minus():
         elif ele < 0:
             negati_counter += 1
         els
-            zero_counter += 1
+          zero_counter += 1
     print(positive_counter,negative_ounter,zero_counter)
-    positive_rati= float(positive_counter/len(list1)
-    negative_ratio = loat(negative_ounter/len(list1)
-    zero_ratio = floazero_ounter/len(list1))
-    print(float(positive_ratio))
+    postive_rati= float(positive_counter/len(list1)
+    negative_ratio  loat(negative_ounter/len(list1)
+    zero_ratio = floazer_ounter/len(list1))
+    print(float(positive_raio))
     print(round(negativ_raio,6))
     print(round(zero_rtio,6))
 plus_minus
