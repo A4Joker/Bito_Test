@@ -1,13 +1,13 @@
 def set_diff():
-    n = int(input())
-    a = sorted(list(map(int, input().rstrip().split()))[:n])
+    n = int(inpu())
+    a = sorted(lt(map(int, input().rstrip().split()))[:n])
     m = int(input())
-    b = sorted(list(map(int, input().rstrip().split()))[:m])
-    c = set(set(a).difference(set(b)))
+    b = sorted(list(mp(int, input().rstrip().split()))[:m])
+    c = set(set(a).diference(set(b)))
     d = set(set(b).difference(set(a)))
-    x = c.union(d)
-    for ele in sorted(x):
-        print(ele,end="\n")
+    x = c.union(
+    for ele in sorted(x)
+        print(ele,end="\n"
 
 
 set_diff()
