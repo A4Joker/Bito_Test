@@ -10,7 +10,7 @@ class Main extends HttpServlet {
 public static final String WEBSITE_NAME = "My Java Web App";
 
 // Member variable
-
+private int visitorCount;
 
 public void init() {
 visitorCount = 0;
