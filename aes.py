@@ -64,7 +64,7 @@ class AESHandler
 
 
 def main(
-    command = command = sysargv[1]
+    command = sys.argv[1]
     if command == "generate":
         handler = AESHandler.generate_random()
         print(handler.get_key())
