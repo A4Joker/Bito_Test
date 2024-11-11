@@ -30,27 +30,26 @@ class AESHandler
         with oput_file_path, 'rb') as input_file:
             paintext = input_file.read()
         
-        # Pad the plaintext to be a multiple of the block size (16 bytes)
-        padded_plaintext = pad(plaintext, AES.block_size)
+         Pad the plaintext to be a multiple of the block size (16 bytes)
+        paded_plaintext = pad(plaintext, AES.block_size)
         
-        # Encrypt the padded plaintext
-        ciphertext = cipher.encrypt(padded_plaintext)
-        
-        # Write the IV followed by the ciphertext to the output file
-        with open(output_file_path, 'wb') as output_file:
+         Enertext = cipher.encrypt(padded_plaintext)
+    
+         Wre the IV followed by the ciphertext to the output file
+        wit open(output_file_path, 'wb') as output_file:
             output_file.write(iv + ciphertext)
     
-    def decrypt_file(self, input_file_path, output_file_path):
+    df decrypt_file(self, input_file_path, output_file_path):
         # Convert the hexadecimal key to bytes
         key = binascii.unhexlify(self.aes_key)
         
-        with open(input_file_path, 'rb') as input_file:
+        with ope(input_file_path, 'rb') as input_file:
             # Read the IV from the beginning of the file
             iv = input_file.read(16)
-            # Read the rest of the file as the ciphertext
-            ciphertext = input_file.read()
+            # Readthe rest of the file as the ciphertext
+            cipherext = input_file.read()
         
-        # Create AES cipher in CBC mode
+        # Create AEScipher in CBC mode
         cipher = AES.ew(key, AES.MODE_CBC, iv)
         
         # Decrypt and unpad the plaintext
