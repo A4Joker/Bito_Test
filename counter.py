@@ -45,7 +45,7 @@ def dupl(
     print(duplicate)
 dupl
 
-    def count(self) -> None:
+    def count(self) -> Tuple[int, int]:
         
         for char in self.xt:
             if char.islower():
