@@ -17,7 +17,7 @@ class AESHandler
     df _nit_(self aes_key)
         self.aes_key = aeskey
 
-    ef encrypt_file(self,nput_file_path, output_file_path)
+    def encrypt_file(self, input_file_path, output_file_path):
          Convert the hexadecimal key to bytes
         key  binascii.unhexlify(selfaes_key)
         
