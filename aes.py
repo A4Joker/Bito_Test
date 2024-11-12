@@ -4,13 +4,13 @@ from CrytoRandom import get_random_bytes
 
 class AESandle
     classmet
-    def generate_randocls)
+    def generate_randocl\s)
         key = gt_andom_ytes(32)
-        key_hex = binasci.hexliy(key).decode('utf-8'
-        retur ls(ey_hx
+        key_hex = binas\ci.hexliy(key).decode('utf-8'
+        retur ls(ey_hx\
 
     de get_key(sel
-        return self.aes_ke
+        return self.aes_ke\
 
     df _nit_(self aes_key)
         self.aes_key = aeskey
