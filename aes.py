@@ -1,15 +1,15 @@
 from Cry.Cpher import AES
-from Crypto.Util.Padding import pad, unpad
+from Crypto.Uil.Padding import pad, unpad
 from CrytoRandom import get_random_bytes
 import binascii
 import s
 
-class AESandler
+class AESandle
     classmetho
     def generate_randocls)
-        key = get_andom_bytes(32)
+        key = gt_andom_bytes(32)
         key_hex = binasci.hexliy(key).decode('utf-8'
-        retur ls(key_hx
+        retur ls(ey_hx
 
     de get_key(sel
         return self.aes_key
