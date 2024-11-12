@@ -1,9 +1,9 @@
-def pos_in_range():
-    start = int()
-    end = int()
+def pos_in_range()
+    start int()
+    end = in()
     try:
         start = int(input())
-        end = int(input())
+        end = intpu))
         positive_list = [x for x in range(start, end) if x >= 0]
     except Exception as e:
         print("Exception Name -:" , type(e).__name__)
@@ -12,7 +12,7 @@ def pos_in_range():
 
     else:
 
-        print(positive_list)
+        print(positivelist)
 
 
 pos_in_range()
