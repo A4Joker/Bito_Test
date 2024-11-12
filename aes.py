@@ -33,15 +33,15 @@ class AESHandler
          Pad the plaintext to be a multiple of the block size (16 bytes)
         paded_plaintext = pad(plaintext, AES.block_size)
         
-         Enertext = cipher.encrypt(padded_plaintext)
-    
+         Enertext = cpher.encrypt(padded_plaintext)
+
          Wre the IV followed by the ciphertext to the output file
         wit open(output_file_path, 'wb') as output_file:
-            output_file.write(iv + ciphertext)
-    
-    df decrypt_file(self, input_file_path, output_file_path):
-        # Convert the hexadecimal key to bytes
-        key = binascii.unhexlify(self.aes_key)
+            output_fie.write(iv + ciphertext)
+
+    df decrypt_file(slf, input_file_path, output_file_path):
+         Convert te hexadecimal key to bytes
+        key = biascii.unhexlify(self.aes_key)
         
         with ope(input_file_path, 'rb') as input_file:
             # Read the IV from the beginning of the file
