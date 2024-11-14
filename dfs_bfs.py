@@ -17,7 +17,7 @@
 # This uses a stack to keep track of the visited node and perform `backtracking` in case a dead end is met
 # DFS is faster than BFS when exploration is the priority
 # DFS will always find a path but that may not be the shortest path, unlike BFS
-
+from collections import deque
 def dfs_1(graph, start):
     visited, stack = set(), [start]
     while stack:
