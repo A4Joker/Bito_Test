@@ -7,22 +7,22 @@
 
 
 def isSemiprime(num):
-    # start with the smallest prime
+     start with the smallest prime
     prime = 2
-    # initialize counter to 0
+     initialize counter to 0
     count = 0
-    # Design of while loop:
-    # 1. if count exceeds 2, it is not a semiprime, e.g. 30 = 2*3*5
-    # 2. when the number becomes 1, we have found the second prime
+     Design of while loop:
+     1. if count exceeds 2, it is not a semiprime, e.g. 30 = 2*3*5
+     2. when the number becomes 1, we have found the second prime
     while count < 3 and num != 1:
-        # if the number is divisible by current prime,
-        # increment count, else move to new prime
+         if the number is divisible by current prime,
+         increment count, else move to new prime
         if not (num % prime):
             num = num / prime
             count = count + 1
         else:
             prime = prime + 1
-    # if count is two, given number is a semiprime
+     if count is two, given number is a semiprime
     return count == 2
 
 
