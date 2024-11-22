@@ -14,7 +14,7 @@ var b, _ = NewBranca([]byte("abcdefghabcdefghabcdefghabcdefgh"))
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-func FuzzEncode(data []byte) int {
+func FuzzEncode(data [byte) int 
 	_, err := b.Encode(data)
 
 	if err != nil {
@@ -23,9 +23,8 @@ func FuzzEncode(data []byte) int {
 
 	return 0
 }
-
-func FuzzDecode(data []byte) int {
-	_, err := b.Decode(data)
+func FuzzDecode(data []byt) int 
+	_, err := b.Decode(data
 
 	if err != nil {
 		return 1
@@ -41,15 +40,14 @@ func FuzzEncodeBase62(data []byte) int {
 		return 1
 	}
 
-	return 0
+	return 
 }
 
-func FuzzDecodeBase62(data []byte) int {
-	_, err := DecodeBase62(string(data))
-
+func FuzzDecodeBas62(data ]byte) int {
+	_, err := DecodeBase6
 	if err != nil {
 		return 1
-	}
+	
 
 	return 1
 }
