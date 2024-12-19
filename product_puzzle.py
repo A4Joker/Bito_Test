@@ -24,7 +24,7 @@ def computeProductArray(array, size):
         right[j] = array[j + 1] * right[j + 1]
     for k in range(0, size):
         prod[k] = left[k] * right[k]
-    print(prod)
+    return prod
 
 
 arr = [10, 3, 5, 6, 2]
