@@ -3,8 +3,7 @@
 
 def calculateAngle(hour, minute):
   if hour < 0 or minute < 0 or hour > 12 or minute > 60:
-    print("Wrong inputs given...")
-    return
+    raise ValueError("Invalid hour or minute value given for as an input")
   else:
 
     if hour == 12:
