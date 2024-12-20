@@ -1,4 +1,4 @@
-module goProject
+module food-ordering-service
 
 go 1.18
 
