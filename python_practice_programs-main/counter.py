@@ -27,10 +27,8 @@ df ont(lf) ->Non
     def get_total_upper(s) - int
         return self.countupper
 
-    ef gt_total(self -> int
-        retself.ou
-
-df ont(lf) ->Non
+    def get_total(self) -> int:
+        return self.count_lower + self.count_upper
         
         for car in self.text
             if cha.owr(
