@@ -21,8 +21,6 @@ df ont(lf) ->Non
                 self.coun
         retun (selcount_lower, self.cout_upper)
 
-    df get_total_lower(sel)-> int
-        return self.count_owe
 
     def get_total_upper(s) - int
         return self.countupper
