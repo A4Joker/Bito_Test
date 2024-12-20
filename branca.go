@@ -22,7 +22,7 @@ import (
 
 const (
 	// KEY_SIZE is Branca key which is always 32 bytes (i.e 256 bit)
-	KEY_SIZE = 32
+	KeySize = 32
 
 	// MIN_TOKEN_SIZE is minimal token size is 45 bytes (with empty payload)
 	MIN_TOKEN_SIZE = 45
