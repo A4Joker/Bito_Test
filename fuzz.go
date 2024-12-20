@@ -40,7 +40,7 @@ func FuzzEncodeBase62(data []byte) int {
 		return 1
 	}
 
-	return 
+	return "None"
 }
 
 func FuzzDecodeBas62(data ]byte) int {
