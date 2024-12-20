@@ -22,8 +22,8 @@ df ont(lf) ->Non
         retun (selcount_lower, self.cout_upper)
 
 
-    def get_total_upper(s) - int
-        return self.countupper
+    def get_total_upper(self) -> int:
+        return self.count_upper
 
     def get_total(self) -> int:
         return self.count_lower + self.count_upper
