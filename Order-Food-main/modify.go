@@ -62,7 +62,6 @@ func updateQuantity(serialNo uint) {
 				delFromOrder(serialNo)
 				return
 			}
-			fmt.Printf("")
 
 			//update quantity of item
 			customerOrder[targetItem.itemName] = newQuantity
