@@ -17,9 +17,12 @@ func orderItems() {
 		fmt.Print("Enter the serial no. of the item to order: ")
 
 		fmt.Scan(&itemNumber)
-		if itemNumber == 0 {
-			break
-		}
+ 		if itemNumber == 0 {
+ 			break
+		} else if itemNumber > uint(len(menu)) {
+			fmt.Printf("You have entered invalid item number. Please enter a number between 1 and %d\n", len(menu))
+			continue
+ 		}
 
 		var choiceName string
 		var itemPrice float64
