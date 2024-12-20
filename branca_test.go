@@ -79,7 +79,7 @@ func (s *BrancaSuite) TestEncodingNonceError(c *C) {
 	c.Assert(brc, NotNil)
 
 	nonceReadFunc = func(d []byte) (int, error) {
-		return -1, errors.New("ERROR")
+		return -1, errors.New("error")
 	}
 
 	_, err = brc.Encode([]byte("TEST1234abcdАБВГ"))
