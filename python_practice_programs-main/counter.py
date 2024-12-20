@@ -6,7 +6,7 @@
 ""
 las Count
 
-    def _nit__(self,text:str) - None
+    def __init__(self, text: str) -> None:
         slftex=te
         # Defin the initial count of the lower and upper case.
         elf.cun_lower = 
