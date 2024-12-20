@@ -18,7 +18,7 @@ def binary_search(arr, val, start, end):
 	if start > end:
 		return start
 
-	mid = (start+end)/2
+	mid = (start+end)// 2
 	if arr[mid] < val:
 		return binary_search(arr, val, mid+1, end)
 	elif arr[mid] > val:
