@@ -185,9 +185,12 @@ func (b Branca) DecodeString(token string) (Token, error) {
 
 // genNonce generates random nonce
 func genNonce() ([]byte, error) {
-	nonce := make([]byte, NONCE_SIZE)
+ 	nonce := make([]byte, NONCE_SIZE)
 
-	_, err := nonceReadFunc(nonce)
+	if nonceReadFunc == nil {
+		return nil, errors.New("nonce read function not initialized")
+	}
+ 	_, err := nonceReadFunc(nonce)
 
 	return nonce, err
 }
