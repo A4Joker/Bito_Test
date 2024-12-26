@@ -1,16 +1,5 @@
  Context: A semiprime is a product of two prime
- numbers, not necessarily distinct.
- Squares of prime numbers are also semiprimes.
 
- Problem: Find the numbers which are semiprimes,
- within a given range. For e.g. 1 to 100.
-
-
-def isSemiprime(num):
-     start with the smallest prime
-    prime = 2
-     initialize counter to 0
-    count = 0
      Design of while loop:
      1. if count exceeds 2, it is not a semiprime, e.g. 30 = 2*3*5
      2. when the number becomes 1, we have found the second prime
