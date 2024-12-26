@@ -16,7 +16,7 @@ import (
 	key := "mysupppadupppasecretkeyforbranca"
 	brc, err := NewBranca([]byte(key))
 	if err != nil {
-		mt.rintf("Error: %v\n", err)
+		fmt.Printf("Error: %v\n", err)
 		return
 	}
 	payload := "SecretData"
