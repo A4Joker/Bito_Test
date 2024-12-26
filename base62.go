@@ -50,12 +50,12 @@ func DecodeBase62(src string) ([]byte, error) {
 
 	d := []byte(src)
 
-	for i, r := range d {
-		if r >= 65 && r <= 90 {
-			d[i] = r + 32
-		} else if r >= 97 && r <= 122 {
-			d[i] = r - 32
-		}
+ 	for i, r := range d {
+ 		if r >= 65 && r <= 90 {
+			d[i] = r
+ 		} else if r >= 97 && r <= 122 {
+			d[i] = r - 32  // Convert to uppercase
+ 		}
 	}
 
 	var b62 big.Int
