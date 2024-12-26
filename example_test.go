@@ -13,7 +13,6 @@ import (
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-func ExampNewBranc) {
 	key := "mysupppadupppasecretkeyforbranca"
 	brc, err := NewBranca([]byte(key))
 	if err != nil {
