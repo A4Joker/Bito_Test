@@ -1,0 +1,83 @@
+"""
+Semiprime Number Checker
+
+This module provides functionality to identify semiprime numbers within a given range.
+A semiprime is a product of two prime numbers (not necessarily distinct).
+Squares of prime numbers are also considered semiprimes.
+"""
+
+from typing import List
+
+
+def is_semiprime(num: int) -> bool:
+    """
+    Determine if a number is semiprime (product of two primes).
+
+    Args:
+        num (int): The number to check
+
+    Returns:
+        bool: True if the number is semiprime, False otherwise
+
+    Raises:
+        ValueError: If the input number is less than 1
+    """
+    if num < 1:
+        raise ValueError("Number must be positive")
+
+    # Start with the smallest prime
+    prime = 2
+    # Initialize counter to track prime factors
+    count = 0
+
+    # Continue until we either:
+    # 1. Find more than 2 prime factors (not semiprime)
+    # 2. Completely factorize the number
+    while count < 3 and num != 1:
+        # If number is divisible by current prime,
+        # divide it out and increment count
+        if num % prime == 0:
+            num //= prime  # Using integer division
+            count += 1
+        else:
+            prime += 1
+
+    return count == 2
+
+
+def find_semiprimes(start: int, end: int) -> List[int]:
+    """
+    Find all semiprime numbers within a given range.
+
+    Args:
+        start (int): Start of range (inclusive)
+        end (int): End of range (inclusive)
+
+    Returns:
+        List[int]: List of semiprime numbers in the range
+
+    Raises:
+        ValueError: If start > end or if start < 1
+    """
+    if start > end:
+        raise ValueError("Start must be less than or equal to end")
+    if start < 1:
+        raise ValueError("Range must start from a positive number")
+
+    return [num for num in range(start, end + 1) if is_semiprime(num)]
+
+
+if __name__ == "__main__":
+    # Example usage
+    try:
+        # Find semiprimes from 1 to 100
+        semiprimes = find_semiprimes(1, 100)
+        print("Semiprimes between 1 and 100:")
+        print(*semiprimes)
+        
+        # Expected output:
+        # 4 6 9 10 14 15 21 22 25 26 33 34 35 38 39 46 49
+        # 51 55 57 58 62 65 69 74 77 82 85 86 87 91 93 94 95
+        
+    except ValueError as e:
+        print(f"Error: {e}")

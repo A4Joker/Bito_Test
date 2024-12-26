@@ -1,0 +1,84 @@
+# QA Test Cases for Semiprime Checker
+# Test Suite ID: QA-SP-001
+# Created: 2024-02-21
+# Author: Bito Wingman
+
+"""
+This document contains comprehensive test cases for QA testing of the Semiprime checker implementation.
+Each test case includes prerequisites, steps, expected results, and actual results.
+"""
+
+# 1. FUNCTIONAL TESTING
+
+## 1.1 Basic Functionality
+TC-001: Verify basic semiprime numbers
+- Input: 4, 6, 9, 10, 14, 15
+- Expected: All should return True
+- Priority: High
+
+TC-002: Verify non-semiprime numbers
+- Input: 1, 2, 3, 8, 12, 16, 18
+- Expected: All should return False
+- Priority: High
+
+## 1.2 Range Testing
+TC-003: Test range functionality
+- Input Range: 1-100
+- Expected: Should return all semiprimes in range
+- Known semiprimes in range: 4, 6, 9, 10, 14, 15, 21, 22, 25, 26, 33, 34, 35, 38, 39, 46, 49...
+- Priority: High
+
+## 1.3 Edge Cases
+TC-004: Test boundary values
+- Input: 0, -1, -4, 1000000
+- Expected: Should handle gracefully with appropriate error messages
+- Priority: Medium
+
+TC-005: Test large numbers
+- Input: 99999999
+- Expected: Should process within reasonable time
+- Priority: Medium
+
+# 2. ERROR HANDLING
+
+TC-006: Invalid input handling
+- Input: "abc", 3.14, None, ""
+- Expected: Should raise appropriate exceptions with clear messages
+- Priority: High
+
+TC-007: Resource constraints
+- Input: Very large numbers
+- Expected: Should handle memory efficiently
+- Priority: Low
+
+# 3. PERFORMANCE TESTING
+
+TC-008: Performance test
+- Action: Find all semiprimes in range 1-10000
+- Expected: Should complete within 5 seconds
+- Priority: Medium
+
+TC-009: Stress test
+- Action: Repeated calls with different inputs
+- Expected: Consistent performance
+- Priority: Low
+
+# 4. INTEGRATION TESTING
+
+TC-010: Module integration
+- Action: Import and use in another module
+- Expected: Should work without conflicts
+- Priority: Medium
+
+# Test Execution Checklist
+□ All high priority tests completed
+□ Performance benchmarks met
+□ Error cases validated
+□ Edge cases verified
+□ Integration scenarios tested
+
+# Notes:
+- All tests should be run on Python 3.7+
+- Time measurements should be done on standard development machine
+- Memory usage should not exceed 100MB
+- Error messages should be clear and actionable

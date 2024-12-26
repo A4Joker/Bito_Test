@@ -1,0 +1,171 @@
+"""
+Graph Traversal Algorithms
+
+This module implements two fundamental graph traversal algorithms:
+1. Depth First Search (DFS)
+2. Breadth First Search (BFS)
+
+The module provides multiple implementations of DFS (iterative and recursive),
+as well as path finding capabilities.
+"""
+
+from typing import Dict, Set, List, Generator, Any, Tuple
+from collections import deque
+
+
+def dfs_iterative(graph: Dict[str, Set[str]], start: str) -> Set[str]:
+    """
+    Iterative implementation of Depth First Search.
+    
+    DFS explores as far as possible along each branch before backtracking.
+    Uses a stack for tracking vertices to visit.
+
+    Args:
+        graph: Dictionary representing the graph where keys are vertices
+              and values are sets of adjacent vertices
+        start: Starting vertex for the traversal
+
+    Returns:
+        Set of visited vertices
+
+    Raises:
+        KeyError: If start vertex is not in graph
+    """
+    if start not in graph:
+        raise KeyError(f"Start vertex '{start}' not found in graph")
+
+    visited: Set[str] = set()
+    stack: List[str] = [start]
+    
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            visited.add(vertex)
+            stack.extend(graph[vertex] - visited)
+    
+    return visited
+
+
+def dfs_recursive(graph: Dict[str, Set[str]], start: str, visited: Set[str] = None) -> Set[str]:
+    """
+    Recursive implementation of Depth First Search.
+
+    Args:
+        graph: Dictionary representing the graph
+        start: Starting vertex for the traversal
+        visited: Set of already visited vertices (used in recursion)
+
+    Returns:
+        Set of visited vertices
+
+    Raises:
+        KeyError: If start vertex is not in graph
+    """
+    if start not in graph:
+        raise KeyError(f"Start vertex '{start}' not found in graph")
+
+    if visited is None:
+        visited = set()
+    
+    visited.add(start)
+    for next_vertex in graph[start] - visited:
+        dfs_recursive(graph, next_vertex, visited)
+    
+    return visited
+
+
+def bfs(graph: Dict[str, Set[str]], start: str) -> Set[str]:
+    """
+    Breadth First Search implementation.
+    
+    BFS explores all vertices at the present depth before moving to vertices
+    at the next depth level. Uses a queue for tracking vertices to visit.
+
+    Args:
+        graph: Dictionary representing the graph
+        start: Starting vertex for the traversal
+
+    Returns:
+        Set of visited vertices
+
+    Raises:
+        KeyError: If start vertex is not in graph
+    """
+    if start not in graph:
+        raise KeyError(f"Start vertex '{start}' not found in graph")
+
+    visited: Set[str] = set()
+    queue: deque = deque([start])
+    
+    while queue:
+        vertex = queue.popleft()
+        if vertex not in visited:
+            visited.add(vertex)
+            queue.extend(graph[vertex] - visited)
+    
+    return visited
+
+
+def find_paths_dfs(graph: Dict[str, Set[str]], start: str, goal: str) -> Generator[List[str], None, None]:
+    """
+    Find all possible paths between two vertices using DFS.
+
+    Args:
+        graph: Dictionary representing the graph
+        start: Starting vertex
+        goal: Target vertex to reach
+
+    Yields:
+        Lists representing paths from start to goal
+
+    Raises:
+        KeyError: If either start or goal vertex is not in graph
+    """
+    if start not in graph or goal not in graph:
+        raise KeyError("Start or goal vertex not found in graph")
+
+    stack: List[Tuple[str, List[str]]] = [(start, [start])]
+    
+    while stack:
+        (vertex, path) = stack.pop()
+        for next_vertex in graph[vertex] - set(path):
+            if next_vertex == goal:
+                yield path + [next_vertex]
+            else:
+                stack.append((next_vertex, path + [next_vertex]))
+
+
+if __name__ == "__main__":
+    # Example graph
+    example_graph = {
+        "A": {"B", "C"},
+        "B": {"A", "D", "E"},
+        "C": {"A", "F"},
+        "D": {"B"},
+        "E": {"B", "F"},
+        "F": {"C", "E"}
+    }
+
+    try:
+        # Demonstrate DFS (iterative)
+        print("DFS (iterative) from vertex A:")
+        print(dfs_iterative(example_graph, "A"))
+
+        # Demonstrate DFS (recursive)
+        print("\nDFS (recursive) from vertex A:")
+        print(dfs_recursive(example_graph, "A"))
+
+        # Demonstrate BFS
+        print("\nBFS from vertex A:")
+        print(bfs(example_graph, "A"))
+
+        # Find all paths between A and F
+        print("\nAll paths from A to F:")
+        paths = list(find_paths_dfs(example_graph, "A", "F"))
+        for i, path in enumerate(paths, 1):
+            print(f"Path {i}: {' -> '.join(path)}")
+
+    except KeyError as e:
+        print(f"Error: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")

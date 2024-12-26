@@ -1,0 +1,119 @@
+# QA Test Cases for Graph Traversal Algorithms
+# Test Suite ID: QA-GT-001
+# Created: 2024-02-21
+# Author: Bito Wingman
+
+"""
+This document contains comprehensive test cases for QA testing of the Graph Traversal implementations (DFS and BFS).
+Each test case includes prerequisites, steps, expected results, and actual results.
+"""
+
+# 1. FUNCTIONAL TESTING
+
+## 1.1 DFS Testing
+TC-001: Basic DFS Traversal
+- Graph: Standard connected graph
+- Start Node: Any
+- Expected: Should visit all nodes exactly once
+- Priority: High
+
+TC-002: Compare DFS Implementations
+- Action: Run both recursive and iterative DFS
+- Expected: Both should visit all nodes (order may differ)
+- Priority: High
+
+## 1.2 BFS Testing
+TC-003: Basic BFS Traversal
+- Graph: Standard connected graph
+- Expected: Should visit nodes in level-order
+- Priority: High
+
+TC-004: BFS Path Verification
+- Action: Check path lengths
+- Expected: Should find shortest paths
+- Priority: High
+
+## 1.3 Path Finding
+TC-005: Find All Paths
+- Action: Find paths between two nodes
+- Expected: Should find all possible paths
+- Priority: Medium
+
+# 2. GRAPH VARIATIONS
+
+TC-006: Different Graph Types
+Test with:
+- Disconnected graphs
+- Cyclic graphs
+- Single node graph
+- Complete graphs
+- Binary trees
+- DAGs
+Priority: High
+
+TC-007: Special Cases
+Test with:
+- Self-loops
+- Parallel edges
+- Weighted edges
+Priority: Medium
+
+# 3. ERROR HANDLING
+
+TC-008: Invalid Input Handling
+Test with:
+- Empty graph
+- None values
+- Invalid node references
+- Invalid edge references
+Priority: High
+
+TC-009: Resource Management
+- Test with very large graphs
+- Check memory usage
+- Verify stack depth (for recursive DFS)
+Priority: Medium
+
+# 4. PERFORMANCE TESTING
+
+TC-010: Time Complexity Verification
+Test with:
+- Small graphs (10 nodes)
+- Medium graphs (100 nodes)
+- Large graphs (1000+ nodes)
+Expected: Performance should align with theoretical complexity
+Priority: Medium
+
+TC-011: Memory Usage
+- Monitor memory allocation
+- Check for memory leaks
+- Verify garbage collection
+Priority: Medium
+
+# 5. INTEGRATION TESTING
+
+TC-012: Module Integration
+- Import in different contexts
+- Use with other graph algorithms
+- Verify namespace conflicts
+Priority: Low
+
+# Test Execution Checklist
+□ Basic functionality verified
+□ All graph variations tested
+□ Error handling confirmed
+□ Performance metrics met
+□ Memory usage acceptable
+□ Integration scenarios validated
+
+# Testing Environment Requirements:
+- Python 3.7+
+- Minimum 8GB RAM
+- Test graphs of various sizes prepared
+- Performance monitoring tools available
+
+# Notes:
+- Document any unexpected behavior
+- Compare performance between implementations
+- Verify thread safety if applicable
+- Check documentation accuracy
