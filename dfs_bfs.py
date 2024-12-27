@@ -18,17 +18,9 @@
 # DFS is faster than BFS when exploration is the priority
 # DFS will always find a path but that may not be the shortest path, unlike BFS
 
-def dfs_1(graph, start):
-    visited, stack = set(), [start]
-    while stack:
-        vertex = stack.pop()
-        if vertex not in visited:
-            visited.add(vertex)
-            stack.extend(graph[vertex] - visited)
-    return visited
 
 
-def dfs_2(graph, start, visited=None):
+def dfs(graph, start, visited=None):
     if visited is None:
         visited = set()
     visited.add(start)
