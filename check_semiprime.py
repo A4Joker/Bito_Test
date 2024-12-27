@@ -18,7 +18,7 @@ def isSemiprime(num):
          if the number is divisible by current prime,
          increment count, else move to new prime
         if not (num % prime):
-            num = num / prime
+            num = num // prime
             count = count + 1
         else:
             prime = prime + 1
