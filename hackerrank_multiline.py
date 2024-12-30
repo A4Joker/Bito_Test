@@ -1,7 +1,11 @@
 if __name__ == "__main__":
     list1 = list()
-    for line in iter(input,''):
-        list1.append(line)
-
-
+    try:
+        while True:
+            line = input()
+            if not line:
+                break
+            list1.append(line)
+    except EOFError:
+        pass
     print(list1)
