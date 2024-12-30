@@ -1,5 +1,4 @@
-def even_len():
-    given_string = "This is a python language"
+def even_len(given_string):
     given_list = given_string.split()
     list2 = list()
     print("given list -:", given_list)
