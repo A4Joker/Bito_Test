@@ -34,7 +34,7 @@ def bubbleSortOptimized(arr):
   
   return arr
 
-if __name__ = "__main__":
+if __name__ == "__main__":
   arr = [2, 6, 1, 5, 3, 4]
   res = bubbleSort(arr)
   print(res)
