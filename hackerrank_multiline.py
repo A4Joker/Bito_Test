@@ -7,5 +7,5 @@ if __name__ == "__main__":
                 break
             list1.append(line)
     except EOFError:
-        pass
+        print("Reached end of input")
     print(list1)
