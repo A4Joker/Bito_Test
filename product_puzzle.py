@@ -6,9 +6,12 @@
 # Constraints: Solve it without division operator and in O(n)
 
 
-def computeProductArray(array, size):
-    # initialize three arrays of the same size as given array
-    # Left: will hold the product of all the elements to the left
+ def computeProductArray(array, size):
+   # initialize three arrays of the same size as given array
+    if not array or size <= 0:
+        raise ValueError('Array cannot be empty and size must be positive')
+
+   # Left: will hold the product of all the elements to the left
     # Right: will hold the product of all the elements to the right
     # Product: contains the product value for current element
 
