@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    list1 = list()
+    input_lines = list()
     try:
         while True:
             line = input()
