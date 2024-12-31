@@ -2,7 +2,7 @@
 # hand at any given time. Assume it is an analog clock
 
 def calculateAngle(hour, minute):
-  if hour < 0 or minute < 0 or hour > 12 or minute > 60:
+  if hour < 0 or minute < 0 or hour > 11 or minute >= 60:
     raise ValueError("Invalid hour or minute value given for as an input")
   else:
 
