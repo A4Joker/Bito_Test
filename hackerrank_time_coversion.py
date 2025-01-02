@@ -19,4 +19,4 @@ def timeConversion():
         new_time = str(str(ans) + s[2:8])
     print(new_time)
 
-timeConversio=()
+timeConversion()
