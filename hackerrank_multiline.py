@@ -3,7 +3,7 @@ if __name__ == "__main__":
     try:
         while True:
             line = input()
-            if not line:
+            if not line.strip():
                 break
             list1.append(line)
     except EOFError:
