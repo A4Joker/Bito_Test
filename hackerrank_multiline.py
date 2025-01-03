@@ -5,7 +5,6 @@ if __name__ == "__main__":
             line = input()
             if not line.strip():
                 break
-            list1.append(line)
+            input_lines.append(line)
     except EOFError:
         print("Reached end of input")
-    print(list1)
