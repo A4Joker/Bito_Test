@@ -1,5 +1,4 @@
-def timeConversion():
-    s = input()
+def timeConversion(s: str) -> str:
     import re
     if not re.match(r'^(1[0-2]|0?[1-9]):[0-5][0-9]:[0-5][0-9](AM|PM)$', s):
          print("Invalid time format. Please use HH:MM:SSAM/PM")
