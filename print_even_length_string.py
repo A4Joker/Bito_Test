@@ -12,4 +12,4 @@ def even_len(given_string):
     print(" ".join(list2))
 
 
-even_len("your string here")
+even_len("I am a test string with even words")
