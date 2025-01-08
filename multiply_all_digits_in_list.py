@@ -4,7 +4,7 @@ def mul_digits(list1):
         if ele.isdigit():
 
             result = int(ele) * result
-    print(result)
+    return result
 
 
 
