@@ -1,4 +1,8 @@
 def even_len(given_string):
+    if not isinstance(given_string, str):
+        raise TypeError("Input must be a string")
+    if not given_string.strip():
+        return []
     given_list = given_string.split()
     list2 = list()
     print("given list -:", given_list)
