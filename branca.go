@@ -190,7 +190,10 @@ func genNonce() ([]byte, error) {
 	if nonceReadFunc == nil {
 		return nil, errors.New("nonce read function not initialized")
 	}
- 	_, err := nonceReadFunc(nonce)
+ 	n, err := nonceReadFunc(nonce)
+ 	if n != NONCE_SIZE {
+ 		return nil, errors.New("failed to generate complete nonce")
+ 	}
 
 	return nonce, err
 }
