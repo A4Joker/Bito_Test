@@ -9,7 +9,7 @@ def even_len(given_string):
     for ele in given_list:
         if len(ele) % 2 ==0:
             list2.append(ele)
-    print(" ".join(list2))
+    return " ".join(list2)
 
 
 even_len("I am a test string with even words")
