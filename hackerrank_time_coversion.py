@@ -17,4 +17,4 @@ def timeConversion(s: str) -> str:
         new_time = str(str(ans) + s[2:8])
     print(new_time)
 
-timeConversion()
+timeConversion("09:05:45PM")

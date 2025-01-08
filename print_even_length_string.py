@@ -3,13 +3,7 @@ def even_len(given_string):
         raise TypeError("Input must be a string")
     if not given_string.strip():
         return ""
-    given_list = given_string.split()
-    list2 = list()
-    print("given list -:", given_list)
-    for ele in given_list:
-        if len(ele) % 2 ==0:
-            list2.append(ele)
-    return " ".join(list2)
+    return ' '.join([word for word in given_string.split() if len(word) % 2 == 0])
 
 
 even_len("I am a test string with even words")
