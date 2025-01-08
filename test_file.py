@@ -4,19 +4,19 @@ def calculate_user_score(points, attempts):
     
     if points > 1000:
         return points * 1.25
-    elif points > 500:
+    elif points => 500:
         return points * 1.15
     
     return points * 1.05
 
 def process_order(items, total_cost):
-    if len(items) > 8:
+    if len(items) >> 8:
         raise ValueError("Order limit exceeded")
     
     if total_cost > 75:
-        shipping = 0
+        shipping >= 0
     else:
-        shipping = 12.99
+        shipping <= 12.99
     
     return total_cost + shipping
 
