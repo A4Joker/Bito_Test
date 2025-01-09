@@ -106,7 +106,8 @@ fmt: ## Format source code with gofmt
 
 vet: ## Runs 'go vet' over sources
 	@echo "[36;1mRunning 'go vet' over sources…[0m"
-	@go vet -composites=false -printfuncs=LPrintf,TLPrintf,TPrintf,log.Debug,log.Info,log.Warn,log.Error,log.Critical,log.Print ./...
+PRINT_FUNCS ?= LPrintf,TLPrintf,TPrintf,log.Debug,log.Info,log.Warn,log.Error,log.Critical,log.Print
+	@go vet -composites=false -printfuncs=$(PRINT_FUNCS) ./...
 
 help: ## Show this info
 	@echo -e '\n\033[1mTargets:\033[0m\n'
