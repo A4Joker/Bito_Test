@@ -1,5 +1,10 @@
 package branca
 
+import "testing"
+
+func TestBranca(t *testing.T) {
+}
+
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
 //                         Copyright (c) 2023 ESSENTIAL KAOS                          //
