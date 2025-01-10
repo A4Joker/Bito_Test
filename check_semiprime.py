@@ -6,8 +6,10 @@
  within a given range. For e.g. 1 to 100.
 
 
-def isSemiprime(num):
-     start with the smallest prime
+ def isSemiprime(num):
+    if num <= 0:
+        return False
+    start with the smallest prime
     prime = 2
      initialize counter to 0
     count = 0
