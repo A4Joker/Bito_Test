@@ -138,8 +138,7 @@ func ExampleToken_Payload() {
 }
 
 func ExampleToken_Timestamp() {
-	key := "mysupppadupppasecretkeyforbranca"
-	brc, err := NewBranca([]byte(key))
+	brc, err := setupBranca()
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
