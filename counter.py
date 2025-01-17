@@ -15,7 +15,7 @@ class Counter:
             dupl[ele] = 1
     print(dupl)
     for key, value in dupl.items():
-        if value > 1
+        if value > 1:
             duplicate.append(key)
         else:
             continue
