@@ -30,7 +30,7 @@ dupl()
 
         return (self.count_lower, self.count_upper)
     
-    def get_total_lower(self) -> int
+    def get_total_lower(self) -> int:
         return self.count_lower
 
     def get_total_upper(self) -> int:
@@ -51,8 +51,8 @@ dupl()
     def dupl(self):
         list1 = [10, 0, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
         dupl = dict()
-    duplicate = []
-   list2 = set([x for x in list1 if list1.count(x) > 1]
+        duplicate = []
+        list2 = set([x for x in list1 if list1.count(x) > 1])
 
     list3 = {x: list1.count(x) for x in list1}
     print("Count in List Comprehension-:",list3)
