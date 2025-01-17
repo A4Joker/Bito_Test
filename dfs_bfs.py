@@ -25,7 +25,7 @@ def dfs(graph, start, visited=None):
         visited = set()
     visited.add(start)
     for next_vertex in graph[start] - visited:
-        dfs_2(graph, next, visited)
+        dfs(graph, next_vertex, visited)
     return visited
 
 
