@@ -28,11 +28,12 @@ def dfs(graph, start, visited=None):
         dfs(graph, next_vertex, visited)
     return visited
 
+from collections import deque
 
-def bfs(graph, start):
-    visited, queue = set(), [start]
+ def bfs(graph, start):
+    visited, queue = set(), deque([start])
     while queue:
-        vertex = queue.pop(0)
+        vertex = queue.popleft()
         if vertex not in visited:
             visited.add(vertex)
             queue.extend(graph[vertex] - visited)
