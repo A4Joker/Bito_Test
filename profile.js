@@ -1,5 +1,5 @@
-const twit = require('twit');
-const config = require('./config');
+import twit from 'twit';
+import config from './config';
 
 let get = (username) => {
   const twitter = new twit(config);
