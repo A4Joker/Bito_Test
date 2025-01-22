@@ -1,0 +1,15 @@
+{
+  "name": "twitter-profiler",
+  "version": "1.0.0",
+  "description": "### Problem We need a simple look at Twitter Profile, using NodeJS application to connect Twitter API, get profile info, and print out the result.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eko Teguh Widodo",
+  "license": "MIT",
+  "dependencies": {
+    "oauth": "^0.9.15",
+    "twit": "^2.2.9"
+  }
+}
