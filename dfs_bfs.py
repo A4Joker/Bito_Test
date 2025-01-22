@@ -31,6 +31,8 @@ def dfs(graph, start, visited=None):
 from collections import deque
 
  def bfs(graph, start):
+    if not graph or start not in graph:
+        return set()
     visited, queue = set(), deque([start])
     while queue:
         vertex = queue.popleft()
