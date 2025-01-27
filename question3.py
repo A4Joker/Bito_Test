@@ -31,7 +31,7 @@ def check_first_letter():
         lines = F.readlines()
 
         # store all starting letters from each line in one string after converting to lower case
-        first_letters = "".join([line[0].lower() for line in lines])
+        first_letters = "".join([line[0].lower() for line in lines if line.strip()])
 
         count_i = first_letters.count("i")
         count_m = first_letters.count("m")
