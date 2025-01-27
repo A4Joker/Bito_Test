@@ -27,8 +27,12 @@ def write_to_file(file_name):
         
 # step2:
 def check_first_letter():
-    with open(file_name) as F:
-        lines = F.readlines()
+    try:
+        with open(file_name) as F:
+            lines = F.readlines()
+    except (FileNotFoundError, IOError) as e:
+        print(f"Error reading file {file_name}: {e}")
+        return
 
         # store all starting letters from each line in one string after converting to lower case
         first_letters = "".join([line[0].lower() for line in lines if line.strip()])
