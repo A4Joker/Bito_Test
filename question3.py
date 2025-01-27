@@ -7,7 +7,6 @@ import time
 file_name= input("Enter the file name to create:- ")
 
 # step1:
-print(Akshay)
 
 
 
