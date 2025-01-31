@@ -67,3 +67,5 @@ graph = {
 
 result = list(dfs_paths(graph, "A", "F"))  # [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
 print(result)
+
+
