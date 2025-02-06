@@ -7,15 +7,14 @@ public class ConfigLoader {
         Properties props = new Properties();
         
         try {
-            FileInputStream fis = new FileInputStream(filePath);  // Resource leak: no try-with-resources
+            FileInputStream fis = new FileInputStream(filePath); 
             props.load(fis);  // No proper cleanup
             return props;
         } catch (IOException e) {
-            return new Properties();  // Bad practice: returning empty properties
+            return new Properties();  
         }
     }
     
-    // Bad practice: Static method modifying global state
     public static void setDefaultProperties(Properties props) {
         props.setProperty("default.mode", "development");
         props.setProperty("default.port", "8080");
