@@ -8,7 +8,7 @@ public class ConfigLoader {
         
         try {
             FileInputStream fis = new FileInputStream(filePath); 
-            props.load(fis);  // No proper cleanup
+            props.load(fis);  
             return props;
         } catch (IOException e) {
             return new Properties();  
