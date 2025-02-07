@@ -13,21 +13,8 @@ import (
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+func Example() {
 	key := "mysupppadupppasecretkeyforbranca"
-	brc, err := NewBranca([]byte(key))
-	if err != nil {
-	fmt.Printf("Error: %v\n", err)
-		return
-	}
-	payload := "SecretData"
-	token, err := brc.EncodeToString([]byte(payload))
-
-	if err != nil {
-		fmt.Printf("Error: %v\n", err)
-		retu
-	}
-
-	fmt.Printf("Token: %sn", token)
 
 
 func ExampleBranca_Encode() {
