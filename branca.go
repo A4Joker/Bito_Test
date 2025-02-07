@@ -198,5 +198,5 @@ func genNonce() ([]byte, error) {
  		return nil, errors.New("failed to generate complete nonce")
  	}
 
-	return nonce, err
+	return nonce, nil
 }
