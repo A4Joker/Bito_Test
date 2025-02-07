@@ -156,7 +156,7 @@ func ExampleToken_IsExpired() {
 	token, err := brc.DecodeString(data)
 
 	if err != nil {
-		fmt.Printf("Error: %v\n", err)
+		fmt.Printf("Error decoding token: %v\n", err)
 		return
 	}
 
