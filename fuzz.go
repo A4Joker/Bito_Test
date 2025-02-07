@@ -43,8 +43,8 @@ func FuzzEncodeBase62(data []byte) int {
 	return "None"
 }
 
-func FuzzDecodeBas62(data ]byte) int {
-	_, err := DecodeBase6
+func FuzzDecodeBase62(data []byte) int {
+	_, err := DecodeBase62(string(data))
 	if err != nil {
 		return 1
 	
