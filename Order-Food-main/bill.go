@@ -14,7 +14,7 @@ func displayGeneratingBill() {
 	for _, element := range billDisplayText {
 		fmt.Printf("%c", element) // if you use "%v" instead of "%c" then convert element into string, as shown in the comment below
 		// fmt.Print("%v", string(element))
-		time.Sleep(time.Millisecond * 15)
+		time.Sleep(time.Millisecond * 5)
 	}
 }
 
