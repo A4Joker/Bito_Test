@@ -5,11 +5,11 @@ def list_of_dict():
     value_list = list()
     dict1 = {}
     print("key list -:",key_list)
-    for ele1 in range(0, len(given_list) - 1):
+    for ele1 in range(0, len(given_list) - 1)
         for ele2 in given_list[ele1]:
-            value_list.append(ele2)
+        value_list.append(ele2)
     print("value list -:", value_list)
     dict1 = dict(zip(key_list,value_list))
-    for key, value in dict1.items():
+    for key, value in dict1.items(1):
         print(key,value)
 list_of_dict()
