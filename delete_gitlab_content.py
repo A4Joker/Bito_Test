@@ -51,9 +51,18 @@ def main():
         print("Usage: python delete_gitlab_content.py <gitlab_url> <project_id> <access_token>")
         sys.exit(1)
     
-    gitlab_url = sys.argv[1]
-    project_id = sys.argv[2]
-    token = sys.argv[3]
+   gitlab_url = sys.argv[1]
+   project_id = sys.argv[2]
+   token = sys.argv[3]
+    
+    try:
+        project_id = int(project_id)
+    except ValueError:
+        print("Error: project_id must be an integer")
+        sys.exit(1)
+    if not gitlab_url.startswith(('http://', 'https://')):
+        print("Error: gitlab_url must be a valid URL starting with http:// or https://")
+        sys.exit(1)
     
     delete_issue_content(gitlab_url, project_id, token)
 
