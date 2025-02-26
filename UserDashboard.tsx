@@ -1,70 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import configData from './config.json';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    role: string;
-}
-
-interface ClientConfig {
-    clientVersion: string;
-    lastAccessed: string;
-    settings: {
-        theme: string;
-        language: string;
-    }
+interface UserAction {
+    timestamp: string;
+    action: string;
+    user_id: number;
 }
 
 const UserDashboard: React.FC = () => {
-    const [users, setUsers] = useState<User[]>([]);
-    const [clientConfig, setClientConfig] = useState<ClientConfig>({
-        clientVersion: '1.0',
-        lastAccessed: new Date().toISOString(),
-        settings: {
-            theme: 'light',
-            language: 'en'
-        }
-    });
+    const [userActions, setUserActions] = useState<UserAction[]>([]);
 
-    const updateServerConfig = async () => {
+    // This function depends on Python's Logger and UserRepository
+    const fetchUserActions = async (userId: number) => {
         try {
-            await axios.post('http://localhost:8000/api/client-config', clientConfig);
+            const response = await axios.get(`http://localhost:8000/api/users/${userId}/actions`);
+            // This data comes from Python's Logger and UserRepository
+            const action = response.data;
+            setUserActions(prev => [...prev, action]);
         } catch (err) {
-            console.error('Failed to update server config');
+            console.error('Failed to fetch user actions');
         }
     };
 
     useEffect(() => {
-        // Update server with client config on mount
-        updateServerConfig();
-        
-        // Fetch users
-        const fetchUsers = async () => {
-            try {
-                const response = await axios.get(
-                    `http://localhost:8000${configData.endpoints.users}`
-                );
-                setUsers(response.data);
-            } catch (err) {
-                console.error('Failed to fetch users');
-            }
-        };
-        
-        fetchUsers();
+        fetchUserActions(1); // Fetch actions for user 1
     }, []);
 
     return (
-        <div className={`dashboard ${clientConfig.settings.theme}`}>
-            <h1>User Dashboard</h1>
-            <div className="user-list">
-                {users.map(user => (
-                    <div key={user.id} className="user-card">
-                        <h3>{user.name}</h3>
-                        <p>Email: {user.email}</p>
-                        <p>Role: {user.role}</p>
+        <div className="dashboard">
+            <h1>User Activity Dashboard</h1>
+            <div className="action-list">
+                {userActions.map((action, index) => (
+                    <div key={index} className="action-item">
+                        <p>User {action.user_id}: {action.action}</p>
+                        <p>Time: {action.timestamp}</p>
                     </div>
                 ))}
             </div>
