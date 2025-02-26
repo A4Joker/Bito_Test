@@ -1,17 +1,23 @@
 # controller/UserController.py
-from model.UserRepository import UserRepository
-from service.UserService import UserService
-from util.Logger import Logger
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-class UserController:
-    def __init__(self):
-        self._user_repository = UserRepository()
-        self._user_service = UserService()
-    
-    def process_user(self):
-        user = self._user_repository.get_user()
-        self._user_service.print_user_info(user)
-        Logger.log("User processed successfully!")
-    
-    def say_hello(self, name: str) -> str:
-        return f"Hello, {name} from Python!"
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.post("/api/process-user")
+async def api_process_user():
+    controller = UserController()
+    controller.process_user()
+    return {"status": "success"}
+
+@app.get("/api/hello/{name}")
+async def api_say_hello(name: str):
+    controller = UserController()
+    return {"message": controller.say_hello(name)}
