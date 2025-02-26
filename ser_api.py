@@ -1,12 +1,14 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List, Dict
+from typing import List
 import uvicorn
+import platform
+import datetime
 
 app = FastAPI()
 
-# Add CORS middleware
+# Enable CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,43 +17,33 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class User(BaseModel):
-    id: int
-    name: str
-    email: str
-    role: str
-
-class UIConfig(BaseModel):
-    theme: str
-    pageSize: int
+class SystemConfig(BaseModel):
+    pythonVersion: str
+    apiVersion: str
+    lastUpdated: str
     features: List[str]
 
-# Sample data
-users_db = [
-    {"id": 1, "name": "John Doe", "email": "john@example.com", "role": "admin"},
-    {"id": 2, "name": "Jane Smith", "email": "jane@example.com", "role": "user"}
-]
+class ApiStatus(BaseModel):
+    status: str
+    timestamp: str
+    version: str
 
-# UI Configuration that will be consumed by React
-ui_config = {
-    "theme": "light",
-    "pageSize": 10,
-    "features": ["user-management", "role-based-access", "email-notifications"]
-}
+@app.get("/api/system-config", response_model=SystemConfig)
+async def get_system_config():
+    return {
+        "pythonVersion": platform.python_version(),
+        "apiVersion": "1.0.0",
+        "lastUpdated": datetime.datetime.now().isoformat(),
+        "features": ["user-management", "api-status", "system-config"]
+    }
 
-@app.get("/api/users", response_model=List[User])
-async def get_users():
-    return users_db
-
-@app.get("/api/config", response_model=UIConfig)
-async def get_ui_config():
-    return ui_config
-
-@app.post("/api/config/theme")
-async def update_theme(request: Request):
-    data = await request.json()
-    ui_config["theme"] = data.get("theme", "light")
-    return {"status": "success", "theme": ui_config["theme"]}
+@app.get("/api/status", response_model=ApiStatus)
+async def get_api_status():
+    return {
+        "status": "operational",
+        "timestamp": datetime.datetime.now().isoformat(),
+        "version": "1.0.0"
+    }
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
