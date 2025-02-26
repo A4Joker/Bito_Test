@@ -1,94 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { SystemConfig, ApiStatus } from './config.types';
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-    role: string;
-}
-
-interface UIConfig {
-    theme: string;
-    pageSize: number;
-    features: string[];
-}
-
-const UserDashboard: React.FC = () => {
-    const [users, setUsers] = useState<User[]>([]);
-    const [config, setConfig] = useState<UIConfig | null>(null);
+const SystemStatus: React.FC = () => {
+    const [systemConfig, setSystemConfig] = useState<SystemConfig | null>(null);
+    const [apiStatus, setApiStatus] = useState<ApiStatus | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    // First dependency: Fetch UI configuration from Python backend
-    const fetchConfig = async () => {
+    // This function depends on Python backend's system-config endpoint
+    const fetchSystemConfig = async () => {
         try {
-            const response = await axios.get<UIConfig>('http://localhost:8000/api/config');
-            setConfig(response.data);
+            const response = await axios.get<SystemConfig>('http://localhost:8000/api/system-config');
+            setSystemConfig(response.data);
         } catch (err) {
-            setError('Failed to fetch configuration');
+            setError('Failed to fetch system configuration');
         }
     };
 
-    // Second dependency: Fetch users data
-    const fetchUsers = async () => {
+    // This function depends on Python backend's status endpoint
+    const fetchApiStatus = async () => {
         try {
-            const response = await axios.get<User[]>('http://localhost:8000/api/users');
-            setUsers(response.data);
+            const response = await axios.get<ApiStatus>('http://localhost:8000/api/status');
+            setApiStatus(response.data);
             setLoading(false);
         } catch (err) {
-            setError('Failed to fetch users');
+            setError('Failed to fetch API status');
             setLoading(false);
-        }
-    };
-
-    // Third dependency: Update theme
-    const updateTheme = async (newTheme: string) => {
-        try {
-            await axios.post('http://localhost:8000/api/config/theme', { theme: newTheme });
-            await fetchConfig(); // Refresh config after update
-        } catch (err) {
-            setError('Failed to update theme');
         }
     };
 
     useEffect(() => {
-        // Load both configuration and users data on component mount
-        Promise.all([fetchConfig(), fetchUsers()]);
+        // Fetch both system config and API status on component mount
+        Promise.all([fetchSystemConfig(), fetchApiStatus()]);
+
+        // Set up polling for API status every 30 seconds
+        const statusInterval = setInterval(fetchApiStatus, 30000);
+        return () => clearInterval(statusInterval);
     }, []);
 
-    if (loading || !config) return <div>Loading...</div>;
+    if (loading) return <div>Loading system status...</div>;
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className={`dashboard ${config.theme}`}>
-            <div className="dashboard-header">
-                <h1>User Dashboard</h1>
-                <button onClick={() => updateTheme(config.theme === 'light' ? 'dark' : 'light')}>
-                    Toggle Theme
-                </button>
-            </div>
+        <div className="system-status">
+            <h2>System Status Dashboard</h2>
             
-            <div className="features-list">
-                <h3>Enabled Features:</h3>
-                <ul>
-                    {config.features.map(feature => (
-                        <li key={feature}>{feature}</li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="user-list">
-                {users.slice(0, config.pageSize).map(user => (
-                    <div key={user.id} className="user-card">
-                        <h3>{user.name}</h3>
-                        <p>Email: {user.email}</p>
-                        <p>Role: {user.role}</p>
+            {systemConfig && (
+                <div className="config-info">
+                    <h3>System Configuration</h3>
+                    <p>Python Version: {systemConfig.pythonVersion}</p>
+                    <p>API Version: {systemConfig.apiVersion}</p>
+                    <p>Last Updated: {new Date(systemConfig.lastUpdated).toLocaleString()}</p>
+                    <div>
+                        <h4>Enabled Features:</h4>
+                        <ul>
+                            {systemConfig.features.map(feature => (
+                                <li key={feature}>{feature}</li>
+                            ))}
+                        </ul>
                     </div>
-                ))}
-            </div>
+                </div>
+            )}
+
+            {apiStatus && (
+                <div className="api-status">
+                    <h3>API Status</h3>
+                    <p>Status: <span className={apiStatus.status}>{apiStatus.status}</span></p>
+                    <p>Last Check: {new Date(apiStatus.timestamp).toLocaleString()}</p>
+                    <p>Version: {apiStatus.version}</p>
+                </div>
+            )}
         </div>
     );
 };
 
-export default UserDashboard;
+export default SystemStatus;
