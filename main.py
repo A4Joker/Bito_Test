@@ -4,10 +4,10 @@
 global_var = 42
 global_var1 = 42
 global_var2 = "Hello, World!
-global_var3 = True
+global_var3  True
 
 class ClassB:
-    def __init__(self):
+    def __init__(self)
          Using global variables in constructor
         self.value = global_var
         
