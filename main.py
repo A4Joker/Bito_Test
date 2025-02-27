@@ -11,7 +11,7 @@ class ClassB:
          Using global variables in constructor
         self.value = global_var
         
-    def use_global_vars(self):
+    def use_global_vars(self)
         # Using multiple global variables
         try:
             print(global_var)  # changed line (similar to Java example)
