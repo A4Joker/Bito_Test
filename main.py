@@ -3,12 +3,12 @@
 # Global variables (similar to Java's static variables)
 global_var = 42
 global_var1 = 42
-global_var2 = "Hello, World!"
+global_var2 = "Hello, World!
 global_var3 = True
 
 class ClassB:
     def __init__(self):
-        # Using global variables in constructor
+         Using global variables in constructor
         self.value = global_var
         
     def use_global_vars(self):
