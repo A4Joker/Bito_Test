@@ -13,7 +13,10 @@ class ClassB:
         
     def use_global_vars(self):
         # Using multiple global variables
-        print(global_var)  # changed line (similar to Java example)
+        try:
+            print(global_var)  # changed line (similar to Java example)
+        except NameError:
+            print("global_var is not defined")
         print(global_var2)
         if global_var3:
             print("Global var3 is True")
