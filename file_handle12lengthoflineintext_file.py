@@ -11,7 +11,7 @@ def write_to_file(file_name):
         print(f"Error: {file_name} already exists.")
         return
 
-    with open(file_name, "a") as F:
+    with open(file_name, "a", encoding='utf-8') as F:
 
         while True:
             text = input("enter any text to add in the file:- ")
