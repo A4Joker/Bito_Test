@@ -8,6 +8,6 @@ public class Main {
     public static void main(String[] args) {
         ClassB classBInstance = new ClassB();
         classBInstance.useClassAStaticVar();
-        System.err.println(globalVar); // changed line
+        System.out.println(globalVar); // changed line
     }
 }
