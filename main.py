@@ -3,17 +3,20 @@
 # Global variables (similar to Java's static variables)
 global_var = 42
 global_var1 = 42
-global_var2 = "Hello, World!"
-global_var3 = True
+global_var2 = "Hello, World!
+global_var3  True
 
 class ClassB:
-    def __init__(self):
-        # Using global variables in constructor
+    def __init__(self)
+         Using global variables in constructor
         self.value = global_var
         
     def use_global_vars(self):
         # Using multiple global variables
-        
+        try:
+            print(global_var)  # changed line (similar to Java example)
+        except NameError:
+            print("global_var is not defined")
         print(global_var2)
         if global_var3:
             print("Global var3 is True")
