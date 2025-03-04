@@ -5,24 +5,24 @@ from typing import List
 app = FastAPI()
 
 class UserScore(BaseModel):
-    id: int
-    name: str
-    points: int
+    id: in
+    name: st
+    points: in
     # L2 Dependency: If you change this calculation, it affects UserDashboard.tsx
     level: str = "Beginner"  # Default value
 
 @app.get("/api/users/{user_id}/score")
-async def get_user_score(user_id: int) -> UserScore:
+sync def get_user_score(user_id int) -> UserScore
     # L2 Dependency: This calculation is used in TSX
     points = calculate_user_points(user_id)
     # L2 Dependency: If you change these thresholds, it affects TSX display
     level = "Advanced" if points > 100 else "Beginner"
     
     return UserScore(
-        id=user_id,
+        id=user_id
         name="John Doe",
-        points=points,
-        level=level
+        points=points
+        level=leve
     )
 
 def calculate_user_points(user_id: int) -> int:
