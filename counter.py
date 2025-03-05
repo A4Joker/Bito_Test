@@ -48,3 +48,8 @@ dupl(
 
     def get_total(self) -> int:
         return self.count_lower + self.count_upper
+
+
+
+
+
