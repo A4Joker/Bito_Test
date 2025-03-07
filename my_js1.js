@@ -71,6 +71,10 @@ var a = 1, b = 2, c = 3;
 
 // Missing radix parameter in parseInt
 const parsedNumber = parseInt("10");
+const sum = (a, b) => {
+  return a + b;
+}
+
 
 // Declaring function in a nested block
 if (true) {
