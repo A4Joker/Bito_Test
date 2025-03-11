@@ -1,7 +1,7 @@
 "use strict";
 
 // 1. Regular Named Function
-function add(a, b) {
+export function add(a, b) {
     return a + b;
 }
 
