@@ -41,7 +41,7 @@ public class UserValidator {
         if (name == null) return false;
         
         return name.length() <= MAX_NAME_LENGTH &&
-               name.matches("^[a-zA-Z\\s]+$");
+               name.matches("^[a-zA-Z\\s\\-']+$");
     }
 
     /**
