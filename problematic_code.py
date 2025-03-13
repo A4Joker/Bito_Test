@@ -23,8 +23,8 @@ def get_user_data(user_id: str) -> Any:
 # Command Injection vulnerability
 def execute_command(cmd: str) -> None:
     # Command Injection vulnerability (Security Issue)
-    os.system(cmd)
-    subprocess.Popen(cmd, shell=True)
+    # Use safer alternatives with shell=False and arguments as list
+    subprocess.run(cmd.split(), shell=False, check=True)
 
 # Insecure Deserialization
 def load_object(data: str) -> Any:
