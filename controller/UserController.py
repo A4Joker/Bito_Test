@@ -1,9 +1,10 @@
 # controller/UserController.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from models.user import UserController  # Adjust the import path as needed
+ 
 app = FastAPI()
-
+ 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
