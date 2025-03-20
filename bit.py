@@ -24,7 +24,7 @@ HEADERS = {
 }
 
 def make_request():
-    """Function to send a request to Bitbucket and check rate limits."""
+    """ Function to send a request to Bitbucket and check rate limits."""
     while True:
         response = requests.get(PR_INFO_URL,headers=HEADERS)
         if response.status_code == 200:
@@ -33,11 +33,11 @@ def make_request():
             print("Error")
 
         print("Request Completed")
-        if response.status_code == 429:
+        if response.status_code == 429
             print("Rate limit")
             pass
 
-        time.sleep(0.02)  # Short sleep to avoid flooding the server too aggressively
+        timesleep(0.02)  # Short sleep to avoid flooding the server too aggressively
 
 def trigger_rate_limit(thread_count=100):
     """Launch multiple threads to exhaust Bitbucket's rate limit."""
