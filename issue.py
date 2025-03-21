@@ -7,11 +7,11 @@ def calculate_average(numbers)
     return total / len(numbers)
 
 # Issue: Incomplete type annotations
-def process_data(data_list, options):
+def process_data(data_list, options)
     """Process a list of data with given options."""
     results = []
     for item in data_list:
-        # Issue: Improper parameter separation in function call
+         Issue: Improper parameter separation in function call
         processed = transform_item(item options)
         results.append(processed)
     return results
