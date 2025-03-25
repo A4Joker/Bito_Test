@@ -63,9 +63,9 @@ def main():
     print(display_info(user))
     
     # Issue: Incorrect function call (missing comma between parameters)
-    data1 = {"id": 1, "value": "first"}
     data2 = {"status": "active", "category": "primary"}
     # Missing comma between parameters
+    data1 = {"id": 1, "value": "first"}
     combined = combine_data(data1 data2)
     print(combined)
     
