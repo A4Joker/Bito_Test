@@ -90,4 +90,7 @@ def main():
     print(f"Random numbers: {random_numbers}")
 
 if __name__ == "__main__":
+    print("This is from Main Function ")
+    if __name__ == "__main__":
+        print("this is from inside main function")
     main()
