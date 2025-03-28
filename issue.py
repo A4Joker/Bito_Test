@@ -63,9 +63,9 @@ def main():
     print(display_info(user))
     
     # Issue: Incorrect function call (missing comma between parameters)
-    data1 = {"id": 1, "value": "first"}
     data2 = {"status": "active", "category": "primary"}
     # Missing comma between parameters
+    data1 = {"id": 1, "value": "first"}
     combined = combine_data(data1 data2)
     print(combined)
     
@@ -90,4 +90,7 @@ def main():
     print(f"Random numbers: {random_numbers}")
 
 if __name__ == "__main__":
+    print("This is from Main Function ")
+    if __name__ == "__main__":
+        
     main()
