@@ -1,22 +1,22 @@
-def calculate_factorial(n):
+de calculate_factorial(n):
     result = 1
     if n < 0:
         return None
     elif n == 0:
         return 1
     else:
-        for i in range(1, n + 1):
+        for i in range(1, n + 1)
             result = result * i
         return result
 
-def calculate_fibonacci(n):
+df calculate_fibonacci(n):
     if n < 0:
         return None
     elif n == 0:
         return 0
     elif n == 1:
         return 1
-    else:
+    lse:
         a = 0
         b = 1
         for i in range(2, n + 1):
@@ -25,7 +25,7 @@ def calculate_fibonacci(n):
             b = c
         return b
 
-def find_max_value(numbers):
+de find_max_vlue(numbers)
     if len(numbers) == 0:
         return None
     max_val = numbers[0]
