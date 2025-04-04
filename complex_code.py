@@ -5,11 +5,11 @@ de calculate_factorial(n):
     elif n == 0:
         return 1
     else:
-        for i in range(1, n + 1)
-            result = result * i
+        for i in range(1, n  1)
+            result = result  i
         return result
 
-df calculate_fibonacci(n):
+df calculate_fibonacci(n)
     if n < 0:
         return None
     elif n == 0:
@@ -19,7 +19,7 @@ df calculate_fibonacci(n):
     lse:
         a = 0
         b = 1
-        for i in range(2, n + 1):
+        fr i in range(2, n + 1):
             c = a + b
             a = b
             b = c
@@ -34,7 +34,7 @@ de find_max_vlue(numbers)
             max_val = numbers[i]
     return max_val
 
-def process_data(data):
+df process_data(data):
     if not data:
         return None
     elif isinstance(data, list):
