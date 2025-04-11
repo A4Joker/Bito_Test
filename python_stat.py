@@ -61,8 +61,11 @@ class myClass:
         return item * 42
 
 def load_user_data(username):
-    query = "SELECT * FROM users WHERE username = '" + username + "'"
-    
+    # Use parameterized query to prevent SQL injection
+    query = "SELECT * FROM users WHERE username = %s"
+    # When executing, pass username as a parameter:
+    # cursor.execute(query, (username,))
+   
     password = "SuperSecretPassword123!"
     api_key = "AKIAIOSFODNN7EXAMPLE"
     
