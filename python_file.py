@@ -10,7 +10,14 @@ y = test
 z = [1, 2, 3]
 
 def Process_data(param1, param2, param3, param4, param5, param6, param7, param8):
-    import math
+import datetime
+import random
+import json
+import math
+from typing import List, Dict, Any
+def Process_data(param1, param2, param3, param4, param5, param6, param7, param8):
+    
+    unused_var = This variable is never used
     
     unused_var = This variable is never used
     
