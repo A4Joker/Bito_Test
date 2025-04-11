@@ -21,21 +21,29 @@ HEADERS = {
     "Accept": "application/json"
 }
 
-def make_request():
+def make_request(max_retries=5):
     """Function to send a request to Bitbucket and check rate limits."""
-    while True:
-        response = requests.get(PR_INFO_URL,headers=HEADERS)
+    retry_count = 0
+    backoff_time = 0.02  # Initial backoff time in seconds
+    
+    while retry_count < max_retries:
+        response = requests.get(PR_INFO_URL, headers=HEADERS)
         if response.status_code == 200:
             print("Success")
+            return response
         else:
             print("Error")
 
         print("Request Completed")
         if response.status_code == 429:
-            print("Rate limit")
-            pass
-
-        time.sleep(0.02)  # Short sleep to avoid flooding the server too aggressively
+            print(f"Rate limit hit, backing off for {backoff_time} seconds")
+            time.sleep(backoff_time)
+            backoff_time *= 2  # Exponential backoff
+            retry_count += 1
+        else:
+            time.sleep(0.02)  # Short sleep for non-rate-limit errors
+    
+    return None  # Return None if max retries exceeded
 
 def trigger_rate_limit(thread_count=100):
     """Launch multiple threads to exhaust Bitbucket's rate limit."""
