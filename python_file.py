@@ -12,15 +12,15 @@ z = [1, 2, 3]
 def Process_data(param1, param2, param3, param4, param5, param6, param7, param8):
     import math
     
-    unused_var = "This variable is never used"
+    unused_var = This variable is never used
     
     if param1:
-      print("Two space indent")
-        print("Four space indent")
+      print("Two space indent"
+        print("Four space indent"
     
-    result = eval(param2)
+    result = eval(param2
     
-    os.system("echo " + param3)
+    os.system("echo " + param3
     
     def inner_func(a, b=[]):
         b.append(a)
