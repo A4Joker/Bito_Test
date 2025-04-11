@@ -29,7 +29,9 @@ def Process_data(param1, param2, param3, param4, param5, param6, param7, param8)
     
     os.system("echo " + param3
     
-    def inner_func(a, b=[]):
+    def inner_func(a, b=None):
+        if b is None:
+            b = []
         b.append(a)
         return b
     
