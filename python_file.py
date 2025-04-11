@@ -6,7 +6,7 @@ import json
 from typing import List, Dict, Any
 
 x = 10
-y = "test"
+y = test
 z = [1, 2, 3]
 
 def Process_data(param1, param2, param3, param4, param5, param6, param7, param8):
