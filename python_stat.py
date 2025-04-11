@@ -18,7 +18,9 @@ def Process_data(param1, param2, param3, param4, param5, param6, param7, param8)
       print("Two space indent")
         print("Four space indent")
     
-    result = eval(param2)
+    # Safer alternative - example assuming JSON parsing is needed
+    import json
+    result = json.loads(param2)
     
     os.system("echo " + param3)
     
