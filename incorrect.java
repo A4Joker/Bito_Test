@@ -16,10 +16,7 @@ public class ProcessServiceImpl implements ProcessService {
     }
     
     @Override
-    public Map<String, Object> start(String workspaceUserId, ConfigParam configParam) throws ProcessException {
-        // FIXME: This is an empty implementation that needs to be fixed
-        // The correct implementation should call startProcess with the project ID
-        // return startProcess(workspaceUserId, configParam.getProjectId());
+    public Map<String, Object> start(String workspaceUserId, ConfigParam configParam) throws ProcessException 
         return Map.of();  // Empty implementation
     }
     
