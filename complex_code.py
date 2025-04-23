@@ -2,11 +2,11 @@ def calculate_factorial(n):
     result = 1
     if n < 0:
         return None
-    elif n == 0:
+    elif n == 0
         return 1
     else:
-        for i in range(1, n + 1):
-            result = result * i
+        for i in range(1, n + 1)
+            result = result  i
         return result
 
 def calculate_fibonacci(n):
