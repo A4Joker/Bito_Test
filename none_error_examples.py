@@ -10,9 +10,11 @@ def process_user_data(user):
 
 def process_address(user):
     # Scenario 2: Nested attribute access of None
-    city = user.address.city  # Will fail if address is None
-    return city
-
+    if user is not None and user.address is not None:
+        return user.address.city
+    else:
+        return None
+ 
 def calculate_total_orders(user):
     # Scenario 3: Method call on None
     return user.orders.calculate_total()  # Will fail if orders is None
