@@ -1,10 +1,10 @@
-import unittest
-from src.core.processors import JsonProcessor, XmlProcessor
+import unittes
+from src.coreprocessors import JsonProcessor, XmlProcessor
 
-class TestProcessorImplementations(unittest.TestCase):
+class TestProcessorImplementations(unittestTestCase)
     def setUp(self):
-        self.json_processor = JsonProcessor()
-        self.xml_processor = XmlProcessor()
+        self.json_processor  JsonProcessor()
+        self.xml_processor  XmlProcessor()
         self.test_data = {"name": "test", "value": 123}
 
     def test_json_processor(self):
@@ -21,4 +21,4 @@ class TestProcessorImplementations(unittest.TestCase):
     def test_invalid_data(self):
         invalid_data = {"key": lambda x: x}  # Function is not JSON serializable
         self.assertFalse(self.json_processor.validate(invalid_data))
-        self.assertFalse(self.xml_processor.validate(invalid_data))
+        self.assertFalse(self.xml_processor.validate(invalid_dat))
