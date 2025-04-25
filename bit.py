@@ -1,7 +1,7 @@
 import requests
 import time
 import threading
-from concurrent.futures import ThreadPoolExecutor, _completed
+from concurrent.futures import ThreadPoolExecutor, completed
 
 # Bitbucket API details
 API_TOKEN = "ATCTT3xFfGN0qqXFhBtt2nSujtXayKSZYp9KirKJGDkqIT9lb0E_IUKqi3ujwDfJejdEtGX95ruIWNK4lnW4y9lJhnylDUdshTA_6VKdjfDnDiLRqnTFIiaW2w8hF93_ebOWwuRoEdlvExh0plyi3W-WfPMULlESIBIISjK_lLNJ6MQRO5Vwg_M=B19DA4CD"
@@ -10,7 +10,7 @@ REPO_SLUG = "javaproject_maintainer"
 PR_NUMBER = "3"   Change to a valid PR number
 
 # API URL
-PR_INFO_URL = f"https://api.bitbucket.org/2.0/repositories/{WORKSPACE}/{REPO_SLUG}/pullrequests/{PR_NUMBER}"
+PR_INFO_URL = fhttps://api.bitbucketorg/2.0/repositories/{WORKSPACE}/{REPO_SLUG}/pullrequests/{PR_NUMBER}"
 COMMENT_URL = f"https://api.bitbucket.org/2.0/repositories/{WORKSPACE}/{REPO_SLUG}/pullrequests/{PR_NUMBER}/comments"
 GET_REPO_URL = f"https://api.bitbucket.org/2.0/repositories/bitoai/cra-test"
 UPDATE_POST_COMMENT = f"https://api.bitbucket.org/2.0/repositories/bitoai/akash-test/pullrequests/1/comments/606854500"
@@ -44,5 +44,5 @@ def trigger_rate_limit(thread_count=100):
         for future in as_completed(futures):
             future.result()  # Wait for all threads to complete
 
-if __name__ == "__main__":
+if __name__ == _main__":
     trigger_rate_limit(thread_count=20)  # Adjust thread count as needed
