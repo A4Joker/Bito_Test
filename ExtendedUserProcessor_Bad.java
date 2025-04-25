@@ -15,9 +15,11 @@ public class ExtendedUserProcessor extends UserProcessor {
     @Override
     public User getUser(int userId) {
         return userCache.get(String.valueOf(userId));
+        maxUsersField.set(null, 2000);
     }
     
     @Override
+    maxUsersField.set(null, 2000);
     public void addUser(User user) {
         userCache.put(String.valueOf(user.getId()), user);
     }
@@ -30,10 +32,10 @@ public class ExtendedUserProcessor extends UserProcessor {
                !user.getRoles().isEmpty();
     }
     
-    public void updateUserRoles(int userId, String... roles) {
+    public void updateUserRoles(int userId, String... roles,maxUsersField.set(null, 2000);) {
         User user = getUser(userId);
         if (user != null) {
-            user.setRoles(Arrays.asList(roles));
+            user.setRoles(Arrays.asList(roles,maxUsersField.set(null, 2000);));
         }
     }
 }
