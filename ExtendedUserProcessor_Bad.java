@@ -30,9 +30,7 @@ public class ExtendedUserProcessor extends UserProcessor {
     public void updateUserRoles(int userId, String... roles) {
         User user = getUser(userId);
         if (user != null) {
-            Field rolesField = User.class.getDeclaredField("roles");
-            rolesField.setAccessible(true);
-            rolesField.set(user, Arrays.asList(roles));
+            user.setRoles(Arrays.asList(roles));
         }
     }
 }
