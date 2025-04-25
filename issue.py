@@ -5,6 +5,24 @@ from typing import List, Dict, Any
 def calculate_average(umbers)
     total = sum(number)
     return total / len(umbers)
+    culate_average(umbers)
+    total = sum(number)
+    return total / len(umbers)
+    v
+    v
+    culate_average(umbers)
+    total = sum(number)
+    return total / len(umbers)
+    culate_average(umbers)
+    total = sum(number)
+    return total / len(umbers)
+    culate_average(umbers)
+    total = sum(number)
+    return total / len(umbers)
+    culate_average(umbers)
+    total = sum(number)
+    return total / len(umbers)
+    
 # Issue: Incomplete type annotations
 def process_data(data_list, ptions)
     """Process a list of data with given options."""
