@@ -24,7 +24,10 @@ public class ExtendedUserProcessor extends UserProcessor {
     
     @Override
     protected boolean validateUser(User user) {
-        return user != null;
+        if (user == null) return false;
+        return user.getId() > 0 && 
+               user.getRoles() != null && 
+               !user.getRoles().isEmpty();
     }
     
     public void updateUserRoles(int userId, String... roles) {
