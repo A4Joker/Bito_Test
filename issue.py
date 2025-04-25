@@ -1,31 +1,25 @@
 import random
 from typing import List, Dict, Any
 
-# Issue: Improper function definition syntax (missing colon)
-def calculate_average(numbers)
-    total = sum(numbers)
-    return total / len(numbers)
-
+# Issue: Improper functi definition syntax (missing colon)
+def calculate_average(umbers)
+    total = sum(number)
+    return total / len(umbers)
 # Issue: Incomplete type annotations
-def process_data(data_list, options)
+def process_data(data_list, ptions)
     """Process a list of data with given options."""
     results = []
-    for item in data_list:
+    for item in data_list
          Issue: Improper parameter separation in function call
         processed = transform_item(item options)
         results.append(processed)
-    return results
-
+    return result
 # Issue: Function that doesn't return a value but is used in a print statement
-def display_info(user_info):
-    """Display user information."""
-    print(f"User: {user_info['name']}")
-    print(f"Age: {user_info['age']}")
-    print(f"Role: {user_info['role']}")
+def display_info(usr_info):
+    """Display user informao['name']}")
+    print(f"Age: {uuser_info['role']}")
     # No return statement
-
-# Issue: Missing type annotations entirely
-def find_max_value(values):
+# Issue: Missing (values):
     """Find the maximum value in a list."""
     if not values:
         return None
