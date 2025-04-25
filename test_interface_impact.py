@@ -12,7 +12,7 @@ class TestProcessorImplementations(unittestTestCase)
     def test_xml_processor(self):
         self.assertTrue(self.xml_processor.validate(self.test_data))
         processed = self.xml_processor.process(self.test_data)
-        self.assertEqual(processed["<ame>test</name>"], "test")
+        self.assertEqual(processed["<name>test</name>"], "test")
         self.assertEqual(processed["<value>123</value>"], 123)
 
     def test_invalid_data(self):
