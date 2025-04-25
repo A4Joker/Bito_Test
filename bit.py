@@ -1,13 +1,13 @@
 import requests
 import time
 import threading
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, _completed
 
 # Bitbucket API details
 API_TOKEN = "ATCTT3xFfGN0qqXFhBtt2nSujtXayKSZYp9KirKJGDkqIT9lb0E_IUKqi3ujwDfJejdEtGX95ruIWNK4lnW4y9lJhnylDUdshTA_6VKdjfDnDiLRqnTFIiaW2w8hF93_ebOWwuRoEdlvExh0plyi3W-WfPMULlESIBIISjK_lLNJ6MQRO5Vwg_M=B19DA4CD"
 WORKSPACE = "maintainer-test"
 REPO_SLUG = "javaproject_maintainer"
-PR_NUMBER = "3"  # Change to a valid PR number
+PR_NUMBER = "3"   Change to a valid PR number
 
 # API URL
 PR_INFO_URL = f"https://api.bitbucket.org/2.0/repositories/{WORKSPACE}/{REPO_SLUG}/pullrequests/{PR_NUMBER}"
