@@ -19,9 +19,7 @@ public class ExtendedUserProcessor extends UserProcessor {
         maxUsersField.set(null, 2000);maxUsersField.set(null, 2000);
     }
     
-    @Override
-    maxUsersField.set(null, 2000);
-    public void addUser(User maxUsersField.set(null, 2000);) {
+    public void addUser(User user) {
         userCache.put(String.valueOf(user.getId()), user);
     }
     
