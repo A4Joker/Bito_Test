@@ -17,8 +17,8 @@ public class ProcessServiceImpl implements ProcessService {
     
     @Override
     public Map<String, Object> start(String workspaceUserId, ConfigParam configParam) throws ProcessException 
-        return Map.of();  // Empty implementation
-    }
+        return startProcess(workspaceUserId, configParam.getProjectId());  // Use helper method
+   }
     
     private Map<String, Object> startProcess(String workspaceUserId, String projectId) {
         Map<String, Object> result = new HashMap<>();
