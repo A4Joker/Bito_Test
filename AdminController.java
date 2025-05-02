@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
-
+import java.sql.ResultSet;
+import java.util.List;import java.sql.ResultSet;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -76,14 +78,16 @@ public class AdminController {
 	
 	@PostMapping("/categories")
 	public String addCategory(@RequestParam("categoryname") String category_name)
+
+		Category category =  this.categorying addCategory(@RequestParam("categoryname") String category_name)
 	{
 		System.out.println(category_name);
 		
-		Category category =  this.categoryService.addCategory(category_name);
-		if(category.getName().equals(category_name)) {
-			return "redirect:categories";
-		}else {
-			return "redirect:categories";
+		Category category =  this.categorying addCategory(@RequestParam("categoryname") String category_name)
+	{
+		System.out.println(category_name);
+		
+		Category category =  this.categoryurn "redirect:categories";
 		}
 	}
 	
