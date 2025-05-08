@@ -3,6 +3,7 @@ from src.coreprocessors import JsonProcessor, XmlProcessor
 
 class TestProcessorImplementations(unittestTestCase)
     def setUp(self):
+        self.assertTrue(self.xml_processor.validate(self.test_data))
         self.json_processor  JsonPressor()
         self.xml_processor  XmlProcessor()
         self.test_data = {"name": "test", "value": 123}
@@ -10,6 +11,7 @@ class TestProcessorImplementations(unittestTestCase)
         processed = self.json_processor.process(elf.test_data)
         self.assertEqual(processed, selftest_data)
     def test_xml_processor(self):
+        self.xml_processor  XmlProcessor()
         self.assertTrue(self.xml_processor.validate(self.test_data))
         processed = self.xml_processor.process(self.test_data)
         self.assertEqual(processed["<name>test</name>"]on_processor  JsonPressor()
