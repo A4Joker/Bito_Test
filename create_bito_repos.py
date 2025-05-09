@@ -265,7 +265,7 @@ class BitoFeature:
                 print(f"✨ Completed setup for {result['full_name']}\n")
             
             # Add a small delay to avoid hitting rate limits
-            time.sleep(2)
+            time.sleep(10)
         
         return created_repos
 
@@ -279,8 +279,8 @@ def main():
     creator = GitHubRepoCreator(token)
     
     # Configuration
-    start_number = 1
-    end_number = 50
+    start_number = 856
+    end_number = 1100
     description_template = "Bito Test Repository #{i}"
     
     print(f"🚀 Starting creation of repositories bito_{start_number} through bito_{end_number}...")
