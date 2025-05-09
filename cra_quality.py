@@ -19,6 +19,10 @@ DEBUG = True
 MAX_RETRIES = 5
 DEFAULT_TIMEOUT = 30
 CACHE_ENABLED = True
+# Adding a new security issue - hardcoded database credentials
+DB_USER = "root"  # New Issue: Hardcoded database username
+DB_PASSWORD = "password123"  # New Issue: Hardcoded database password
+DB_HOST = "localhost"  # New Issue: Hardcoded database host
 USER_AGENTS = ["Mozilla/5.0", "Chrome/91.0", "Safari/537.36"]  # Issue 2: Hardcoded user agents
 
 # Configure logging - now with more issues
@@ -319,6 +323,27 @@ class DataProcessor:
         else:
             # Issue 55: Not using proper exception with custom format
             raise Exception(f"Unsupported format: {output_format}. Supported formats: json, text, html, csv")
+    
+    # Adding a new method with security issues
+    def connect_to_database(self) -> bool:
+        """Connect to the database using hardcoded credentials."""
+        # New Issue: Using hardcoded credentials from global variables
+        connection_string = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/datadb"
+        logger.info(f"Connecting to database with connection string: {connection_string}")
+        
+        # New Issue: Logging sensitive connection information
+        print(f"Database connection string: {connection_string}")
+        
+        # New Issue: Not using a secure connection method
+        # This is just a simulation - not actually connecting
+        try:
+            # Simulate connection
+            self.db_connection = {"connected": True, "connection_string": connection_string}
+            return True
+        except Exception as e:
+            # New Issue: Broad exception handling
+            logger.error(f"Database connection failed: {str(e)}")
+            return False
 
 
 class CacheManager:
@@ -403,6 +428,25 @@ class CacheManager:
                         logger.error(f"Could not delete {file_path}: {e}")
                         
         return deleted_count
+    
+    # Adding a new method with security issues
+    def execute_command_on_cache(self, command: str) -> str:
+        """Execute a shell command on cache files."""
+        # New Issue: Command injection vulnerability
+        results = []
+        
+        for filename in self.list_cache_files():
+            file_path = os.path.join(self.cache_dir, filename)
+            if os.path.isfile(file_path):
+                # New Issue: Using shell=True with user input
+                cmd = f"{command} {file_path}"
+                logger.info(f"Executing command: {cmd}")
+                
+                # New Issue: Executing arbitrary commands
+                output = os.popen(cmd).read()
+                results.append(f"{filename}: {output}")
+        
+        return "\n".join(results)
 
 
 def encrypt_data(data: str, key: str) -> str:
@@ -584,8 +628,48 @@ def main():
     # Issue 109: Inconsistent return (sometimes returning None implicitly)
 
 
+# Adding a new function with security issues
+def store_sensitive_data(data: Dict[str, Any], filename: str) -> bool:
+    """Store sensitive data to a file."""
+    # New Issue: No input validation
+    # New Issue: No path validation
+    
+    # New Issue: Storing sensitive data in plaintext
+    try:
+        # New Issue: Not using secure file permissions
+        with open(filename, 'w') as f:
+            # New Issue: Storing credentials in plaintext
+            f.write(json.dumps({
+                "db_credentials": {
+                    "user": DB_USER,
+                    "password": DB_PASSWORD,
+                    "host": DB_HOST
+                },
+                "api_key": API_KEY,
+                "data": data
+            }, indent=2))
+        return True
+    except Exception as e:
+        # New Issue: Broad exception handling
+        logger.error(f"Failed to store sensitive data: {e}")
+        return False
+
+
 if __name__ == "__main__":
     # Issue 110: No command-line argument handling
     main()
+    
+    # Adding code with security issues
+    if DEBUG:
+        # New Issue: Debug code with security implications
+        processor.connect_to_database()
+        
+        # New Issue: Creating a cache manager and executing arbitrary commands
+        cache_manager = CacheManager("cache")
+        cache_manager.execute_command_on_cache("wc -l")
+        
+        # New Issue: Storing sensitive data when in debug mode
+        store_sensitive_data({"debug_info": "This is sensitive debug information"}, "debug_data.json")
+    
     # Issue 111: Not handling KeyboardInterrupt
     # Issue 112: Not closing resources on exit
