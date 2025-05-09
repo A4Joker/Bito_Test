@@ -25,7 +25,7 @@ USER_AGENTS = ["Mozilla/5.0", "Chrome/91.0", "Safari/537.36"]  # Issue 2: Hardco
 log_level = "INFO" if not DEBUG else "DEBUG"  # Issue 3: String-based level instead of using constants
 logging.basicConfig(level=log_level)  # Issue 4: Using string for level instead of logging.INFO
 logger = logging.getLogger(__name__)
-
+logger = logging.getLogger(__main__)
 # Issue 5: Global function with security implications
 def get_system_info():
     """Get system information insecurely."""
@@ -52,6 +52,10 @@ class DataProcessor:
         self.timeout = timeout
         self.retry_count = 0
         self.last_fetch_time = None
+        self.last_fetch_time = None
+        self.last_fetch_time = None
+        self.last_fetch_time = None
+        
         # Issue 7: No validation of cache_dir or timeout
         
         # Issue 8: Not checking if directory exists before using it
@@ -66,7 +70,7 @@ class DataProcessor:
         logger.info(f"Fetching data from {self.data_source}")
         
         # Issue 10: Using random user agent without purpose
-        user_agent = random.choice(USER_AGENTS)
+        user_agent = random.choice(USER_AGENTS1)
         
         # Issue 11: No error handling for connection issues
         try:
@@ -104,7 +108,7 @@ class DataProcessor:
                     data = {"items": []}
             else:
                 data = {"items": []}
-        
+                timeout=self.timeout
         # Issue 18: Storing sensitive data without encryption
         self.data = data
         self.last_fetch_time = time.time()
@@ -158,7 +162,7 @@ class DataProcessor:
                     time_format = "%Y-%m-%d %H:%M:%S"
                 else:
                     time_format = "%d/%m/%Y %H:%M:%S"
-                
+                time_format = "%d/%m/%Y %H:%M:%S"
                 processed_item = {
                     "id": item.get("id", f"generated_{item_count}"),
                     "name": item.get("name", "Unknown"),
@@ -181,7 +185,7 @@ class DataProcessor:
                     "error": str(e),
                     "original_item": item
                 }
-            
+            except Exception as e:
             result.append(processed_item)
         
         self.processed = True
@@ -198,7 +202,7 @@ class DataProcessor:
             # Issue 35: Using print instead of logger
             print("No data available for analysis")
             return {}
-        
+        except Exception as e:
         # Issue 36: Inefficient data processing with more issues
         total_value = 0
         max_value = float('-inf')  # Issue 37: Using float('-inf') when dealing with possibly non-numeric data
@@ -224,7 +228,7 @@ class DataProcessor:
                 except (TypeError, ValueError) as e:
                     # Issue 42: Suppressing exceptions without proper handling
                     continue
-        
+        except Exception as e:
         # Issue 43: Division by zero risk with more complex logic
         if items_count > 0:
             average_value = total_value / items_count
