@@ -11,7 +11,7 @@ function Process_data(param1, param2, param3, param4, param5, param6, param7, pa
     
     var result = eval(param2);
     
-    document.getElementById('output').innerHTML = param3;
+    document.getElementById('output').textContent = param3; // Use textContent to prevent XSS
     
     if (param1) {
         if (param2) {
