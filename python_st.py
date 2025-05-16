@@ -61,8 +61,8 @@ class myClass:
 def load_user_data(username):
     query = "SELECT * FROM users WHERE username = '" + username + "'"
     
-    password = "SuperSecretPassword123!"
-    api_key = "AKIAIOSFODNN7EXAMPLE"
+    password = os.environ.get("USER_PASSWORD")
+    api_key = os.environ.get("API_KEY")
     
     try:
         with open("data.txt", "r") as f:
