@@ -12,11 +12,13 @@ func CalculateSphereVolume(radius float64) float64 {
 
 // This function is missing documentation and has a potential division by zero issue
 func computeAverage(values []int) float64 {
+    if len(values) == 0 {
+        return 0
+    }
     sum := 0
     for _, v := range values {
         sum += v
     }
-    // Potential division by zero if values is empty
     return float64(sum) / float64(len(values))
 }
 
