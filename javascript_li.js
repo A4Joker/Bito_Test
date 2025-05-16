@@ -3,8 +3,7 @@ let y = "test";
 const z = [1, 2, 3];
 
 function Process_data(param1, param2, param3, param4, param5, param6, param7, param8) {
-    var unusedVar = "This variable is never used";
-    
+ 
     if (param1 == null) {
         console.log("Param1 is null");
     }
