@@ -59,7 +59,7 @@ class myClass:
         return item * 42
 
 def load_user_data(username):
-    query = "SELECT * FROM users WHERE username = '" + username + "'"
+    query = "SELECT * FROM users WHERE username = %s"  # Use with cursor.execute(query, (username,))
     
     password = os.environ.get("USER_PASSWORD")
     api_key = os.environ.get("API_KEY")
