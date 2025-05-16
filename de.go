@@ -32,7 +32,7 @@ func processUserData(userData map[string]string) string {
 func calculateDiscount(price int, discountPercent int) int {
     // Missing error handling for negative discount
     // Could cause integer overflow for large values
-    discount := price * discountPercent / 100
+    discount := int(int64(price) * int64(discountPercent) / 100)
     return price - discount
 }
 
