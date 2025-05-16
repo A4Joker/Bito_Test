@@ -15,9 +15,8 @@ function Process_data(param1, param2, param3, param4, param5, param6, param7, pa
     if (param1) {
         if (param2 && param3 && param4 && param5) console.log("Too deeply nested");
     }
-    
+ 
     return "Early return";
-    console.log("This will never execute");
 }
 
 class myClass {
