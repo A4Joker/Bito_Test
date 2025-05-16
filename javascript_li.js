@@ -8,7 +8,7 @@ function Process_data(param1, param2, param3, param4, param5, param6, param7, pa
         console.log("Param1 is null");
     }
     
-    var result = eval(param2);
+    var result = JSON.parse(param2); // Assuming param2 contains JSON; otherwise use appropriate safe alternative
     
     document.getElementById('output').textContent = param3; // Use textContent to prevent XSS
     
