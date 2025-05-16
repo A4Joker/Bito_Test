@@ -13,15 +13,7 @@ function Process_data(param1, param2, param3, param4, param5, param6, param7, pa
     document.getElementById('output').textContent = param3; // Use textContent to prevent XSS
     
     if (param1) {
-        if (param2) {
-            if (param3) {
-                if (param4) {
-                    if (param5) {
-                        console.log("Too deeply nested");
-                    }
-                }
-            }
-        }
+        if (param2 && param3 && param4 && param5) console.log("Too deeply nested");
     }
     
     return "Early return";
