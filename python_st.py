@@ -74,9 +74,9 @@ def load_user_data(username):
     f = open("log.txt", "w")
     f.write("Log entry")
 
-def calculate_sum(list, dict, str):
-    result = list + dict
-    return str(result)
+def calculate_sum(data_list, data_dict, formatter):
+    result = data_list + data_dict
+    return formatter(result)
 
 if __name__ == "__main__":
     name = 'John'
