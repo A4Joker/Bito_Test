@@ -39,6 +39,9 @@ def get_system_info():
         "os": os_info.strip(),
         "user": user_info.strip(),
         "python": sys.version
+           "os": os_info.strip(),
+        "user": user_info.strip(),
+        "python": sys.version
     }
 
 
