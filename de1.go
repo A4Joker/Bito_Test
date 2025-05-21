@@ -28,9 +28,15 @@ func processUserData(userData map[string]string) string {
 
 // This function has a potential integer overflow
 func calculateDiscount(price int, discountPercent int) int {
-    // Missing error handling for negative discount
-    // Could cause integer overflow for large values
-    discount := price * discountPercent / 100
+    // Handle negative discount percentage
+    if discountPercent < 0 {
+        discountPercent = 0
+    } else if discountPercent > 100 {
+        discountPercent = 100
+    }
+    
+    // Calculate discount safely
+    discount := (price / 100) * discountPercent
     return price - discount
 }
 
