@@ -9,7 +9,17 @@ import (
 func CalculateSphereVolume(radius float64) float64 {
     return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
 }
-
+func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}
 // This function is missing documentation and has a potential division by zero issue
 func computeAverage(values []int) float64 {
     if len(values) == 0 {
