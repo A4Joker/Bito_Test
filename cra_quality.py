@@ -655,7 +655,78 @@ def store_sensitive_data(data: Dict[str, Any], filename: str) -> bool:
         # New Issue: Broad exception handling
         logger.error(f"Failed to store sensitive data: {e}")
         return False
-
+def process_items(self, items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Process a list of items with various transformations."""
+        # Issue 21: No input validation
+        if items is None:
+            # Issue 22: Returning empty list instead of raising exception for None input
+            return []
+            
+        result = []
+        
+        # Issue 23: Unnecessary counter variable
+        item_count = 0
+        
+        for item in items:
+            item_count += 1
+            
+            # Issue 24: Using exec with potentially unsafe input
+            if "custom_processing" in item and DEBUG:
+                # Issue 25: Even more dangerous exec with locals() and globals()
+                exec(item["custom_processing"], globals(), locals())
+            
+            # Issue 26: Inefficient string concatenation in loop
+            output = ""
+            for key, value in item.items():
+                output = output + str(key) + ": " + str(value) + ", "
+            
+            # Issue 27: Not handling potential KeyError with more complex logic
+            try:
+                # Issue 28: Complex and error-prone value calculation
+                if "value" in item and isinstance(item["value"], (int, float)):
+                    calculated_value = item["value"] * 2
+                else:
+                    # Issue 29: Using eval for type conversion
+                    calculated_value = eval(f"float('{item.get('value', '0')}')")
+                
+                # Issue 30: Inconsistent datetime formatting
+                current_time = datetime.datetime.now()
+                if item_count % 2 == 0:
+                    time_format = "%Y-%m-%d %H:%M:%S"
+                else:
+                    time_format = "%d/%m/%Y %H:%M:%S"
+                
+                processed_item = {
+                    "id": item.get("id", f"generated_{item_count}"),
+                    "name": item.get("name", "Unknown"),
+                    "value": calculated_value,
+                    "processed_at": current_time.strftime(time_format),
+                    "summary": output,
+                    # Issue 31: Adding unnecessary and potentially large data
+                    "processing_metadata": {
+                        "processor_id": id(self),
+                        "timestamp": time.time(),
+                        "random_factor": random.random(),
+                        "system_info": get_system_info() if DEBUG else {}
+                    }
+                }
+            except Exception as e:
+                # Issue 32: Catching generic Exception and creating default item
+                logger.error(f"Error processing item {item_count}: {str(e)}")
+                processed_item = {
+                    "id": f"error_{item_count}",
+                    "error": str(e),
+                    "original_item": item
+                }
+            
+            result.append(processed_item)
+        
+        self.processed = True
+        
+        # Issue 33: Unnecessary sorting that could be expensive for large datasets
+        result.sort(key=lambda x: str(x.get("id", "")))
+        
+        return result
 
 if __name__ == "__main__":
     # Issue 110: No command-line argument handling
