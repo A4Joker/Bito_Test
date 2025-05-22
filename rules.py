@@ -110,7 +110,7 @@ def process_batch(file_list,output_dir):
     return len(results)
 
 def cleanup():
-    """Cleanup resources."""
+    """Cleanup resources."""#
     # Attempt to close global file but without error checking
     global_file.close()
 
