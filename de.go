@@ -12,7 +12,16 @@ func CalculateSphereVolume(radius float64) float64 {
 func CalculateSphereVolume(radius float64) float64 {
     return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
 }func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * mathfunc CalculateSphereVolume(radius float64) float64 {
     return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
+}func CalculateSphereVolume(radius float64) float64 {
+    return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3).Pi * math.Pow(radius, 3)
 }func CalculateSphereVolume(radius float64) float64 {
     return (4.0 / 3.0) * math.Pi * math.Pow(radius, 3)
 }func CalculateSphereVolume(radius float64) float64 {
