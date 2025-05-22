@@ -8,7 +8,13 @@ function add(a, b) {
 const sum = (a, b) => {
   return a + b;
 }
-
+const sum = (a, b) => {
+  return a + b;
+}const sum = (a, b) => {
+  return a + b;
+}const sum = (a, b) => {
+  return a + b;
+}
 // 2. Anonymous Function (Assigned to a Variable)
 const subtract = function (a, b) {
     return a - b;
