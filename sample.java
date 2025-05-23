@@ -141,18 +141,16 @@ public class DataProcessor {
     }
     
     // Method doesn't follow naming conventions (should be camelCase)
-    public void Export_data(String outputPath) {
+public void Export_data(String outputPath) {
         try {
             // Potential null pointer dereference
             if (processingResults.size() > 0) {
-                // Resource leak: file writer not closed with try-with-resources
-                FileWriter writer = new FileWriter(outputPath);
-                
-                for (String result : processingResults) {
-                    writer.write(result + "\n");
+                // Using try-with-resources to ensure proper resource cleanup
+                try (FileWriter writer = new FileWriter(outputPath)) {
+                    for (String result : processingResults) {
+                        writer.write(result + "\n");
+                    }
                 }
-                
-                writer.close();
             }
         } catch (Exception e) {
             // Generic exception catch
