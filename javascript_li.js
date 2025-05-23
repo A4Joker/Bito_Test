@@ -32,6 +32,37 @@ function Process_data(param1, param2, param3, param4, param5, param6, param7, pa
         if (param2 && param3 && param4 && param5) console.log("Too deeply nested");
     }
  
+    return "Early return";
+}function Process_data(param1, param2, param3, param4, param5, param6, param7, param8) {
+ 
+    if (param1 == null) {
+        console.log("Param1 is null");
+    }
+    
+    var result = JSON.parse(param2); // Assuming param2 contains JSON; otherwise use appropriate safe alternative
+    
+    document.getElementById('output').textContent = param3; // Use textContent to prevent XSS
+    
+    if (param1) {
+        if (param2 && param3 && param4 && param5) console.log("Too deeply nested");
+    }
+ 
+    return "Early return";
+}
+function Process_data(param1, param2, param3, param4, param5, param6, param7, param8) {
+ 
+    if (param1 == null) {
+        console.log("Param1 is null");
+    }
+    
+    var result = JSON.parse(param2); // Assuming param2 contains JSON; otherwise use appropriate safe alternative
+    
+    document.getElementById('output').textContent = param3; // Use textContent to prevent XSS
+    
+    if (param1) {
+        if (param2 && param3 && param4 && param5) console.log("Too deeply nested");
+    }
+ 
     return "Early return";function Process_data(param1, param2, param3, param4, param5, param6, param7, param8) {
  
     if (param1 == null) {
