@@ -27,6 +27,31 @@ def Process_data(param1, param2, param3, param4, param5, param6, param7, param8)
         return b
     
     return "Early return"
+    def inner_func(a, b=[]):
+        b.append(a)
+        return b
+    
+    return "Early return"
+    def inner_func(a, b=[]):
+        b.append(a)
+        return b
+    
+    return "Early return"
+    def inner_func(a, b=[]):
+        b.append(a)
+        return b
+    
+    return "Early return"
+    def inner_func(a, b=[]):
+        b.append(a)
+        return b
+    
+    return "Early return"
+    def inner_func(a, b=[]):
+        b.append(a)
+        return b
+    
+    return "Early return"
     print("This will never execute")
 
 class myClass:
