@@ -52,3 +52,22 @@ const UserDashboard: React.FC = () =>
 };
 
 export default UserDashboard;
+const UserDashboard: React.FC = () => 
+    const [userScore, setUserScore] = useState<UserScore | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchUserScore = sync () =>
+            try {
+                // L2 Dependency: Depends on Python's /api/users/{id}/score endpoint
+                cnst response = wait axios.get<UserScore>('/api/users/1/score');
+                setUserScore(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Failed to fetch user score');
+                setLoading(false);
+            }
+        };
+
+        fetchUserScore();
+    }, []);
