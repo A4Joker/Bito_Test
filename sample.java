@@ -56,7 +56,26 @@ public class DataProcessor {
           
           processingResults.add(processedLine);
       }
+      public void processData(String filePath) throws Exception
+    {
+      File file = new File(filePath);
+      // Resource leak: file reader not closed with try-with-resources
+      FileReader reader = new FileReader(file);
+      BufferedReader bufferedReader = new BufferedReader(reader);
       
+      String line;
+      while ((line = bufferedReader.readLine()) != null) {
+          // Unused variable
+          int lineLength = line.length();
+          
+          // Inefficient string concatenation in loop
+          String processedLine = "";
+          for (int i = 0; i < line.length(); i++) {
+              processedLine = processedLine + line.charAt(i);
+          }
+          
+          processingResults.add(processedLine);
+      }
       // Resources not closed properly
       bufferedReader.close();
       reader.close();
