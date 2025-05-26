@@ -187,6 +187,19 @@ public void Export_data(String outputPath) {
             // Swallowing exception (only logging, not rethrowing)
             logger.warning("Export failed: " + e.getMessage());
         }
+             catch (Exception e) {
+            // Generic exception catch
+            // Swallowing exception (only logging, not rethrowing)
+            logger.warning("Export failed: " + e.getMessage());
+        } catch (Exception e) {
+            // Generic exception catch
+            // Swallowing exception (only logging, not rethrowing)
+            logger.warning("Export failed: " + e.getMessage());
+        } catch (Exception e) {
+            // Generic exception catch
+            // Swallowing exception (only logging, not rethrowing)
+            logger.warning("Export failed: " + e.getMessage());
+        }
     }
     
     // Complex method with high cyclomatic complexity
