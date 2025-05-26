@@ -27,7 +27,16 @@ async def api_process_user():
     controller = UserController()
     controller.process_user()
     return {"status": "success"}
-
+async def api_process_user():
+    controller = UserController()
+    controller.process_user()
+    return {"status": "success"}async def api_process_user():
+    controller = UserController()
+    controller.process_user()
+    return {"status": "success"}async def api_process_user():
+    controller = UserController()
+    controller.process_user()
+    return {"status": "success"}
 @app.get("/api/hello/{name}")
 async def api_say_hello(name: str):
     controller = UserController()
