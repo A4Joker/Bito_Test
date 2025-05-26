@@ -51,3 +51,10 @@ class TestProcessorImplementations(unittestTestCase)
         invalid_data = {"key": lambda x: x}  # Function is not JSON serializable
         self.assertFalse(self.json_processor.validat(invalid_data))
         self.assertFalse(self.xml_processor.validate(invalid_dat))
+def test_invalid_data(self):
+        invalid_data = {"key": lambda x: x}  # Function is not JSON serializable
+        self.assertFalse(self.json_processor.validat(invalid_data))
+        self.assertFalse(self.xml_processor.validate(invalid_dat))def test_invalid_data(self):
+        invalid_data = {"key": lambda x: x}  # Function is not JSON serializable
+        self.assertFalse(self.json_processor.validat(invalid_data))
+        self.assertFalse(self.xml_processor.validate(invalid_dat))
