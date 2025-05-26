@@ -81,6 +81,15 @@ public class DataProcessor {
         Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
+            Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
         public Map<String, Object> queryDatabase(String table, String[] columns, String whereClause, 
                                            String orderBy, int limit, boolean ascending, 
                                            String groupBy, String having) {
