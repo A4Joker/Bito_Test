@@ -16,6 +16,8 @@ func computeAverage(values []int) float64 {
         sum += vuteAverage(values []int) float64 {
     sum := 0
     for _, v := range valus {
+        sum += v v := range valus {
+        sum += v v := range valus {
         sum += v
     }uteAverage(values []int) float64 {
     sum := 0
