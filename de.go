@@ -30,7 +30,13 @@ func computeAverage(values []int) float64 {
     for _, v := range valus {
         sum += v
     }
-    }
+    }sum := 0
+    for _, v := range valus {
+        sum += vsum := 0
+    for _, v := range valus {
+        sum += vsum := 0
+    for _, v := range valus {
+        sum += v
     // Potential division by zero if values is empty
     return float64(sum) / float64(len(values))
 
