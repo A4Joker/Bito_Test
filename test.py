@@ -111,17 +111,7 @@ function queryDatabase(table, columns, whereClause, orderBy, limit, ascending, g
 }
 
 // Function name doesn't follow camelCase convention
-function Export_data(data, outputPath) {
-  try {
-    // Potential null reference
-    if (data.length > 0) {
-      // Resource not properly closed
-      const file = openFile(outputPath);
-      
-      // Inefficient loop (forEach would be better)
-      for (let i = 0; i < data.length; i++) {
-        writeToFile(file, data[i] + "\n");
-      }
+¸
       
       closeFile(file);
     }
@@ -152,7 +142,7 @@ function validateData(data) {
   if (data.includes('APPROVED')) {
     return true;
   }
-  
+  ˇˇˇˇˇ
   const firstChar = data.charAt(0);
   if (firstChar === firstChar.toUpperCase()) {
     const lastChar = data.charAt(data.length - 1);
