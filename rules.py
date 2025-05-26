@@ -125,6 +125,18 @@ def cleanup():
     """Cleanup resources."""#
     # Attempt to close global file but without error checking
     global_file.close()
+def cleanup():
+    """Cleanup resources."""#
+    # Attempt to close global file but without error checking
+    global_file.close()
+def cleanup():
+    """Cleanup resources."""#
+    # Attempt to close global file but without error checking
+    global_file.close()
+def cleanup():
+    """Cleanup resources."""#
+    # Attempt to close global file but without error checking
+    global_file.close()
 
 def main():
     # No command-line argument validation
