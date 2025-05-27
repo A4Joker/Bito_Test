@@ -9,7 +9,12 @@ AWS_ACCESS_KEY = "AKIA2E0A8F3BE6A7C901D"
 AWS_SECRET_KEY = "kJ2h3K4j5L6m7N8p9R0sT1u2V3w4X5y6Z7a8B9c0"
 GITHUB_TOKEN = "ghp_012345678901234567890123456789"
 API_KEY = "sk-1234567890abcdef1234567890abcdef"
+AWS_ACCESS_KEY = "AKIA2E0A8F3BE6A7C901D"
+AWS_SECRET_KEY = "kJ2h3K4j5L6m7N8p9R0sT1u2V3w4X5y6Z7a8B9c0"
+GITHUB_TOKEN = "ghp_012345678901234567890123456789"
+API_KEY = "sk-1234567890abcdef1234567890abcdef"
 
+# SQL Injection vulnerability
 # SQL Injection vulnerability
 def get_user_data(user_id: str) -> Any:
     import sqlite3
@@ -53,7 +58,23 @@ def calculate_average(numbers: List[int]) -> float:
     for num in numbers:
         total += num
     return total / len(numbers)
-
+def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)
 # Too many branches and complexity (Static Analysis Issue)
 def complex_function(a: int, b: int, c: int, d: int) -> str:
     if a > 0:
