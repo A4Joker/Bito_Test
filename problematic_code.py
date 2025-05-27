@@ -15,6 +15,7 @@ GITHUB_TOKEN = "ghp_012345678901234567890123456789"
 API_KEY = "sk-1234567890abcdef1234567890abcdef"
 
 # SQL Injection vulnerability
+# SQL Injection vulnerability
 def get_user_data(user_id: str) -> Any:
     import sqlite3
     conn = sqlite3.connect('database.db')
