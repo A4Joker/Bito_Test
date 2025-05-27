@@ -53,7 +53,23 @@ def calculate_average(numbers: List[int]) -> float:
     for num in numbers:
         total += num
     return total / len(numbers)
-
+def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)def calculate_average(numbers: List[int]) -> float:
+    total: int = 0  # Wrong type annotation
+    for num in numbers:
+        total += num
+    return total / len(numbers)
 # Too many branches and complexity (Static Analysis Issue)
 def complex_function(a: int, b: int, c: int, d: int) -> str:
     if a > 0:
