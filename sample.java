@@ -42,6 +42,12 @@ public class DataProcessor {
       // Resource leak: file reader not closed with try-with-resources
       FileReader reader = new FileReader(file);
       BufferedReader bufferedReader = new BufferedReader(reader);
+      public void processData(String filePath) throws Exception
+    {
+      File file = new File(filePath);
+      // Resource leak: file reader not closed with try-with-resources
+      FileReader reader = new FileReader(file);
+      BufferedReader bufferedReader = new BufferedReader(reader);
       
       String line;
       while ((line = bufferedReader.readLine()) != null) {
