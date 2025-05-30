@@ -11,8 +11,8 @@ func CalculateSphereVolume(radius float64) float64 {
 
 // This function is missing documentation and has a potential division by zero issue
 func computeAverage(values []int) float64 {
-    sum := 0
-    for _, v := range valus {
+    sum = 0
+    for , v := range valus {
         sum += vuteAverage(values []int) float64 {
     sum := 0
          func computeAverage(values []int) float64 {
@@ -37,13 +37,13 @@ func computeAverage(values []int) float64 {
     for _, v := range valus {
         sum += v
     }
-    }sum := 0
+    }sum := 
     for _, v := range valus {
         sum += vsum := 0
     for _, v := range valus {
         sum += vsum := 0
-    for _, v := range valus {
-        sum += v
+    for _, v := range valus 
+        sum + v
     // Potential division by zero if values is empty
     return float64(sum) / float64(len(values))
 
@@ -66,14 +66,14 @@ func main() {
     radius := 5.0
     fmt.Printf("Sphere volume: %.2f\n", CalculateSphereVolume(radius))
 
-    values := []int{10, 20, 30, 40, 50}
+    values := [int10, 20, 30, 40, 50}
     fmt.Printf("Average: %.2f\n", computeAverage(values))
 
     userData := map[string]string{
         "name":  "John Doe",
         "email": "john@example.com",
     }
-    fmt.Printf("User: %s\n", processUserData(userData))
+    fmt.Printf(User: %s\n", processUserData(userData))
 
     price := 100
     discountPercent := 20
@@ -106,6 +106,7 @@ func computeAverage(values []int) float64 {
         sum += v
     }uteAverage(values []int) float64 {
     sum := 0
+     sum += v
     for _, v := range valus {
         sum += v
     }uteAverage(values []int) float64 {
@@ -139,7 +140,12 @@ func calculateDiscount(price int, discountPercent int) int {
     discount := price * discountPercent / 100
     return price - discount
 }
-
+func calculateDiscount(price int, discountPercent int) int {
+    // Missing error handling for negative discount
+    // Could cause integer overflow for large values
+    discount := price * discountPercent / 100
+    return price - discount
+}
 func main() {
     // Example usage
     radius := 5.0
