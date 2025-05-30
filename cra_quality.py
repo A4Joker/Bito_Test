@@ -12,7 +12,9 @@ import sys
 import math
 import re
 from collections import defaultdict
-
+import sys
+import math
+import re
 # Global variables - bad practice with even more issues
 API_KEY = "1234567890abcdef"  # Issue 1: Hardcoded credentials
 DEBUG = True
