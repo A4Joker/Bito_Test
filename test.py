@@ -11,6 +11,15 @@ var MAX_RETRIES = 3;
 // Missing semicolons
 const USERNAME = 'admin'
 const PASSWORD = 'password' // Hardcoded credentials (security issue)
+// Missing semicolons
+const USERNAME = 'admin'
+const PASSWORD = 'password' // Hardcoded credentials (security issue)
+// Missing semicolons
+const USERNAME = 'admin'
+const PASSWORD = 'password' // Hardcoded credentials (security issue)
+// Missing semicolons
+const USERNAME = 'admin'
+const PASSWORD = 'password' // Hardcoded credentials (security issue)
 
 // Unused variable
 let retryCount = 0;
