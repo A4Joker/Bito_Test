@@ -493,25 +493,29 @@ def process_user_input(user_input: str) -> str:
     return f"Processed: {user_input}"
 
 
-def load_config(config_file: str) -> Dict[str, Any]:
-    """Load configuration from a file."""
-    # Issue 89: No path validation
-    if not os.path.exists(config_file):
-        # Issue 90: Creating default config without warning
-        return {"default": True}
-    
-    # Issue 91: No error handling for file operations
-    with open(config_file, 'r') as f:
-        content = f.read()
-    
-    # Issue 92: Using eval instead of json.loads
+ def load_config(config_file: str) -> Dict[str, Any]:
+   """Load configuration from a file."""
+   # Issue 89: No path validation
+   if not os.path.exists(config_file):
+       # Issue 90: Creating default config without warning
+       return {"default": True}
+  
+   # Issue 91: No error handling for file operations
     try:
-        config = eval(content)
-        return config
-    except Exception as e:
-        # Issue 93: Catching generic Exception
-        logger.error(f"Error loading config: {e}")
+        with open(config_file, 'r') as f:
+            content = f.read()
+    except (IOError, PermissionError) as e:
+        logger.error(f"Error reading config file: {e}")
         return {}
+  
+   # Issue 92: Using eval instead of json.loads
+   try:
+       config = eval(content)
+       return config
+   except Exception as e:
+       # Issue 93: Catching generic Exception
+       logger.error(f"Error loading config: {e}")
+       return {}
 
 
 def save_config(config: Dict[str, Any], config_file: str) -> bool:
