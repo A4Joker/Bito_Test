@@ -49,6 +49,10 @@ class DataProcessor:
     """
     A class to process and analyze data from various sources.
     """
+    class DataProcessor:
+    """
+    A class to process and analyze data from various sources.
+    """
     
     def __init__(self, data_source: str, cache_dir: Optional[str] = None, timeout: int = DEFAULT_TIMEOUT):
         self.data_source = data_source
