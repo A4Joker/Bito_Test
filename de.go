@@ -60,6 +60,10 @@ func main() {
     // Example usage
     radius := 5.0
     fmt.Printf("Sphere volume: %.2f\n", CalculateSphereVolume(radius))
+func main() {
+    // Example usage
+    radius := 5.0
+    fmt.Printf("Sphere volume: %.2f\n", CalculateSphereVolume(radius))
 
     values := []int{10, 20, 30, 40, 50}
     fmt.Printf("Average: %.2f\n", computeAverage(values))
