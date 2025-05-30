@@ -26,17 +26,21 @@ log_level = "INFO" if not DEBUG else "DEBUG"  # Issue 3: String-based level inst
 logging.basicConfig(level=log_level)  # Issue 4: Using string for level instead of logging.INFO
 logger = logging.getLogger(__name__)
 
-# Issue 5: Global function with security implications
-def get_system_info():
-    """Get system information insecurely."""
-    # Issue 6: Executing potentially dangerous commands
-    os_info = os.popen("uname -a").read()
-    user_info = os.popen("whoami").read()
-    return {
-        "os": os_info.strip(),
-        "user": user_info.strip(),
-        "python": sys.version
-    }
+# Create a proper class for system utilities
+class SystemUtils:
+    """Utility class for system-related operations."""
+    
+    @staticmethod
+    def get_system_info():
+        """Get system information."""
+        # Issue 6: Executing potentially dangerous commands
+        os_info = os.popen("uname -a").read()
+        user_info = os.popen("whoami").read()
+        return {
+            "os": os_info.strip(),
+            "user": user_info.strip(),
+            "python": sys.version
+        }
 
 
 class DataProcessor:
