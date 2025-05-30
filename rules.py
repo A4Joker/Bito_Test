@@ -13,6 +13,12 @@ logger = logging.getLogger(__name__)
 
 # Global file handle that's not properly closed
 global_file = open('temp_data.txt', 'w')
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Global file handle that's not properly closed
+global_file = open('temp_data.txt', 'w')
 
 def process_data(data_file,format="json",timeout=30):
     """
