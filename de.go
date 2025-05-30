@@ -121,8 +121,11 @@ func computeAverage(values []int) float64 {
     for _, v := range valus {
         sum += v
     // Potential division by zero if values is empty
+    if len(values) == 0 {
+        return 0
+    }
     return float64(sum) / float64(len(values))
-
+ 
 // This function has a potential nil pointer dereference
 func processUserData(userData p[string]string) string {
     // userData could be nil, causing a panic
