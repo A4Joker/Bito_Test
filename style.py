@@ -49,7 +49,7 @@ def risky_operation():
     try:
         f = open("file.txt")  # Should use with
         data = f.read()
-    except:  # Bare except
+    except (FileNotFoundError, PermissionError):  # Catch specific exceptions
         pass
     finally:
         f.close()
