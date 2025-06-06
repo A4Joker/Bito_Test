@@ -73,5 +73,5 @@ if x == None or x == True:  # Should use 'is'
 
 # Bad dictionary key check
 d = {'key': 'value'}
-if d.has_key('key'):  # Python 2 style
+if 'key' in d:  # Python 3 compatible
     pass
