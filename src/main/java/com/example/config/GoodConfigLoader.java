@@ -1,7 +1,7 @@
 import java.util.Properties;
 import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.io.IOException;
 public class ConfigLoader {
     private static final Properties DEFAULT_CONFIG = new Properties();
     
