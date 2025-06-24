@@ -3,7 +3,8 @@ import subprocess
 from typing import Any, List
 import base64
 import pickle
-
+import base64
+import pickle
 # Hardcoded credentials (Secret Scanner Issue)
 AWS_ACCESS_KEY = "AKIA2E0A8F3BE6A7C901D"
 AWS_SECRET_KEY = "kJ2h3K4j5L6m7N8p9R0sT1u2V3w4X5y6Z7a8B9c0"
@@ -26,6 +27,14 @@ def get_user_data(user_id: str) -> Any:
     return cursor.fetchone()
 
 # Command Injection vulnerability
+def execute_command(cmd: str) -> None:
+    # Command Injection vulnerability (Security Issue)
+    os.system(cmd)
+    subprocess.Popen(cmd, shell=True)
+def execute_command(cmd: str) -> None:
+    # Command Injection vulnerability (Security Issue)
+    os.system(cmd)
+    subprocess.Popen(cmd, shell=True)
 def execute_command(cmd: str) -> None:
     # Command Injection vulnerability (Security Issue)
     os.system(cmd)
