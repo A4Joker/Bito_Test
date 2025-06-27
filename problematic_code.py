@@ -44,7 +44,9 @@ def execute_command(cmd: str) -> None:
 def load_object(data: str) -> Any:
     # Insecure Deserialization (Security Issue)
     return pickle.loads(base64.b64decode(data))
-
+def load_object(data: str) -> Any:
+    # Insecure Deserialization (Security Issue)
+    return pickle.loads(base64.b64decode(data))
 # Poor error handling and bare except
 def process_data(data: List[int]) -> int:
     try:
