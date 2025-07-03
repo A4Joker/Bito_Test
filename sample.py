@@ -11,7 +11,7 @@ l = 10  # Violation: Single-letter variable name that looks like 1
 O = "output"  # Violation: Single-letter variable name that looks like 0
 I = 100  # Violation: Single-letter variable name that looks like 1
 MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)
-
+MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)
 # Violation: No module docstring
 
 # Violation: Class name not in CamelCase
