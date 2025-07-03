@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from math import *  # Violation: Wildcard import
+from math import sin, cos, sqrt  # Import only what you need
 import os, sys, json, random, datetime  # Violation: Multiple imports on one line
 import   pandas   as    pd  # Violation: Extra whitespace
 from collections import *  # Violation: Another wildcard import
