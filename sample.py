@@ -303,7 +303,7 @@ if __name__ == "__main__":
     
     # Violation: Comparing None with ==
     config = get_config("api")
-    if config == None:  # Should use 'is None'
+    if config is None:  # Correct way to compare with None
         print("Config not found")
     
     # Violation: Complex nested ternary
