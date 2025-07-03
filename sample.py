@@ -294,8 +294,8 @@ if __name__ == "__main__":
         print("An error occurred")
     
     # Violation: Resource leak
-    log_file = open("app.log", "a")
-    log_file.write(f"Process completed at {datetime.datetime.now()}\n")
+    with open("app.log", "a") as log_file:
+        log_file.write(f"Process completed at {datetime.datetime.now()}\n")
     # Violation: File never closed
     
     # Violation: Multiple statements on one line
