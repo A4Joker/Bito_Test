@@ -1,6 +1,6 @@
 
 import os, sys, django
-from math import *
+import math
 from .local_module import something
 
 x = { 'a':1 , 'b' :2 }  
