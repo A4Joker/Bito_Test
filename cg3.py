@@ -24,6 +24,7 @@ class user_manager:
         self.Password = Password  # Violation: Security issue storing plain password
         self.Age = Age  # Violation: Inconsistent attribute naming
         self.data = []
+        self.data = []self.data = []self.data = []self.data = []
         # Violation: Debug print statement left in code
         print( "Created new user: " + UserName )  # Violation: Extra whitespace, string concatenation instead of f-string
     
