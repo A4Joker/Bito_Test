@@ -1,4 +1,4 @@
-# Bad imports - multiple per line, wrong order, wildcard
+
 import os, sys, django
 from math import *
 from .local_module import something
@@ -64,7 +64,8 @@ double = lambda x: x * 2
 [print(x) for x in range(10)]  
 
 
-bad_class ().PublicMethod( )
+bad_class ().
+PublicMethod( )
 
 
 text = "hello"
