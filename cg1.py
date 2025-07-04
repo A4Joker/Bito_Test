@@ -299,7 +299,7 @@ if __name__ == "__main__":
     # Violation: File never closed
     
     # Violation: Multiple statements on one line
-    animals = []; animals.append(cat()); animals.append(DOG())  # Violation: Semicolons in Python
+    animals: list[Animal] = []; animals.append(cat()); animals.append(DOG())  
     
     # Violation: Comparing None with ==
     config = get_config("api")
