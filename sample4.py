@@ -31,11 +31,11 @@ class bad_class:  # Should be CapWords
         else:print("Bad")  # Inline statement
 
 # Bad function definitions
-def undocumented_func(param1,param2=[]):  # Missing docstring, mutable default
-    if param1: return param2  # Inline return
-    # Implicit None return
-
-# Bad string operations
+def undocumented_func(param1, param2=None):  
+    if param2 is None:
+        param2 = []
+    if param1: return param2  
+    
 filename = "test.txt"
 if filename[:5] == "test_":  # Should use startswith
     pass
