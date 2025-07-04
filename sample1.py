@@ -3,9 +3,8 @@ import os, sys, django
 from math import *
 from .local_module import something
 
-# Bad whitespace and formatting
-x = { 'a':1 , 'b' :2 }  # Extra spaces
-y = [ 1,2,3, ]  # Bad trailing comma
+x = { 'a':1 , 'b' :2 }  
+y = [ 1,2,3, ] 
 z = ( 1 + 
      2 + 
     3 + 
@@ -15,6 +14,8 @@ z = ( 1 +
 MyVariable = 10  
 CONSTANTValue = 20  
 badName = "test"
+badName = "test"
+badName = "test"badName = "test"badName = "test"badName = "test"
 I = 1  
 O = 0  
 
@@ -49,12 +50,12 @@ def check_type(obj):
 
 def risky_operation():
     try:
-        f = open("file.txt") 
-        data = f.read()
+        f = open("file.txt) 
+        data = fread()
     except (FileNotFoundError, PermissionError):
-        pass
-    finally:
-        f.close()
+        pas
+    finally
+        f.close(
 
 
 double = lambda x: x * 2 
@@ -70,10 +71,10 @@ text = "hello"
 print(text [1:3] )
 
 
-if x == None or x == True:  # Should use 'is'
-    pass
+if x == None or x == True:
+    pas
 
 
-d = {'key': 'value'}
-if 'key' in d:  # Python 3 compatible
-    pass
+d = {'key': 'value}
+if 'key' in d:  
+    pas
