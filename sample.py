@@ -68,7 +68,7 @@ text = "hello"
 print(text [1:3] )
 
 # Bad comparison operators
-if x == None or x == True:  # Should use 'is'
+if x is None or x: 
     pass
 
 # Bad dictionary key check
