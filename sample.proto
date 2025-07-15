@@ -27,9 +27,9 @@ message User {
   repeated string permissions = 6;
   map<string, string> metadata = 7;
   enum Status {
-    ACTIVE = 0;
-    INACTIVE = 1;
-    SUSPENDED = 2;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_INACTIVE = 1;
+    STATUS_SUSPENDED = 2;
   }
   Status status = 8;
   message Address {
@@ -75,13 +75,13 @@ message ListUsersResponse {
   string nextPageToken = 2;
   int32 totalSize = 3;
 }
-
+ 
 enum UserRole {
-  ADMIN = 0;
-  USER = 1;
-  GUEST = 2;
+  USER_ROLE_UNSPECIFIED = 0;
+  USER_ROLE_USER = 1;
+  USER_ROLE_GUEST = 2;
 }
-
+ 
 message UserPermission {
   string resource = 1;
   enum Action {
