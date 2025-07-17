@@ -1,5 +1,7 @@
-' Missing Option statements at the top
-
+Option Explicit On
+Option Strict On
+Option Infer Off
+ 
 Imports System
 Imports System.Collections
 Imports System.Collections.Generic
@@ -17,12 +19,12 @@ Module UserManagement
         On Error GoTo ErrorHandler
         
         ' Implicit variable (missing Dim)
-        counter = 0
+        Dim counter As Integer = 0
         
         ' Poor naming (no prefix for form controls)
-        Dim Name As TextBox = New TextBox()
-        Dim Email As TextBox = New TextBox()
-        Dim Submit As Button = New Button()
+        Dim txtName As TextBox = New TextBox()
+        Dim txtEmail As TextBox = New TextBox()
+        Dim btnSubmit As Button = New Button()
         
         ' String concatenation instead of interpolation
         Console.WriteLine("Starting user management system with " & MaxUsers & " maximum users")
