@@ -1,0 +1,216 @@
+! Missing IMPLICIT NONE
+program user_management
+    ! Global variables without proper naming or documentation
+    real :: maxusers = 100
+    character(len=4) :: DEF_ROLE = "USER"
+    integer :: usercount
+    
+    ! Using old-style CHARACTER declaration
+    character*20 names(100)
+    character*30 emails(100)
+    character*10 roles(100)
+    character*36 ids(100)
+    real timestamps(100)
+    
+    ! No error handling or input validation
+10  print *, "User Management System"
+    print *, "1. Add User"
+    print *, "2. List Users"
+    print *, "3. Update User"
+    print *, "4. Delete User"
+    print *, "5. Export Users"
+    print *, "6. Exit"
+    print *, "Enter choice: "
+    
+    ! Implicit variable declaration
+    read *, choice
+    
+    ! Using computed GOTO (obsolete feature)
+    goto (100, 200, 300, 400, 500, 600), choice
+    print *, "Invalid choice!"
+    goto 10
+    
+    ! Labels instead of structured programming
+100 call AddUser
+    goto 10
+    
+200 call ListUsers
+    goto 10
+    
+300 call UpdateUser
+    goto 10
+    
+400 call DeleteUser
+    goto 10
+    
+500 call ExportUsers
+    goto 10
+    
+600 stop "Program terminated normally"
+    
+contains
+    ! Subroutine without INTENT attributes
+    subroutine AddUser
+        ! Implicit variables
+        print *, "Enter name: "
+        read *, name
+        print *, "Enter email: "
+        read *, email
+        print *, "Enter role (leave blank for default): "
+        read *, role
+        
+        ! No array bounds checking
+        usercount = usercount + 1
+        names(usercount) = name
+        emails(usercount) = email
+        
+        ! Using arithmetic IF (obsolete feature)
+        if (len(trim(role)) .eq. 0) goto 150
+        roles(usercount) = role
+        goto 160
+150     roles(usercount) = DEF_ROLE
+        
+160     ! Using intrinsic function without explicit interface
+        call random_string(ids(usercount), 36)
+        
+        ! Direct access to system time without proper interface
+        call system_clock(count=clock)
+        timestamps(usercount) = real(clock)
+        
+        ! String concatenation without proper handling
+        print *, "Added user: " // trim(name) // " with role: " // trim(roles(usercount))
+    end subroutine AddUser
+    
+    ! Function without explicit result type
+    function find_user(id)
+        ! Missing declaration of return value
+        character(len=*) :: id
+        
+        ! Implicit loop variable
+        do i = 1, usercount
+            ! Missing parentheses in logical expression
+            if (trim(ids(i)) .eq. trim(id)) then
+                find_user = i
+                return
+            endif
+        enddo
+        
+        find_user = 0
+    end function find_user
+    
+    ! Subroutine without error handling
+    subroutine ListUsers
+        ! Magic number in code
+        if (usercount .eq. 0) then
+            print *, "No users found!"
+            return
+        endif
+        
+        print *, "User List:"
+        print *, "ID | Name | Email | Role"
+        
+        ! Implicit loop variable, no structured loop
+        do 250 i = 1, usercount
+            print *, trim(ids(i)), " | ", trim(names(i)), " | ", &
+                     trim(emails(i)), " | ", trim(roles(i))
+250     continue
+    end subroutine ListUsers
+    
+    ! Subroutine with poor error handling
+    subroutine UpdateUser
+        print *, "Enter user ID to update: "
+        read *, id
+        
+        ! Function call without interface
+        idx = find_user(id)
+        
+        ! Nested IF statements without proper structure
+        if (idx .ne. 0) then
+            print *, "Enter new name (leave blank to keep current): "
+            read *, name
+            if (len(trim(name)) .ne. 0) then
+                names(idx) = name
+            endif
+            
+            print *, "Enter new email (leave blank to keep current): "
+            read *, email
+            if (len(trim(email)) .ne. 0) then
+                emails(idx) = email
+            endif
+            
+            print *, "Enter new role (leave blank to keep current): "
+            read *, role
+            if (len(trim(role)) .ne. 0) then
+                roles(idx) = role
+            endif
+            
+            print *, "User updated successfully!"
+        else
+            print *, "User not found!"
+        endif
+    end subroutine UpdateUser
+    
+    ! Subroutine with poor variable naming
+    subroutine DeleteUser
+        print *, "Enter user ID to delete: "
+        read *, id
+        
+        ! Function call without interface
+        idx = find_user(id)
+        
+        ! Conditional without proper structure
+        if (idx .eq. 0) then
+            print *, "User not found!"
+            return
+        endif
+        
+        ! Inefficient array manipulation
+        do i = idx, usercount-1
+            names(i) = names(i+1)
+            emails(i) = emails(i+1)
+            roles(i) = roles(i+1)
+            ids(i) = ids(i+1)
+            timestamps(i) = timestamps(i+1)
+        enddo
+        
+        usercount = usercount - 1
+        print *, "User deleted successfully!"
+    end subroutine DeleteUser
+    
+    ! Subroutine with poor I/O handling
+    subroutine ExportUsers
+        ! No error handling for file operations
+        open(unit=10, file="users.txt", status="replace")
+        
+        ! Writing without format control
+        write(10,*) "User List:"
+        write(10,*) "ID,Name,Email,Role,Timestamp"
+        
+        ! Implicit loop variable
+        do i = 1, usercount
+            write(10,*) trim(ids(i)), ",", trim(names(i)), ",", &
+                        trim(emails(i)), ",", trim(roles(i)), ",", timestamps(i)
+        enddo
+        
+        close(10)
+        print *, "Users exported to users.txt"
+    end subroutine ExportUsers
+    
+    ! Subroutine without proper algorithm documentation
+    subroutine random_string(string, length)
+        character(len=*) :: string
+        integer :: length
+        character(len=36) :: chars
+        
+        chars = "abcdefghijklmnopqrstuvwxyz0123456789"
+        
+        ! Implicit loop variable, no seed for random number
+        do i = 1, length
+            ! Magic numbers and poor random number generation
+            idx = int(36 * rand()) + 1
+            if (idx < 1) idx = 1
+            if (idx > 36) idx = 36
+            string(i:i) = chars(idx:idx)
+        enddo
+    end subroutine random_string
+end program user_management
