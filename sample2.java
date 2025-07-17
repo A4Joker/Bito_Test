@@ -114,22 +114,20 @@ public class UserService {
     
     public void loadUsersFromFile(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
-        Scanner scanner = new Scanner(file);
-        
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] parts = line.split(",");
-            
-            if (parts.length >= 3) {
-                try {
-                    createUser(parts[0], parts[1], parts[2]);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(",");
+
+                if (parts.length >= 3) {
+                    try {
+                        createUser(parts[0], parts[1], parts[2]);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
-        
-        scanner.close();
     }
     
     public class UserNotFoundException extends Exception {
