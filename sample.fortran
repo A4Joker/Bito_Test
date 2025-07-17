@@ -81,10 +81,11 @@ contains
         print *, "Added user: " // trim(name) // " with role: " // trim(roles(usercount))
     end subroutine AddUser
     
-    ! Function without explicit result type
-    function find_user(id)
-        ! Missing declaration of return value
-        character(len=*) :: id
+    function find_user(id) result(idx)
+        implicit none
+        character(len=*), intent(in) :: id
+        integer :: idx
+        integer :: i
         
         ! Implicit loop variable
         do i = 1, usercount
