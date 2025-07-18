@@ -12,8 +12,8 @@ const UserList: React.FC<UserListProps> = ({ title }) => {
     useEffect(() => {
         const activeUsers = userService.getActiveUsers();
         setUsers(activeUsers);
-    }, []);
-
+    }, [userService]);
+ 
     const handleToggleStatus = (userId: number) => {
         const updatedUser = userService.toggleUserStatus(userId);
         if (updatedUser) {
