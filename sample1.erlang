@@ -1,0 +1,89 @@
+-module(unsafe_app).
+-export([execute_command/1, find_user/1, read_file/1, process_data/1, 
+         risky_operation/0, process_list/1, authenticate/0, save_data/1]).
+
+% SECURITY VULNERABILITY: Command injection
+execute_command(Command) ->
+    os:cmd(Command).
+
+% SECURITY VULNERABILITY: SQL injection
+find_user(Username) ->
+    Query = "SELECT * FROM users WHERE username = '" ++ Username ++ "'",
+    odbc:sql_query(Conn, Query).
+
+% RESOURCE LEAK: Unclosed file
+read_file(Path) ->
+    {ok, File} = file:open(Path, [read]),
+    Content = file:read(File, 1024),
+    % file:close(File) is missing - resource leak
+    Content.
+
+% NULL HANDLING: No null checking
+process_data(Data) ->
+    % No check if Data is undefined
+    Items = maps:get(items, Data),
+    length(Items).
+
+% EXCEPTION MANAGEMENT: Swallowed exception
+risky_operation() ->
+    try
+        dangerous_function()
+    catch
+        _:_ -> ok % Swallowing exception
+    end.
+
+% INFINITE LOOP: Missing termination condition
+process_list(List) ->
+    [Head | Tail] = List,
+    % Missing base case for empty list
+    process_item(Head),
+    process_list(Tail).
+
+% HARD-CODED CREDENTIALS
+authenticate() ->
+    Username = "admin",
+    Password = "super_secret_password123",
+    http:request(post, {"https://api.example.com/login", 
+                       [], "application/json", 
+                       "{\"username\":\"" ++ Username ++ 
+                       "\",\"password\":\"" ++ Password ++ "\"}"}, 
+                [], []).
+
+% ERROR PROPAGATION: Ignoring errors
+save_data(Data) ->
+    case database:insert(Data) of
+        {ok, _} -> ok;
+        {error, _} -> ok % Ignoring error
+    end.
+
+% CONCURRENCY ISSUES: Race condition
+start_counter() ->
+    Counter = spawn(fun() -> counter_loop(0) end),
+    register(counter, Counter).
+
+increment() ->
+    counter ! increment.
+
+get_value() ->
+    counter ! {get_value, self()},
+    receive
+        {value, Value} -> Value
+    after 1000 ->
+        timeout
+    end.
+
+counter_loop(Value) ->
+    receive
+        increment ->
+            counter_loop(Value + 1);
+        {get_value, Pid} ->
+            Pid ! {value, Value},
+            counter_loop(Value)
+    end.
+
+% Helper functions
+process_item(Item) ->
+    Item * 2.
+
+dangerous_function() ->
+    throw(error).
