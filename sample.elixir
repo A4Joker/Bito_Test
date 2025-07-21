@@ -1,0 +1,217 @@
+# Missing module definition (Violates #1)
+
+# Missing @moduledoc (Violates #2)
+
+# Global variables (anti-pattern in Elixir)
+users = []
+MAX_USERS = 100
+
+# Function with improper naming (Violates #3)
+defp AddUser(name, email, role) do
+  # Variable naming not snake_case (Violates #4)
+  userID = UUID.uuid4()
+  
+  # Not using pipe operator (Violates #6)
+  newUser = Map.put(%{}, :id, userID)
+  newUser = Map.put(newUser, :name, name)
+  newUser = Map.put(newUser, :email, email)
+  
+  # Magic value (Violates #11)
+  newUser = if role == "", do: Map.put(newUser, :role, "USER"), else: Map.put(newUser, :role, role)
+  
+  # Modifying global state (anti-pattern in Elixir) (Violates #8)
+  users = [newUser | users]
+  
+  # Poor error handling (Violates #7)
+  {:ok, newUser}
+end
+
+# Function without documentation (Violates #2)
+def get_user(id) do
+  # Deep nesting instead of pattern matching (Violates #5)
+  found = Enum.find(users, fn user -> user.id == id end)
+  if found do
+    {:ok, found}
+  else
+    {:error, "User not found"}
+  end
+end
+
+# Function that's too long (Violates #9)
+def process_users(users, options) do
+  # Long function with multiple responsibilities
+  filtered_users = if Map.has_key?(options, :role) do
+    Enum.filter(users, fn user -> user.role == options.role end)
+  else
+    users
+  end
+  
+  active_users = if Map.has_key?(options, :active_only) && options.active_only do
+    Enum.filter(filtered_users, fn user -> user.active end)
+  else
+    filtered_users
+  end
+  
+  sorted_users = if Map.has_key?(options, :sort_by) do
+    case options.sort_by do
+      :name -> Enum.sort_by(active_users, fn user -> user.name end)
+      :email -> Enum.sort_by(active_users, fn user -> user.email end)
+      :role -> Enum.sort_by(active_users, fn user -> user.role end)
+      _ -> active_users
+    end
+  else
+    active_users
+  end
+  
+  processed_users = if Map.has_key?(options, :transform) do
+    Enum.map(sorted_users, options.transform)
+  else
+    sorted_users
+  end
+  
+  if Map.has_key?(options, :limit) do
+    Enum.take(processed_users, options.limit)
+  else
+    processed_users
+  end
+end
+
+# Function with too many parameters (Violates #15)
+def create_user_report(id, name, email, role, created_at, last_login, status, permissions, metadata, activity_log, preferences) do
+  # Function body with too many parameters
+  # ...
+end
+
+# Function with poor error handling (Violates #7)
+def divide(a, b) do
+  # No error handling for division by zero
+  a / b
+end
+
+# Function with duplicated code (Violates #12)
+def validate_email(email) do
+  # Complex validation logic
+  if String.length(email) < 5 do
+    {:error, "Email is too short"}
+  else
+    if !String.contains?(email, "@") do
+      {:error, "Email must contain @"}
+    else
+      parts = String.split(email, "@")
+      if length(parts) != 2 do
+        {:error, "Email must have exactly one @"}
+      else
+        [username, domain] = parts
+        if String.length(username) < 1 do
+          {:error, "Email username part is too short"}
+        else
+          if String.length(domain) < 3 do
+            {:error, "Email domain part is too short"}
+          else
+            if !String.contains?(domain, ".") do
+              {:error, "Email domain must contain ."}
+            else
+              {:ok, email}
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
+# Duplicated function with similar logic (Violates #12)
+def validate_name(name) do
+  # Complex validation logic duplicated from validate_email
+  if String.length(name) < 2 do
+    {:error, "Name is too short"}
+  else
+    if String.length(name) > 50 do
+      {:error, "Name is too long"}
+    else
+      if String.contains?(name, [",", ";", ":", "!"]) do
+        {:error, "Name contains invalid characters"}
+      else
+        {:ok, name}
+      end
+    end
+  end
+end
+
+# Function with unsafe recursion (Violates #18)
+def process_list(list) do
+  # Missing base case for empty list
+  [head | tail] = list
+  processed_head = head * 2
+  [processed_head | process_list(tail)]
+end
+
+# Function with poor process management (Violates #19)
+def start_background_job(data) do
+  # Starting process without supervision
+  spawn(fn ->
+    # Long-running job
+    Process.sleep(10000)
+    IO.puts("Job completed for #{data}")
+  end)
+end
+
+# Function with poor resource management (Violates #20)
+def read_file(path) do
+  # Opening file without ensuring it's closed
+  {:ok, file} = File.open(path, [:read])
+  content = IO.read(file, :all)
+  # Missing File.close(file)
+  content
+end
+
+# Function with global dependencies (Violates #21)
+def get_config_value(key) do
+  # Using application environment instead of passing as parameter
+  Application.get_env(:my_app, key)
+end
+
+# Function missing typespec (Violates #22)
+def calculate_total(items) do
+  Enum.reduce(items, 0, fn item, acc -> acc + item.price * item.quantity end)
+end
+
+# Main function to demonstrate issues
+def main do
+  # Poor error handling (Violates #7)
+  {:ok, user1} = AddUser("John Doe", "john@example.com", "ADMIN")
+  {:ok, user2} = AddUser("Jane Smith", "jane@example.com", "")
+  
+  IO.puts("Created users")
+  
+  # Not using pipe operator for chaining (Violates #6)
+  all_users = get_all_users()
+  filtered_users = Enum.filter(all_users, fn user -> user.role == "ADMIN" end)
+  sorted_users = Enum.sort_by(filtered_users, fn user -> user.name end)
+  IO.inspect(sorted_users)
+  
+  # Unsafe function call without error handling (Violates #7)
+  result = divide(10, 0)
+  
+  # Not using with for multiple operations that might fail (Violates #7, #20)
+  case validate_email("invalid") do
+    {:ok, email} ->
+      case validate_name("A") do
+        {:ok, name} ->
+          AddUser(name, email, "USER")
+        {:error, reason} ->
+          IO.puts("Invalid name: #{reason}")
+      end
+    {:error, reason} ->
+      IO.puts("Invalid email: #{reason}")
+  end
+  
+  # Starting unsupervised process (Violates #19)
+  start_background_job("data processing")
+  
+  # Resource leak (Violates #20)
+  content = read_file("config.txt")
+  IO.puts("File content: #{content}")
+end
+
+# Missing unit tests (Violates #23)
