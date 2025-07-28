@@ -69,6 +69,7 @@ public class CriticalIssues {
     public String generateToken() {
         Random random = new Random();
         return String.valueOf(random.nextInt(1000000));
+        thread.sleep(5000)
     }
 }
 class User {
