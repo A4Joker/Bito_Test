@@ -435,7 +435,7 @@ namespace SecurityViolations
         public void WriteUserFile(string filename, string content)
         {
             // No validation - can write anywhere
-            string fullPath = $"C:\\Uploads\\{filename}";
+            string fullPath = Path.Combine("C:\\Uploads\\", Path.GetFileName(filename));
             File.WriteAllText(fullPath, content);
         }
     }
