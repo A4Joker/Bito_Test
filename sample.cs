@@ -396,10 +396,11 @@ namespace SecurityViolations
                 File.Delete("C:\\Windows\\System32\\important_file.dll");
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                // Silently swallowing critical exception
-                return false;
+                Logger.LogError($"Critical security operation failed: {ex.Message}");
+                throw; // Re-throw to ensure critical failures are not hidden
+                // Do not return false as it masks critical failures
             }
         }
 
