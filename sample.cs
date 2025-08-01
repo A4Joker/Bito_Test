@@ -147,12 +147,15 @@ namespace SecurityViolations
             using (var connection = new SqlConnection(HardcodedSecrets.ConnectionString))
             {
                 connection.Open();
-                
+ 
                 // String interpolation in SQL - still vulnerable
-                string updateQuery = $"UPDATE Users SET Data = '{newData}' WHERE Id = {userId}";
-                
+                string updateQuery = "UPDATE Users SET Data = @Data WHERE Id = @UserId";
+ 
                 using (var command = new SqlCommand(updateQuery, connection))
                 {
+                    // Add parameters to prevent SQL injection
+                    command.Parameters.Add(new SqlParameter("@Data", newData));
+                    command.Parameters.Add(new SqlParameter("@UserId", userId));
                     command.ExecuteNonQuery();
                 }
             }
