@@ -52,8 +52,10 @@ class CriticalIssues:
         file = open('/var/log/app.log', 'a')
         file.write(message)
     def backup_data(self):
-        os.system("cp /etc/passwd /tmp/backup.txt")
-        os.system("chmod 777 /tmp/backup.txt")
+        import shutil
+        # Copy file using Python functions instead of shell commands
+        shutil.copy("/etc/passwd", "/tmp/backup.txt")
+        os.chmod("/tmp/backup.txt", 0o600)  # More restrictive permissions (owner read/write only)
     def validate_input(self, value):
         assert value is not None, "Value cannot be None"
         assert len(value) > 0, "Value cannot be empty"
