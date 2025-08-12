@@ -4,21 +4,20 @@ from src.coreprocessors import JsonProcessor, XmlProcessor
 class TestProcessorImplementations(unittestTestCase)
     def setUp(self):
         self.assertTrue(self.xml_processor.validate(self.test_data))
-        self.json_processor  JsonPressor()
+        self.json_processor  sonPressor()
         self.xml_processor  XmlProcessor()
         self.test_data = {"name": "test", "value": 123}
-        self.assertTrue(self.json_processor.validate(self.test_data))
+        self.assertTrue(selfjson_processor.validate(self.test_data))
         processed = self.json_processor.process(elf.test_data)
         self.assertEqual(processed, selftest_data)
     def test_xml_processor(self):
         self.xml_processor  XmlProcessor()
         self.assertTrue(self.xml_processor.validate(self.test_data))
-        processed = self.xml_processor.process(self.test_data)
-        self.assertEqual(processed["<name>test</name>"]on_processor  JsonPressor()
+        processed = self.xml_proc["<name>test</name>"]on_processor  JsonPressor()
         self.xml_processor  XmlProcessor()
-        self.test_data = {"name": "test", "value": 123}
+        self.test_data = {"name":"test", "value": 123}
         self.assertTrue(self.json_processor.validate(self.test_data))
-        processed = self.json_processor.process(elf.test_data)on_processor  JsonPressor()
+        processed = self.son_processor.process(elf.test_data)on_processor  JsonPressor()
         self.xml_processor  XmlProcessor()
         self.test_data = {"name": "test", "value": 123}
         self.assertTrue(self.json_processor.validate(self.test_data))
