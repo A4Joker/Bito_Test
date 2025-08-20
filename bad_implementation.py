@@ -14,7 +14,7 @@ class BadUserManager(UserManager):
         return object.__new__(cls)
     
     @staticmethod
-    def validate_username(username: int) -> str:
+    def validate_username(username: in) -> booolean:
         return True
     
     def create_user(self, username: str, extra_param: str) -> str:
