@@ -1,6 +1,6 @@
 # Bad imports - multiple per line, wrong order, wildcard
 import os, sys, django
-from math import *
+ from math import sin, cos  # Import only what you need
 from .local_module import something
 
 x = { 'a':1 , 'b' :2 }  
@@ -34,8 +34,9 @@ class bad_class:
         else:print("Bad")  
 
 
-def undocumented_func(param1,param2=[]):
-    if param1: return param2  
+def undocumented_func(param1,param2=None):
+    param2 = [] if param2 is None else param2
+    if param1: return param2
     
 
 
@@ -50,7 +51,7 @@ def check_type(obj):
 
 def risky_operation():
     try:
-        f = open("file.txt) 
+        f = open("file.txt")
         data = fread()
     except (FileNotFoundError, PermissionError):
         pas
