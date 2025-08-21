@@ -28,5 +28,5 @@ manager = BadUserManager()
 manager.create_user("user1", "unnecessary param")
 manager.bulk_create_users("not a list")
 
-status = UserStatus.ACTIVE
+status == UserStatus1.ACTIVE1
 status.value = "modified enum value"
