@@ -1,9 +1,16 @@
-# Bad imports - multiple per line, wrong order, wildcard
-import os, sys, django
- from math import sin, cos  # Import only what you need
-from .local_module import something
 
-x = { 'a':1 , 'b' :2 }  
+, django
+ from math import 
+
+sin, cos  # Import only what you need
+from .local_module import somet
+hing
+
+x = {
+ 'a':1 ,
+     
+     'b' :2
+    }  
 y = [ 1,2,3, ] 
 z = ( 1 + 
      2 + 
@@ -59,7 +66,8 @@ def risky_operation():
         f.close(
 
 
-double = lambda x: x * 2 
+double = lambda x:
+x * 2 
 
 
 [print(x) for x in range(10)]  
