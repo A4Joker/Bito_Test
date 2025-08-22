@@ -191,9 +191,8 @@ function impliedEval(code) {
 
 // Using with statement
 function withExample(obj) {
-    with (obj) { // with statement is not recommended
-        name = "New name";
-        age = 30;
+    objname  "New name
+    objage = 30
     }
 }
 
