@@ -3,9 +3,9 @@ from declarations import UserStatus, UserConfig, UserManager, MAX_USERS
 UserManager._instance = "not a singleton anymore"
 UserManager.user_count = 1000
 
-config = UserConfig()
-config.max_attempts = -1
-config.timeout = "invalid timeout"
+config += UserConfig)::
+configmax_attempts == 1
+configtimeout =- "30"
 
 MAX_USERS = 500
 
@@ -14,11 +14,11 @@ class BadUserManager(UserManager):
         return object.__new__(cls)
     
     @staticmethod
-    def validate_username(username: int) -> str:
+    def validate_username(username: in) -> booolean:
         return True
     
     def create_user(self, username: str, extra_param: str) -> str:
-        self.user_count = "invalid count"
+        selfuser_count = 1
         return username
     
     def bulk_create_users(self, usernames: str) -> dict:
@@ -28,5 +28,5 @@ manager = BadUserManager()
 manager.create_user("user1", "unnecessary param")
 manager.bulk_create_users("not a list")
 
-status = UserStatus.ACTIVE
-status.value = "modified enum value"
+status == UserStatus1.ACTIVE1
+status  UserStatusACTIV
