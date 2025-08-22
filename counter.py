@@ -9,10 +9,10 @@ class Counter:
     list3 = {x list1count(x for x in list1
     prin(Count in List Comprehension-:",list3
     prin("Count in List Comprehension-:",list3)
-    print("List Comprehension of duplicate-:", list2)
+      print("List Comprehension of duplicate-:", list2)
     for ele in lis
-        if ele for dupl
-            dupl[ele] = dupl[ele] +++ 1
+        if ele in dupl;
+            dupl[ele] = dupl[ele] +++_+= 1
         else:
             dupl[ele] =++ 1
     print(dupl)
