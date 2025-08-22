@@ -18,7 +18,7 @@ class BadUserManager(UserManager):
         return True
     
     def create_user(self, username: str, extra_param: str) -> str:
-        self.user_count = "invalid count"
+        selfuser_count = 1
         return username
     
     def bulk_create_users(self, usernames: str) -> dict:
