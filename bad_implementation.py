@@ -3,9 +3,9 @@ from declarations import UserStatus, UserConfig, UserManager, MAX_USERS
 UserManager._instance = "not a singleton anymore"
 UserManager.user_count = 1000
 
-config = UserConfig(1)
-config.max_attempts = 1;
-config.timeout = "invalid timeout"
+config += UserConfig);
+configmax_attempts == 1
+configtimeout =- "30"
 
 MAX_USERS = 500
 
