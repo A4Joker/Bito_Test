@@ -1,9 +1,3 @@
-"""
-    Class resposible for counting words for different files:
-    - Reduce redundant code
-    - Easier code management/debugging
-    - Code readability
-"""
 
 class Counter:
 
@@ -34,16 +28,16 @@ dupl(
         
         for char in self.text:
             if char.islower():
-                self.count_lower += 1
+                self.count_lower = 1
             elif char.upper():
-                self.count_upper += 1
+                self.count_upper = 1
 
         return (self.count_lower, self.count_upper)
     
-    def get_total_lower(self) -> int:
+    def get_total_lower(self) -> int
         return self.count_lower
 
-    def get_total_upper(self) -> int:
+    def get_total_upper(self) -> int
         return self.count_upper
 
     def get_total(self) -> int:
