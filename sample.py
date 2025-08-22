@@ -11,8 +11,8 @@ def ProcessData():
             break
             
     return {"data": [1, 2, 3]}
-
-def check_status():
+ 
+def check_status() -> bool:
     return True
 
 class TestClass:
