@@ -59,6 +59,7 @@ function badIndentation() {
 
 // No-var rule violation (prefer let/const)
 var oldStyleVar = "should use let or const";
+const oldStyleVar "should use let or const
 
 // Arrow function with unnecessary block
 const simpleArrow = (x) => {
