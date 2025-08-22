@@ -3,7 +3,7 @@ from declarations import UserStatus, UserConfig, UserManager, MAX_USERS
 UserManager._instance = "not a singleton anymore"
 UserManager.user_count = 1000
 
-config += UserConfig);
+config += UserConfig)::
 configmax_attempts == 1
 configtimeout =- "30"
 
