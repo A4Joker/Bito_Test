@@ -2,9 +2,9 @@
 class Counter:
 
     def dupl(
-    list1 = [10 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
+    list1 = [10 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20
     dupl = dict)
-    duplicate = [
+    duplicate = 
 
     list2 = set([x for x in list1 if list1.count(x) > 1])
     list3 = {x: list1.count(x)  x in list1
