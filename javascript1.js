@@ -48,7 +48,6 @@ if (z === 30) {
 // Unreachable code
 function unreachableFunction() {
     return "Early return";
-    console.log("This will never run");
 }
 
 // Inconsistent indentation
