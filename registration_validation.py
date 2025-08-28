@@ -1,6 +1,52 @@
 # user_validation.py
 import re
 
+def validate_username(username):
+    """
+    Validate username format.
+    
+    Args:
+        username (str): Proposed username
+        
+    Returns:
+        tuple: (bool success, str message)
+    """
+    if not re.match(r'^[a-zA-Z0-9]{3,20}$', username):
+        return False, "Username must be 3-20 alphanumeric characters"
+    return True, "Username is valid"
+
+def validate_email(email):
+    """
+    Validate email format.
+    
+    Args:
+        email (str): User email address
+        
+    Returns:
+        tuple: (bool success, str message)
+    """
+    if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
+        return False, "Invalid email format"
+    return True, "Email is valid"
+
+def validate_password(password):
+    """
+    Validate password complexity.
+    
+    Args:
+        password (str): Proposed password
+        
+    Returns:
+        tuple: (bool success, str message)
+    """
+    if len(password) < 8:
+        return False, "Password must be at least 8 characters"
+    if not re.search(r'[A-Z]', password):
+        return False, "Password must contain at least one uppercase letter"
+    if not re.search(r'[0-9]', password):
+        return False, "Password must contain at least one number"
+    return True, "Password is valid"
+
 def validate_registration(username, email, password):
     """
     Validate user registration data.
@@ -13,22 +59,20 @@ def validate_registration(username, email, password):
     Returns:
         tuple: (bool success, str message)
     """
-    
     # Validate username
-    if not re.match(r'^[a-zA-Z0-9]{3,20}$', username):
-        return False, "Username must be 3-20 alphanumeric characters"
+    success, message = validate_username(username)
+    if not success:
+        return False, message
     
     # Validate email
-    if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
-        return False, "Invalid email format"
+    success, message = validate_email(email)
+    if not success:
+        return False, message
     
     # Validate password
-    if len(password) < 8:
-        return False, "Password must be at least 8 characters"
-    if not re.search(r'[A-Z]', password):
-        return False, "Password must contain at least one uppercase letter"
-    if not re.search(r'[0-9]', password):
-        return False, "Password must contain at least one number"
+    success, message = validate_password(password)
+    if not success:
+        return False, message
     
     return True, "Registration data is valid"
 
