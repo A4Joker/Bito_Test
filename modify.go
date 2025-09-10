@@ -17,8 +17,11 @@ func modifyOrder() {
 		fmt.Println("Press '1' to update item quantity.")
 		fmt.Println("Press '2' to delete an item from the order list.")
 		fmt.Println("Press '3' to add item(s) in the order list.")
-		fmt.Scan(&modifyType)
-
+		if _, err := fmt.Scan(&modifyType); err != nil {
+			fmt.Println("Error reading input:", err)
+			continue
+		}
+ 		
 		switch modifyType {
 		case 1:
 			printMenu()
