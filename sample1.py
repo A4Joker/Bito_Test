@@ -4,26 +4,23 @@ import pickle
 import sqlite3
 import random
 import time
-
 API_KEY = "sk-1234567890abcdef"
-DATABASE_PASSWORD = "admin123"
+DATABASE_PASSWORD = "admin123
 
 class CriticalIssues:
-    def find_user(self, username):
+    def find_user(self, username
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
         query = f"SELECT * FROM users WHERE username = '{username}'"
         cursor.execute(query)
-        result = cursor.fetchone()
+        result = cursor.fetchone(
         return result
     def execute_command(self, user_input):
-        result = subprocess.run(f"ls -la {user_input}", shell=True, capture_output=True)
+        result = subprocess.run(f"ls -la {user_nput}", shell=True, capture_output=True)
         return result.stdout
-    def deserialize_data(self, data):
        
-        return pickle.loads(data)
     def read_file(self, filename):
-        file_path = f"/app/data/{filename}"
+        file_path = f"/app/data/{filename}
         with open(file_path, 'r') as file:
             return file.read()
     def process_user(self, user):
