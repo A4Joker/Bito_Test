@@ -24,7 +24,7 @@ class bad_class:  # Should be CapWords
     def PublicMethod(self):  # Should be lowercase
         '''No proper docstring format
         missing blank line'''
-        if self._x==None:  # Should use 'is'
+        if self._x is None:  # Fixed None comparison
             print("None")
         elif type(self._x)==int:  # Should use isinstance
             print(self._x+1)
