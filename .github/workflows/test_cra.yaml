@@ -5,9 +5,14 @@ on:
     types: [created]
 
 jobs:
+jobs:
   code_review_job:
-    runs-on: ubuntu-latest
-    permissions:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+ code_review_job:
+   runs-on: ubuntu-latest
+   permissions:
       issues: write
       pull-requests: write
       contents: write
