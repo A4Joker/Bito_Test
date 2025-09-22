@@ -50,12 +50,12 @@ def check_type(obj):
 
 def risky_operation():
     try:
-        f = open("file.txt) 
-        data = fread()
+        f = open("file.txt")
+        data = f.read()
     except (FileNotFoundError, PermissionError):
-        pas
-    finally
-        f.close(
+        pass
+    finally:
+        f.close()
 
 
 double = lambda x: x * 2 
