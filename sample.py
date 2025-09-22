@@ -13,8 +13,8 @@ z = ( 1 + 2 +
 MyVariable = 10  # Should be lowercase
 CONSTANTValue = 20  # Should be ALL_CAPS
 badName = "test"
-I = 1  # Looks like l or 1
-O = 0  # Looks like 0
+index = 1  # Replaced ambiguous I
+offset = 0  # Replaced ambiguous O
 
 # Bad class and method definitions
 class bad_class:  # Should be CapWords
