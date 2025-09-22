@@ -59,7 +59,7 @@ ${REVIEW_SCOPE_OPTION}${EXCLUDE_BRANCHES_OPTION}\
 ${EXCLUDE_FILES_OPTION}${EXCLUDE_DRAFT_PR_OPTION}" >> $GITHUB_ENV
 
       - name: Code Review Agent - Issue Comment
-        if: github.event_name == 'issue_comment'
+        if: github.event_name == 'issue_comment' && github.event.issue.pull_request
         uses: gitbito/codereviewagent@main
         with:
           pr: ${{ github.event.issue.pull_request.html_url }}
