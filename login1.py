@@ -12,7 +12,12 @@ SECRET_KEY = "your-secret-key"
 @app.route('/api/login', methods=['POST'])
 def login():
     # Fulfills: POST /api/login endpoint
-    data = request.get_json()
+    try:
+        data = request.get_json(force=True)
+        if data is None:
+            return jsonify({'error': 'Invalid JSON'}), 400
+    except Exception:
+        return jsonify({'error': 'Invalid JSON'}), 400
     email = data.get('email')
     password = data.get('password')
     
