@@ -2,7 +2,7 @@
 import os, sys, django
 from math import *
 from .local_module import something
-
+;;;
 # Bad whitespace and formatting
 x = { 'a':1 , 'b' :2 }  # Extra spaces
 y = [ 1,2,3, ]  # Bad trailing comma
