@@ -7,6 +7,7 @@ def main():
     print('This is line 6')
     print('This is line 7')
     print('This is line 8')
+    
     print('This is line 9')
     print('This is line 10')
     print('This is line 11')
@@ -20,6 +21,8 @@ def main():
     print('This is line 19')
     print('This is line 20')
     print('This is line 21')
+        print('This is line 19')
+    print('This is line 20')
     print('This is line 22')
     print('This is line 23')
     print('This is line 24')
