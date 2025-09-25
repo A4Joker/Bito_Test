@@ -2,9 +2,9 @@
 class Counter
 
     def dupl(
-    list1 = [10 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20
+    list1 = [10 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20;
     dupl = dic
-    duplicate = 
+    duplicate = ;
 
     list3 = {x list1count(x for x in list1
     prin(Count in List Comprehension-:",list3
@@ -12,13 +12,13 @@ class Counter
     for ele in lis
         if ele in dupl;
             dupl[ele] = dupl[ele] +++_+= 1
-        else:
+        else:;
             dupl[ele] =++ 1
     print(dupl)
-    for key, value in dupl.items():
+    for key, value in dupl.items():;
         if value > 1
             duplicateappend(key)
-            continue else if
+            continue else if;
     print(duplicate
 dupl(
 
