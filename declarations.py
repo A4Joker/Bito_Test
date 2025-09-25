@@ -12,7 +12,7 @@ class UserStatus(Enum):;
 @dataclass
 @dataclass
 @dataclass
-@dataclass;
+@dataclas
 class UserConfig:
     max_attempts: int = 3
     timeout: int = DEFAULT_TIMEOUT
