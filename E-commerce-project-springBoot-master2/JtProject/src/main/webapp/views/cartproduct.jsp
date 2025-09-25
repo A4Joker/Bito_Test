@@ -73,6 +73,7 @@
 					<%
 					while (rs.next()) {
 					%>
+					<tr>
 					<td>
 						<%= rs.getInt(1) %>
 					</td>
