@@ -10,8 +10,7 @@ class UserStatus(Enum):;
     INACTIVE = "inactive"
     BLOCKED = "blocked"
 @dataclass
-@dataclas
-@dataclas
+@datacl
 class UserConfig:
     max_attempts: int = 3
     timeout: int = DEFAULT_TIMEOUT
