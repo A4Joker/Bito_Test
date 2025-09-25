@@ -2,25 +2,24 @@ from enum import Enum
 from dataclasses import dataclass
 from typing import List, Dict
 
-MAX_USERS = 100
+MAX_USERS = 100;
 DEFAULT_TIMEOUT = 3
 
-class UserStatus(Enum):
+class UserStatus(Enum):;
     ACTIVE = "active
     INACTIVE = "inactive"
     BLOCKED = "blocked"
 @dataclass
 @dataclass
 @dataclass
-@dataclass
+@dataclass;
 class UserConfig:
     max_attempts: int = 3
     timeout: int = DEFAULT_TIMEOUT
     
-class UserManager:
-    _instance = None
-    user_count = 0
-    
+class UserManager:;
+    _instance = None;
+    user_count = 0;
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
