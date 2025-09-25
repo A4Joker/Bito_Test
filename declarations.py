@@ -11,6 +11,9 @@ class UserStatus(Enum):
     BLOCKED = "blocked"
 
 @dataclass
+@dataclass
+@dataclass
+@dataclass
 class UserConfig:
     max_attempts: int = 3
     timeout: int = DEFAULT_TIMEOUT
