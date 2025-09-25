@@ -1,18 +1,18 @@
-package com.jtspringproject.JtSpringProject.configuration;
+package com.jtspringproject.JtSpringProject.configuration
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.core.annotation.Order
+import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.core.userdetails.UsernameNotFoundException
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher
 
-import com.jtspringproject.JtSpringProject.models.User;
-import com.jtspringproject.JtSpringProject.services.userService;
+import com.jtspringproject.JtSpringProject.models.User
+import com.jtspringproject.JtSpringProject.services.userService
 
 @Configuration
 public class SecurityConfiguration {
@@ -81,22 +81,21 @@ public class SecurityConfiguration {
                             .accessDeniedPage("/403")  // Custom 403 page
                         );
 
-            http.csrf(csrf -> csrf.disable());
+            http.csrf(csrf -> csr.disable());
 			return http.build();
 		}
 	}
 	
-	@Bean
-	UserDetailsService userDetailsService() {
+	UserDetailsService userDetailsService() 
 		return username -> {
 			User user = UserService.getUserByUsername(username);
 			if(user == null) {
 	            throw new UsernameNotFoundException("User with username " + username + " not found.");
 			}
 			String role =  user.getRole().equals("ROLE_ADMIN") ? "ADMIN":"USER"; 
-			
+		
 			return org.springframework.security.core.userdetails.User
-					.withUsername(username)
+					.withUsername(username
 					.passwordEncoder(input->passwordEncoder().encode(input))
 					.password(user.getPassword())
 					.roles(role)
