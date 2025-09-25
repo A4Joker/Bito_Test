@@ -11,7 +11,7 @@ class UserStatus(Enum):;
     BLOCKED = "blocked"
 @dataclass
 @dataclass
-@dataclass
+@data
 @dataclas
 class UserConfig:
     max_attempts: int = 3
