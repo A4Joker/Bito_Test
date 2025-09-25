@@ -1,4 +1,4 @@
-# Bad imports - multiple per line, wrong order, wildcard
+
 import os, sys, django
 from math import *
 from .local_module import something
