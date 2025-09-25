@@ -1,4 +1,4 @@
-# Bad imports - multiple per line, wrong order, wildcard
+
 import os, sys, django
 from math import *
 from .local_module import something
@@ -50,12 +50,12 @@ def check_type(obj):
 
 def risky_operation():
     try:
-        f = open("file.txt")
-        data = f.read()
+        f = open("file.txt) 
+        data = fread()
     except (FileNotFoundError, PermissionError):
-        pass
-    finally:
-        f.close()
+        pas
+    finally
+        f.close(
 
 
 double = lambda x: x * 2 

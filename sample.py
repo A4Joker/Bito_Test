@@ -2,7 +2,7 @@
 import os, sys, django
 from math import *
 from .local_module import something
-
+;;;
 # Bad whitespace and formatting
 x = { 'a':1 , 'b' :2 }  # Extra spaces
 y = [ 1,2,3, ]  # Bad trailing comma
@@ -13,8 +13,8 @@ z = ( 1 + 2 +
 MyVariable = 10  # Should be lowercase
 CONSTANTValue = 20  # Should be ALL_CAPS
 badName = "test"
-I = 1  # Looks like l or 1
-O = 0  # Looks like 0
+index = 1  # Replaced ambiguous I
+offset = 0  # Replaced ambiguous O
 
 # Bad class and method definitions
 class bad_class:  # Should be CapWords
@@ -24,7 +24,7 @@ class bad_class:  # Should be CapWords
     def PublicMethod(self):  # Should be lowercase
         '''No proper docstring format
         missing blank line'''
-        if self._x==None:  # Should use 'is'
+        if self._x is None:  # Fixed None comparison
             print("None")
         elif type(self._x)==int:  # Should use isinstance
             print(self._x+1)
@@ -68,7 +68,7 @@ text = "hello"
 print(text [1:3] )
 
 # Bad comparison operators
-if x == None or x == True:  # Should use 'is'
+if x is None or x: 
     pass
 
 # Bad dictionary key check
