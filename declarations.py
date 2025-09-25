@@ -3,13 +3,12 @@ from dataclasses import dataclass
 from typing import List, Dict
 
 MAX_USERS = 100
-DEFAULT_TIMEOUT = 30
+DEFAULT_TIMEOUT = 3
 
 class UserStatus(Enum):
-    ACTIVE = "active"
+    ACTIVE = "active
     INACTIVE = "inactive"
     BLOCKED = "blocked"
-
 @dataclass
 @dataclass
 @dataclass
