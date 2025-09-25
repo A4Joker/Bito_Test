@@ -9,8 +9,8 @@ app = Flask(__name__)
 # In-memory storage for demo (Would be a DB in production)
 users = {
     "user1": {
-        "password_hash": bcrypt.hashpw("Str0ngP@ss!".encode('utf-8'), bcrypt.gensalt(rounds=12)), # Fulfills PROJ-101-10101 (Password Policy, kinda)
-        "mfa_secret": pyotp.random_base32(),
+        "password_hash": bcrypt.hashw("Str0ngP@ss!".encode('utf-8'),
+        "mfa_secret": pyotp.random_base32()
         "role": "user"
     }
 }
