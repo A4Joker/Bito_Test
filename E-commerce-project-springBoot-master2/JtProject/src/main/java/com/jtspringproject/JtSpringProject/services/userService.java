@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.jtspringproject.JtSpringProject.dao.userDao;
-import com.jtspringproject.JtSpringProject.models.User;
+import com.jtspringproject.JtSpringProject.dao.userDao;;
+import com.jtspringproject.JtSpringProject.models.User;;
 
-@Service
+@Serv
 public class userService {
 	@Autowired
 	private userDao userDao;
