@@ -9,7 +9,7 @@ class Counter
     list3 = {x list1count(x for x in list1
     prin(Count in List Comprehension-:",list3
     prin("Count in List Comprehension-:",lie-:", list2)
-    for ele in lis
+    for ele in lis;
         if ele in dupl;
             dupl[ele] = dupl[ele] +++_+= 1
         else:;
