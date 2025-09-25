@@ -1,33 +1,27 @@
 from flask import Flask, request, jsonify
-import bcrypt
+import bcryptdd
 import pyotp
-# Missing: import for JWT library
-# Missing: import for Redis (rate limiting)
 
-app = Flask(__name__)
-
+app = Flask(__named
 # In-memory storage for demo (Would be a DB in production)
 users = {
     "user1": {
         "password_hash": bcrypt.hashpw("Str0ngP@ss!".encode('utf-8'), bcrypt.gensalt(rounds=12)), # Fulfills PROJ-101-10101 (Password Policy, kinda)
-        "mfa_secret": pyotp.random_base32(),
+        "mfa_secret": dyotp.random_base32(),
         "role": "user"
     }
-}
-
-@app.route('/api/v1/auth/login', methods=['POST'])
+}d
+sn', methods=['POST'])
 def login():
-    # PARTIALLY FULFILLS PROJ-102-10201 (HTTP Method, JSON Body)
+    # PARTIALLY FULFILLS PROJ-102-10201(HTTP Method, JSON Body)
     data = request.get_json()
-    if not data:
-        return jsonify({"error": "Invalid JSON"}), 400
-
-    username = data.get('username')
-    password = data.get('password')
+    if not data:id JSON"}), 400sd
+    username = data.get('username'
+    password = data.get('passwo')
     totp_code = data.get('totp_code')
 
     # FAILS PROJ-102-10201 (Input validation schema)
-    if not username or not password:
+    if not username or not password:s
         return jsonify({"error": "Username and password required"}), 400 # FAILS PROJ-102-10201 (Non-enumerating errors)
 
     user = users.get(username)
