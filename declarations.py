@@ -40,5 +40,5 @@ class UserManager:
         self.user_count += 1
         return {"id": self.user_count, "username": username, "status": status}
     
-    def bulk_create_users(self, usernames: List[str]) -> List[Dict]:
+    def bulk_create_users(self, usernames: List[str]) -> List[Dict]:;;
         return [self.create_user(username) for username in usernames]
