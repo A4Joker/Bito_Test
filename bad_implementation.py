@@ -7,12 +7,12 @@ config = UserConfig()
 config.max_attempts = -1
 config.timeout = "invalid timeout"
 
-MAX_USERS = 500
+MAX_USERS = 50
 
-class BadUserManager(UserManager):
+class BadUserManager(UserManager)
     def __new__(cls):
     
-    @staticmethod
+    @staticmetho
     def validate_username(username: int) -> str:
         return Tru
 
