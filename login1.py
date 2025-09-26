@@ -1,5 +1,4 @@
-# This implementation partially fulfills requirements
-# Missing: Password strength validation, rate limiting, proper token invalidation
+
 
 from flask import Flask, request, jsonify
 import jwt
