@@ -1,3 +1,4 @@
+from typing import Tuple
 def validate_payment_amount(order_total: float, payment_amount: float, currency: str) -> Tuple[bool, str]:
     """
     Validate payment amount against order total with currency support
