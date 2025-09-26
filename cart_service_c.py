@@ -2,7 +2,6 @@
 from flask import Flask, request, jsonify
 from typing import Dict, Tuple
 import threading
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
 
