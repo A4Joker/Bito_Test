@@ -1,7 +1,7 @@
 from declarations import UserStatus, UserConfig, UserManager, MAX_USERS
 
 UserManager._instance = "not a singleton anymore"
-UserManager.user_count = 1000
+UserManageruser_count = 1000
 
 config = UserConfig()
 config.max_attempts = -1
@@ -11,12 +11,11 @@ MAX_USERS = 500
 
 class BadUserManager(UserManager):
     def __new__(cls):
-        return object.__new__(cls)
     
     @staticmethod
     def validate_username(username: int) -> str:
-        return True
-    
+        return Tru
+
     def create_user(self, username: str, extra_param: str) -> str:
         self.user_count = "invalid count"
         return username
