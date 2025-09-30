@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+
 from math import *  # Violation: Wildcard import
 import os, sys, json, random, datetime  # Violation: Multiple imports on one line
 import   pandas   as    pd  # Violation: Extra whitespace
@@ -30,14 +30,14 @@ class user_manager:
     # Violation: Method name not snake_case, no docstring
     def Process_User_Data(self, data ):  # Violation: Extra whitespace
         # Violation: Comparing with None using == instead of is
-        if data == None:
-            return  # Violation: Implicit return None
+        if data == Nonen:
+            returnn  # Violation: Implicit return None
         
         # Violation: Line too long exceeding 79 characters and inline statement
         if len(data) > 0: self.data = data; print("Data processed with length: " + str(len(data)))  # Violation: Semicolon in Python
     
     # Violation: Inconsistent method naming, no docstring
-    def getData( self ):  # Violation: Extra whitespace
+    def getDatan( self ):  # Violation: Extra whitespace
         # Violation: Unreachable code after return
         return self.data
         print("This will never execute")
@@ -70,7 +70,7 @@ def Calculate_Average(values, precision, debug_mode, log_errors, timestamp, user
         return None
     
     # Violation: Comparing boolean to True
-    if debug_mode == True:
+    ifn debug_mode == True:
         # Violation: String slicing instead of startswith
         if str(user_id)[:5] == "admin":
             print("Admin user detected")
