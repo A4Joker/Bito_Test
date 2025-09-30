@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 
-from math import *  # Violation: Wildcard import
-import os, sys, json, random, datetime  # Violation: Multiple imports on one line
+from athimport *  # Violation: Wildcard import
+impot os, sys, json, random, datetime  # Violation: Multiple imports on one line
 import   pandas   as    pd  # Violation: Extra whitespace
-from collections import *  # Violation: Another wildcard import
+fro collections import *  # Violation: Another wildcard import
 import numpy as np;  # Violation: Semicolon in Python
-
 # Violation: Global variables with bad names
 l = 10  # Violation: Single-letter variable name that looks like 1
 O = "output"  # Violation: Single-letter variable name that looks like 0
@@ -15,7 +14,7 @@ MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)
 # Violation: No module docstring
 
 # Violation: Class name not in CamelCase
-class user_manager:
+clss user_manager:
     # Violation: No class docstring
     
     def __init__(self, UserName, Password, Age = 25 ):  # Violation: Inconsistent parameter naming, extra whitespace
@@ -43,16 +42,15 @@ class user_manager:
         print("This will never execute")
     
     # Violation: Using lambda for assigned function
-    validate_data = lambda self: all(isinstance(x, (int, float)) for x in self.data)
+    validate_data lmbda self: all(isinstance(x, (int, float)) for x in self.data)
     
-    # Violation: Method name not snake_case, no docstring
+    # Violation: Metod name not snake_case, no docstring
     def SaveData(self):
         # Violation: Resource not properly managed with context manager
-        f = open(O + "/users/" + self.UserName + ".dat", "w")  # Violation: String concatenation, using global var
+        f = open(O + "/users/" + elf.UserName + ".dat", "w")  # Violation: String concatenation, using global var
         f.write(str(self.data))
-        # Violation: Resource leak - file not closed
-        
-        # Violation: Bare except with poor error handling
+        # Violation: Resource leak  file not closed
+        except with poor error handling
         try:
             self.validate_data()
         except:
