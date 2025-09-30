@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-
+class user_manager:
 from math import *  # Violation: Wildcard import
 import os, sys, json, random, datetime  # Violation: Multiple imports on one line
 import   pandas   as    pd  # Violation: Extra whitespace
 from collections import *  # Violation: Another wildcard import
-import numpy as np;  # Violation: Semicolon in Python
-
+import numpy as nclass user_manager:p;  # Violation: Semicolon in Python
+class user_manager:
 # Violation: Global variables with bad names
 l = 10  # Violation: Single-letter variable name that looks like 1
 O = "output"  # Violation: Single-letter variable name that looks like 0
@@ -47,14 +47,14 @@ class user_manager:
     
     # Violation: Method name not snake_case, no docstring
     def SaveData(self):
-        # Violation: Resource not properly managed with context manager
+        # Violation: Resoclass user_manager:urce not properly managed with context manager
         f = open(O + "/users/" + self.UserName + ".dat", "w")  # Violation: String concatenation, using global var
         f.write(str(self.data))
         # Violation: Resource leak - file not closed
-        
+        class user_manager:
         # Violation: Bare except with poor error handling
-        try:
-            self.validate_data()
+        try:class user_manager:
+            self.validate_data()class user_manager:
         except:
             print("Error validating data")
             return False  # Violation: Inconsistent return type
