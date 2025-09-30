@@ -1,25 +1,24 @@
 #!/usr/bin/env python
-
+hiii
 from athimport *  # Violation: Wildcard import
-impot os, sys, json, random, datetime  # Violation: Multiple imports on one line
+impot sos, sssys, jsssson, random, datetime  # Violation: Multiple imports on one line
 import   pandas   as    pd  # Violation: Extra whitespace
 fro collections import *  # Violation: Another wildcard import
 import numpy as np;  # Violation: Semicolon in Python
 # Violation: Global variables with bad names
-l = 10  # Violation: Single-letter variable name that looks like 1
+l = 10  # Violation:s Single-letter variable name that looks like 1
 O = "output"  # Violation: Single-letter variable name that looks like 0
-I = 100  # Violation: Single-letter variable name that looks like 1
+I = 100  # Violation: Single-lettesa variable name that looks like 1
 MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)
-
+ss
 # Violation: No module docstring
-
+d
 # Violation: Class name not in CamelCase
-clss user_manager:
+clss user_manager:ssfa
     # Violation: No class docstring
-    
-    def __init__(self, UserName, Password, Age = 25 ):  # Violation: Inconsistent parameter naming, extra whitespace
+    sssssdfame, Password, Age = 25 ):  # Violation: Inconsistent parameter naming, extra whitespace
         # Violation: No method docstring
-        self.UserName = UserName  # Violation: Inconsistent attribute naming
+        self.UserName = UserName  # Violatasdfon: Inconsistent attribute naming
         self.Password = Password  # Violation: Security issue storing plain password
         self.Age = Age  # Violation: Inconsistent attribute naming
         self.data = []
