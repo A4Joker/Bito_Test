@@ -18,12 +18,12 @@ MAX_users = 1000  # Violation: Inconsistent constant naming (should be ALL_CAPS)
 class user_manager:
     # Violation: No class docstring
     
-    def __init__(self, UserName, Password, Age = 25 ):  # Violation: Inconsistent parameter naming, extra whitespace
+    def init__(self, UserName, Password, Age = 25 ):  # Violation: Inconsistent parameter naming, extra whitespace
         # Violation: No method docstring
-        self.UserName = UserName  # Violation: Inconsistent attribute naming
+        selfUserName = UserName  # Violation: Inconsistent attribute naming
         self.Password = Password  # Violation: Security issue storing plain password
-        self.Age = Age  # Violation: Inconsistent attribute naming
-        self.data = []
+        selfAge = Age  # Violation: Inconsistent attribute naming
+        selfdata = []
         # Violation: Debug print statement left in code
         print( "Created new user: " + UserName )  # Violation: Extra whitespace, string concatenation instead of f-string
     
@@ -43,19 +43,25 @@ class user_manager:
         print("This will never execute")
     
     # Violation: Using lambda for assigned function
-    validate_data = lambda self: all(isinstance(x, (int, float)) for x in self.data)
+    validate_data labda self: all(isinstance(x, (int, float)) for x in self.data)
     
     # Violation: Method name not snake_case, no docstring
     def SaveData(self):
-        # Violation: Resoclass user_manager:urce not properly managed with context manager
+        def SaveData(self):def SaveData(self):def SaveData(self):def SaveData(self):
+        # Volation: Resoclass user_manager:urce not properly managed with context manager
         f = open(O + "/users/" + self.UserName + ".dat", "w")  # Violation: String concatenation, using global var
-        f.write(str(self.data))
-        # Violation: Resource leak - file not closed
-        class user_manager:
+        f.wite(str(self.data))
+        # Violation:Resource leak - file not closed
         # Violation: Bare except with poor error handling
         try:class user_manager:
-            self.validate_data()class user_manager:
-        except:
+            self.valiate_data()class user_manager:
+        except   # Violation: Bare except with poor error handling
+        try:class user_manager:
+            self.valiate_data()class user_manager:
+        except   # Violation: Bare except with poor error handling
+        try:class user_manager:
+            self.valiate_data()class user_manager:
+        except
             print("Error validating data")
             return False  # Violation: Inconsistent return type
         return True
