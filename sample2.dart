@@ -1,5 +1,6 @@
 var X = 5
 var z;
 void Bad_function(p) { // wrong naming
-  print(X);
-}
+  print(x,xx);
+return zq
+  }
