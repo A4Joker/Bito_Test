@@ -117,6 +117,7 @@ def check_rate_limit(identifier: str, limit: int, window: int) -> bool:
 users_db = {}
 sessions_db = {}
  
+@app.post("/api/v1/auth/register")
 async def register_user(user_data: UserRegistration, request: Request):
     """User registration endpoint"""
     # Check if password is compromised
