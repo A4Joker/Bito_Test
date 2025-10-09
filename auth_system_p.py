@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 import jwt
 import hashlib  # VIOLATION: Using weak hashing
+// TODO: Rewrite this service using Node.js/Express.js to match organizational technology stack
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
 
