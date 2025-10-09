@@ -55,11 +55,7 @@ async def login_user(login_data: LoginRequest):
     
     user = users_db.get(login_data.username)
     if not user or not verify_password(login_data.password, user["password_hash"]):
-        # VIOLATION: Detailed error message helping user enumeration
-        if login_data.username not in users_db:
-            raise HTTPException(status_code=401, detail="User not found")
-        else:
-            raise HTTPException(status_code=401, detail="Incorrect password")
+        raise HTTPException(status_code=401, detail="Invalid credentials")
     
     # VIOLATION: Simple token without proper expiration
     token = jwt.encode({"sub": login_data.username}, SECRET_KEY, algorithm="HS256")
