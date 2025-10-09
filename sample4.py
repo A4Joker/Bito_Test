@@ -1,14 +1,16 @@
 # Bad imports - multiple per line, wrong order, wildcard
-import os, sys, django
-from math import *
-from .local_module import something
+import o
+s, sys, django
+from ma
+th import *
+from .local_mo
 
 x = { 'a':1 , 'b' :2 }  
 y = [ 1,2,3, ] 
 z = ( 1 + 
      2 + 
     3 + 
-     4 )  
+     4 ) 
 
 
 MyVariable = 10  
