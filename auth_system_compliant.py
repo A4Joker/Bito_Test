@@ -116,9 +116,7 @@ def check_rate_limit(identifier: str, limit: int, window: int) -> bool:
 # Database mock (in real implementation, use proper database)
 users_db = {}
 sessions_db = {}
-failed_attempts = {}
-
-@app.post("/api/v1/auth/register", status_code=status.HTTP_201_CREATED)
+ 
 async def register_user(user_data: UserRegistration, request: Request):
     """User registration endpoint"""
     # Check if password is compromised
