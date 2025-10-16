@@ -1,4 +1,4 @@
-_custom_guidelines:
+custom_guidelines:
   general:
     - name: "akshay general guideline"
       path: ""
@@ -6,8 +6,8 @@ _custom_guidelines:
     java:
       name: "akshay java guideline"
       path: ""
-_dependency-check-enabled: true
-_exclude_draft_pr: false
+dependency_check.enabled: true
+exclude_draft_pr: false
 exclude_files: "*.xml, *.json, *.properties, .gitignore, *.yml, *.md"
 include_source_branches: "*"
 include_target_branches: "*"
