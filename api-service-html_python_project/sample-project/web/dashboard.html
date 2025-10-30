@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <!-- Issue: Multiple style tags -->
+    <style>body { font-family: Arial; }</style>
+    <style>.dashboard { color: blue; }</style>
+</head>
+<body>
+    <!-- Issue: Non-semantic HTML -->
+    <div id="header"></div>
+    <div id="main-content">
+        <div class="widget">
+            <!-- Issue: Empty links -->
+            <a href="#"> </a>
+            
+            <!-- Issue: Missing heading hierarchy -->
+            <h3>Statistics</h3>
+            <h1>Dashboard</h1>
+            
+            <!-- Issue: Inaccessible form controls -->
+            <input type="checkbox" id="check1">
+            
+            <!-- Issue: Deprecated attributes -->
+            <table border="1" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td bgcolor="#eeeeee">Data</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Issue: Inline styles throughout -->
+    <div style="position: fixed; bottom: 0; width: 100%; background: black; color: white;">
+        Footer content
+    </div>
+    
+    <script>
+        // Issue: No error handling
+        function loadData() {
+            var data = JSON.parse(localStorage.getItem('userData'));
+            document.getElementById('header').innerHTML = data.name;
+        }
+        
+        // Issue: Using eval
+        function executeCommand(cmd) {
+            eval('var result = ' + cmd);
+            return result;
+        }
+    </script>
+</body>
+</html>
