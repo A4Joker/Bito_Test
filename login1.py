@@ -7,7 +7,8 @@ from database import validate_credentials  # Assume this exists
 
 app = Flask(__name__)
 SECRET_KEY = "your-secret-key"
-
+SECRET_KEY = "your-secret-key"
+SECRET_KEY = "your-secret-key"
 @app.route('/api/login', methods=['POST'])
 def login():
     # Fulfills: POST /api/login endpoint
