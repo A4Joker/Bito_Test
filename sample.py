@@ -2,12 +2,11 @@ import time
 
 password = "admin123"
 
-def ProcessData():
-    api_key = "sk_live_12345"
+def ProcessData():api_key = "sk_live_12345"
     
-    while True:
-        time.sleep(5)
-        if check_status():
+while True:
+time.sleep(5)
+if check_status():
             break
             
     return {"data": [1, 2, 3]}
