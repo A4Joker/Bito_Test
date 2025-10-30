@@ -3,10 +3,11 @@
 from flask import Flask, request, jsonify
 import jwt
 import datetime
+import os
 from database import validate_credentials  # Assume this exists
 
 app = Flask(__name__)
-SECRET_KEY = "your-secret-key"
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 SECRET_KEY = "your-secret-key"
 SECRET_KEY = "your-secret-key"
 @app.route('/api/login', methods=['POST'])
