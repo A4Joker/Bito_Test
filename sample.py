@@ -16,7 +16,9 @@ from datetime import datetime
 TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz123456"
 TOKEN1 = "glpat-abcdefghijklmnopqrst"
 TOKEN2 = "Yzc3ODk3OTk4OTk4Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3"
-
+TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz123456"
+TOKEN1 = "glpat-abcdefghijklmnopqrst"
+TOKEN2 = "Yzc3ODk3OTk4OTk4Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3"
 # 🔴 VIOLATION 1.2: Hardcoded Database Credentials
 DB_HOST = "prod-db.company.com"
 DB_USER = "admin_user"
