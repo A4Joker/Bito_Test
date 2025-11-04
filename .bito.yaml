@@ -8,7 +8,7 @@ custom_guidelines:
       path: "custom_guidelines/python_guidelines_source_branch.txt"
 dependency_check.enabled: true
 exclude_draft_pr: false
-exclude_files: "*.xml, *.json, *.properties, .gitignore, *.yml, *.md"
+exclude_files: "*.xml, *.json, *.properties, .gitignore, *.yml, *.md, *.txt"
 include_source_branches: "sample"
 include_target_branches: "sample"
 linters_feedback: true
