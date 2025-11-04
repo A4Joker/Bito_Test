@@ -1,10 +1,10 @@
 custom_guidelines:
   general:
-    - name: "akshay general guideline from source branch"
+    - name: "akshay java guideline from source branch"
       path: "/java/java_guideline.txt"
   per_language:
     java:
-      name: "akshay java guideline from source branch"
+      name: "akshay python guideline from source branch"
       path: "custom_guidelines/python_guidelines_source_branch.txt"
 dependency_check.enabled: true
 exclude_draft_pr: false
