@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <!-- Issue: Blocking render -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Issue: Missing main landmark -->
+    <div>
+        <!-- Issue: Repetitive IDs -->
+        <div id="profile">User Profile</div>
+        <div id="profile">Another Profile</div>
+        
+        <!-- Issue: Non-responsive images -->
+        <img src="user-photo.jpg" width="800" height="600">
+        
+        <!-- Issue: Auto-play media -->
+        <audio src="notification.mp3" autoplay></audio>
+        
+        <!-- Issue: Poor form structure -->
+        <form>
+            <div>Name: <input type="text"></div>
+            <div>Email: <input type="text"></div>
+            <div>
+                <!-- Issue: Unlabeled inputs -->
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+            </div>
+        </form>
+        
+        <!-- Issue: Accessibility issues -->
+        <div onclick="showDetails()">Click for details</div>
+        
+        <!-- Issue: Deprecated tags -->
+        <marquee>Welcome to the profile page</marquee>
+    </div>
+    
+    <script>
+        // Issue: Memory leak potential
+        var cache = {};
+        
+        function loadUserData(userId) {
+            if (!cache[userId]) {
+                // Issue: No input sanitization
+                cache[userId] = fetch('/api/users/' + userId)
+                    .then(response => response.json());
+            }
+            return cache[userId];
+        }
+        
+        // Issue: Global event handler
+        window.onload = function() {
+            loadUserData(123);
+        };
+    </script>
+</body>
+</html>
