@@ -10,7 +10,7 @@ dependency_check.enabled: true
 exclude_draft_pr: false
 exclude_files: "*.xml, *.json, *.properties, .gitignore, *.yml, *.md"
 include_source_branches: "sample"
-include_target_branches: "*"
+include_target_branches: "sample"
 linters_feedback: true
 post_changelist: true
 post_description: true
