@@ -16,5 +16,5 @@ post_changelist: true
 post_description: true
 secret_scanner_feedback: true
 suggestion_mode: comprehensive
-sequence_diagram_enabled: true
+#sequence_diagram_enabled: true
 repo_level_guidelines_enabled: true
