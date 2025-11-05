@@ -1,311 +1,239 @@
 
-import os
-import sys
+
 import pickle
-import yaml
-import subprocess
 import sqlite3
-from flask import Flask, request, jsonify
-from datetime import datetime
-
-
-# 🔴 VIOLATION 1.1: Hardcoded API Keys
-TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz123456"
-TOKEN1 = "glpat-abcdefghijklmnopqrst"
-TOKEN2 = "Yzc3ODk3OTk4OTk4Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3"
-TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz123456"
-TOKEN1 = "glpat-abcdefghijklmnopqrst"
-TOKEN2 = "Yzc3ODk3OTk4OTk4Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3"
-# 🔴 VIOLATION 1.2: Hardcoded Database Credentials
-DB_HOST = "prod-db.company.com"
-DB_USER = "admin_user"
-DB_PASSWORD = "SuperSecurePassword123!@#"
-DB_NAME = "production_database"
-
-
+import yaml
+import os
+from flask import Flask, request
 
 app = Flask(__name__)
 
 
-# ============================================================================
-# VIOLATION 2: NO SQL INJECTION (Multiple patterns)
-# ============================================================================
+API_KEY = "sk-1234567890abcdefghijklmnopqrstuvwxyz"
+DATABASE_URL = "postgresql://admin:Password123@db.company.com:5432/production"
+AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+JWT_SECRET = "my-super-secret-jwt-key-12345"
+GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz"
+SLACK_WEBHOOK = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXX"
 
-def get_user_by_id_injection_v1(user_id):
-    """🔴 VIOLATION 2.1: String concatenation SQL injection"""
-    conn = sqlite3.connect(DB_NAME)
+DB_CONFIG = {
+    "host": "db.production.com",
+    "user": "root",
+    "password": "RootPassword@123",
+    "database": "company_data"
+}
+
+
+
+def get_user_by_id_vulnerable(user_id):
+  
+    conn = sqlite3.connect(':memory:')
     cursor = conn.cursor()
     
-    # VULNERABLE: Direct string concatenation
-    query = "SELECT * FROM users WHERE id = " + str(user_id)
+   
+    query = f"SELECT * FROM users WHERE id = {user_id}"
     cursor.execute(query)
     return cursor.fetchall()
 
+def get_user_by_email_vulnerable(email):
 
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(':memory:')
     cursor = conn.cursor()
-    
-    # VULNERABLE: .format() method
-    query = "SELECT * FROM users WHERE username = '{}'".format(username)
+
+    query = "SELECT * FROM users WHERE email = '{}'".format(email)
     cursor.execute(query)
     return cursor.fetchall()
 
+def authenticate_user_vulnerable(username, password):
 
-def get_user_by_id_injection_v4(email):
-    """🔴 VIOLATION 2.4: % formatting SQL injection"""
-    conn = sqlite3.connect(DB_NAME)
+    conn = sqlite3.connect(':memory:')
     cursor = conn.cursor()
-    
-    # VULNERABLE: % formatting
-    query = "SELECT * FROM users WHERE email = '%s'" % email
+
+    query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
     cursor.execute(query)
-    return cursor.fetchall()
-
-
-def authenticate_user_injection(username, password):
-    """🔴 VIOLATION 2.5: Login with SQL injection"""
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    user = cursor.fetchone()
     
-    # VULNERABLE: Authentication bypass via SQL injection
-    query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
-    cursor.execute(query)
+    return user is not None
 
 
-def delete_user_injection(user_id, confirmation):
-    """🔴 VIOLATION 2.7: DELETE with SQL injection"""
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    
-    # VULNERABLE: Can delete all users
-    query = f"DELETE FROM users WHERE id = {user_id} AND confirmed = {confirmation}"
-    cursor.execute(query)
-    conn.commit()
+@app.route('/upload', methods=['POST'])
+def upload_file_vulnerable():
 
-
-def search_products_injection(search_term):
-    """🔴 VIOLATION 2.8: Search with SQL injection"""
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    
-    # VULNERABLE: Wildcard injection
-    query = f"SELECT * FROM products WHERE name LIKE '%{search_term}%' OR description LIKE '%{search_term}%'"
-    cursor.execute(query)
-    return cursor.fetchall()
-
-
-# ============================================================================
-# VIOLATION 3: NO UNVALIDATED INPUT (Path traversal, command injection)
-# ============================================================================
-
-def read_user_file_path_traversal(filename):
-    """🔴 VIOLATION 3.1: Path traversal vulnerability"""
-    # VULNERABLE: No validation of filename
+    filename = request.form.get('filename')
     filepath = f"/uploads/{filename}"
     
-    with open(filepath, 'r') as f:
-        return f.read()
 
-
-def process_image_path_traversal(user_id, filename):
-    """🔴 VIOLATION 3.2: Path traversal in image processing"""
-    # VULNERABLE: Attacker can access any file
-    filepath = f"/home/users/{user_id}/images/{filename}"
+    with open(filepath, 'wb') as f:
+        f.write(request.files['file'].read())
     
-    # Process image
-    result = subprocess.run(['convert', filepath, '-resize', '100x100', filepath], capture_output=True)
-    return result.returncode == 0
+    return "File uploaded successfully"
+
+@app.route('/execute', methods=['POST'])
+def execute_command_vulnerable():
 
 
-def download_report_path_traversal(report_name):
-    """🔴 VIOLATION 3.3: Path traversal in file download"""
-    # VULNERABLE: Can download /etc/passwd, config files, etc.
-    base_path = "/var/reports"
-    filepath = os.path.join(base_path, report_name)
+    command = request.args.get('cmd')
+    user_id = request.args.get('user_id')
     
-    with open(filepath, 'rb') as f:
-        return f.read()
 
-
-def execute_command_injection_v1(user_input):
-    """🔴 VIOLATION 3.4: Command injection via shell=True"""
-    # VULNERABLE: Direct command injection
-    command = f"ping -c 1 {user_input}"
-    result = subprocess.run(command, shell=True, capture_output=True)
-    return result.stdout.decode()
-
-
-def execute_command_injection_v2(filename):
-    """🔴 VIOLATION 3.5: Command injection in file processing"""
-    # VULNERABLE: Attacker can inject commands
-    cmd = f"cat {filename} | grep 'ERROR' > /tmp/errors.log"
-    os.system(cmd)
-
-
-def execute_command_injection_v3(server, port):
-    """🔴 VIOLATION 3.6: Command injection in network commands"""
-    # VULNERABLE: Port can contain command injection
-    command = f"telnet {server} {port}"
-    subprocess.call(command, shell=True)
-
-
-def process_csv_injection(csv_file):
-    """🔴 VIOLATION 3.7: CSV formula injection"""
-    # VULNERABLE: No validation of CSV content
-    with open(csv_file, 'r') as f:
-        lines = f.readlines()
+    os.system(f"echo 'Processing user {user_id}' && {command}")
     
-    # Directly process without sanitization
-    for line in lines:
-        # If line starts with =, @, +, - it's a formula injection
-        parts = line.split(',')
-        # Process directly without validation
-        process_data(parts)
+    return "Command executed"
 
+@app.route('/process', methods=['POST'])
+def process_data_vulnerable():
 
-def write_log_injection(user_input):
-    """🔴 VIOLATION 3.8: Log injection"""
-    # VULNERABLE: User input directly in logs
-    log_message = f"User action: {user_input}"
+    age = request.form.get('age')
+    quantity = request.form.get('quantity')
     
-    with open('/var/log/app.log', 'a') as f:
-        f.write(log_message + '\n')
+
+    total_price = 100 * int(age) + int(quantity)
+    
+    return f"Total: {total_price}"
 
 
-# ============================================================================
-# VIOLATION 4: NO UNSAFE DESERIALIZATION (pickle, eval, exec)
-# ============================================================================
+def deserialize_user_data_vulnerable(serialized_data):
 
-def deserialize_pickle_unsafe(data):
-    """🔴 VIOLATION 4.1: Unsafe pickle deserialization"""
-    # VULNERABLE: pickle.loads() can execute arbitrary code
-    try:
-        obj = pickle.loads(data)
-        return obj
-    except:
-        return None
+    user_data = pickle.loads(serialized_data)
+    return user_data
 
+def process_config_vulnerable(config_string):
 
-def deserialize_yaml_unsafe(yaml_string):
-    """🔴 VIOLATION 4.2: Unsafe YAML loading"""
-    # VULNERABLE: yaml.load() without Loader can execute code
-    config = yaml.load(yaml_string)
+    config = eval(config_string)
     return config
 
+def load_yaml_vulnerable(yaml_content):
 
-def eval_user_expression(expression):
-    """🔴 VIOLATION 4.3: eval() on user input"""
-    # VULNERABLE: eval() can execute arbitrary Python code
-    result = eval(expression)
-    return result
-
-
-def exec_user_code(code):
-    """🔴 VIOLATION 4.4: exec() on user input"""
-    # VULNERABLE: exec() can execute arbitrary Python code
-    exec(code)
-
-
-def deserialize_json_with_eval(json_string):
-    """🔴 VIOLATION 4.5: Using eval() to parse JSON"""
-    # VULNERABLE: eval() instead of json.loads()
-    data = eval(json_string)
+    data = yaml.load(yaml_content)
     return data
 
+def execute_template_vulnerable(template_code):
+
+    exec(template_code)
+
+@app.route('/api/data', methods=['POST'])
+def receive_data_vulnerable():
+
+    pickled_data = request.data
+    user_data = pickle.loads(pickled_data)
+    
+    return "Data received"
 
 
-# ============================================================================
-# VIOLATION 5: IMPROPER ERROR HANDLING (Bare except, silent failures)
-# ============================================================================
+def process_payment_vulnerable(amount, card_number):
 
-def process_payment_bare_except(amount, card_token):
-    """🔴 VIOLATION 5.1: Bare except clause"""
+    
     try:
-        # Process payment
-        response = charge_card(amount, card_token)
-        return response
+
+        charge_amount = amount / 0  
+        process_card(card_number, charge_amount)
+        
     except:
-        # VULNERABLE: Catches all exceptions, no logging
+ 
+        pass
+    
+    return "Payment processed"
+
+def read_config_file_vulnerable(filename):
+
+    
+    try:
+        with open(filename, 'r') as f:
+            config = f.read()
+    except:
+
         pass
 
+    return config
 
-def authenticate_user_bare_except(username, password):
-    """🔴 VIOLATION 5.2: Bare except with silent failure"""
+def database_query_vulnerable(query):
+
+    
+    conn = sqlite3.connect(':memory:')
+    cursor = conn.cursor()
+    
+
+    result = cursor.execute(query)
+    
+    return result.fetchall()
+
+def api_call_vulnerable(url, timeout=5):
+
+    import requests
+    
     try:
-        user = verify_credentials(username, password)
-        return user
+ 
+        response = requests.get(url, timeout=timeout)
+        data = response.json()
+        
     except:
-        # VULNERABLE: Silent failure, no error information
-        return None
+
+        pass
+
+    return data
+
+def process_user_list_vulnerable(users):
+
+    
+    results = []
+    
+    for user in users:
+        try:
+
+            user_id = user['id']
+            email = user['email']
+            age = user['age']
+            
+            # Process user
+            processed = process_user(user_id, email, age)
+            results.append(processed)
+            
+        except:
+
+            pass
+    
+    return results
 
 
-def load_config_bare_except(config_file):
-    """🔴 VIOLATION 5.3: Bare except in config loading"""
+
+@app.route('/super-vulnerable', methods=['POST'])
+def super_vulnerable_endpoint():
+
+    
     try:
-        with open(config_file, 'r') as f:
-            config = yaml.load(f)
-        return config
-    except:
-        # VULNERABLE: Can't debug what went wrong
-        return {}
 
-
-def database_query_bare_except(query):
-    """🔴 VIOLATION 5.4: Bare except in database operations"""
-    try:
-        conn = sqlite3.connect(DB_NAME)
+        conn = sqlite3.connect(DATABASE_URL)
+        
+  
+        user_id = request.form.get('user_id')
+        username = request.form.get('username')
+        action = request.form.get('action')
+        
+  
         cursor = conn.cursor()
+        query = f"SELECT * FROM users WHERE id = {user_id} AND username = '{username}'"
         cursor.execute(query)
-        return cursor.fetchall()
+        user = cursor.fetchone()
+        
+
+        serialized_data = request.form.get('data')
+        data = pickle.loads(serialized_data)
+        
+
+        exec(action)
+        
     except:
-        # VULNERABLE: No error context
-        return []
+
+        pass
+    
+    return "Done"
 
 
-def api_call_bare_except(endpoint, params):
-    """🔴 VIOLATION 5.5: Bare except in API calls"""
-    try:
-        import requests
-        response = requests.get(endpoint, params=params, timeout=5)
-        return response.json()
-    except:
-        # VULNERABLE: Network errors hidden
-        return {}
+def process_card(card_number, amount):
+    pass
 
+def process_user(user_id, email, age):
+    pass
 
-def file_operation_bare_except(filepath):
-    """🔴 VIOLATION 5.6: Bare except in file operations"""
-    try:
-        with open(filepath, 'r') as f:
-            data = f.read()
-        return data
-    except:
-        # VULNERABLE: File not found, permission denied - all hidden
-        return ""
-
-
-def json_parsing_bare_except(json_string):
-    """🔴 VIOLATION 5.7: Bare except in JSON parsing"""
-    import json
-    try:
-        data = json.loads(json_string)
-        return data
-    except:
-        # VULNERABLE: Invalid JSON - no indication
-        return None
-
-
-def critical_operation_bare_except(user_id, action):
-    """🔴 VIOLATION 5.8: Bare except in critical operations"""
-    try:
-        # Critical business logic
-        process_critical_action(user_id, action)
-        log_action(user_id, action)
-        notify_user(user_id)
-    except:
-        # VULNERABLE: Critical failure hidden
-
-
-if __name__ == "__main__":
-    print("🔴 This file contains intentional security violations for CRA testing")
-    print("🚀 CRA should generate multiple suggestions for each guideline violation")
+if __name__ == '__main__':
+    app.run(debug=True)
