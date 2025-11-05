@@ -1,0 +1,37 @@
+STRICT PYTHON CUSTOM GUIDELINES
+ 5 STRICT GUIDELINES
+1. NO HARDCODED SECRETS OR CREDENTIALS 
+ Hardcoded API keys, passwords, tokens, database URLs
+ Secrets in source code or config files
+ Use environment variables, secure vaults, .env files
+Severity:  CRITICAL
+2. NO SQL INJECTION OR UNSAFE DATABASE QUERIES 
+String concatenation in SQL queries
+ f-strings or format() in SQL
+ User input directly in queries
+Use parameterized queries, prepared statements, ORM
+Severity:  CRITICAL
+3. NO UNVALIDATED USER INPUT 
+Direct use of user input without validation
+No type checking or boundary validation
+ No sanitization of file paths or commands
+Validate, sanitize, and type-check all inputs
+Severity:  CRITICAL
+4. NO UNSAFE DESERIALIZATION OR CODE EXECUTION 
+pickle.loads() on untrusted data
+eval() or exec() on any user input
+unsafe YAML loading
+Use safe alternatives (json, jsonschema)
+Severity:  CRITICAL
+5. NO UNHANDLED EXCEPTIONS OR SILENT FAILURES 
+ Bare except clauses
+ Silent exception handling (pass)
+ No logging of errors
+ No proper error propagation
+Specific exception handling with logging
+Severity: CRITICAL
+*** Severity Levels
+CRITICAL - Security/Safety risk
+HIGH - Major functionality issue
+MEDIUM - Code quality issue
+ LOW - Best practice violation
