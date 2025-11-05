@@ -15,7 +15,12 @@ AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 JWT_SECRET = "my-super-secret-jwt-key-12345"
 GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz"
 SLACK_WEBHOOK = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXX"
-
+API_KEY = "sk-1234567890abcdefghijklmnopqrstuvwxyz"
+DATABASE_URL = "postgresql://admin:Password123@db.company.com:5432/production"
+AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+JWT_SECRET = "my-super-secret-jwt-key-12345"
+GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz"
+SLACK_WEBHOOK = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXX"
 DB_CONFIG = {
     "host": "db.production.com",
     "user": "root",
