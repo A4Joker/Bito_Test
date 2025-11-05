@@ -1,7 +1,7 @@
 custom_guidelines:
   general:
     - name: "akshay general guideline from source branch"
-      path: "/java/general_guideline.txt"
+      path: "general/general_guideline.txt"
   per_language:
     python:
       name: "akshay python guideline from source branch"
