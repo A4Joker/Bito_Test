@@ -1,4 +1,4 @@
-invalid file
+invalid file: true
 custom_guidelines:
   general:
     - name: "akshay general guideline from source branch"
