@@ -6,6 +6,7 @@ A=1
 A=1
 A=1
 A=1
+A=1
 def DoSomething(x,y):return x+y+ A 
 
 class myclass:
