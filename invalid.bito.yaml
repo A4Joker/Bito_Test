@@ -1,0 +1,21 @@
+custom_guidelines:
+  general:
+    - name: "akshay general guideline from source branch"
+      path: "general/general_guideline.txt"
+  per_language:
+    python:
+      name: "akshay python guideline from source branch"
+      path: "custom_guidelines/python_guidelines_source_branch.txt"
+dependency_check.enabled: true
+exclude_draft_pr: false
+exclude_files: "*.xml, *.json, *.properties, .gitignore, *.yml, *.md, *.txt,*.*"
+include_source_branches: "*"
+include_target_branches: "*"
+linters_feedback: true
+post_changelist: true
+post_description: true
+secret_scanner_feedback: true
+suggestion_mode: comprehensive
+sequence_diagram_enabled: true
+repo_level_guidelines_enabled: true
+labels_excluded: "[^bito\W]+"
