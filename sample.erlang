@@ -1,0 +1,277 @@
+% Missing module header comment (Violates #1)
+-module(user_management).
+
+% Exports not grouped logically (Violates #1)
+-export([add_user/3, get_user/1, delete_user/1]).
+-export([process_users/1, export_users/1]).
+-export([start/0, stop/0]).
+
+% Missing record definition at top of module (Violates #11)
+
+% Global constants not in UPPER_CASE (Violates #3)
+-define(max_users, 100).
+-define(default_role, "USER").
+
+% Record definition not at top of module (Violates #11)
+-record(User, {  % CamelCase for record field names (Violates #3)
+    Id,
+    Name,
+    Email,
+    Role,
+    CreatedAt,
+    Metadata
+}).
+
+% Missing EDoc comments and type specs (Violates #2)
+start() ->
+    % Process not registered or supervised (Violates #7)
+    Pid = spawn(fun() -> loop([]) end),
+    register(user_server, Pid),
+    {ok, Pid}.
+
+stop() ->
+    % No error handling (Violates #6)
+    user_server ! stop.
+
+% Function with inconsistent naming (Violates #3)
+addUser(Name, Email, Role) ->
+    % Not using {ok, Result}/{error, Reason} pattern (Violates #6)
+    user_server ! {add_user, self(), Name, Email, Role},
+    receive
+        {user_added, User} -> User;
+        {error, Reason} -> erlang:error(Reason)  % Using exceptions for control flow (Violates #6)
+    after 5000 ->
+        erlang:error(timeout)
+    end.
+
+% Function without EDoc comments or type specs (Violates #2)
+add_user(Name, Email, Role) ->
+    % Not using pattern matching for default role (Violates #4)
+    FinalRole = if Role == "" -> ?default_role;
+                   true -> Role
+                end,
+    
+    % Complex function without helper functions (Violates #9)
+    Id = generate_id(),
+    Now = erlang:universaltime(),
+    User = #User{
+        Id = Id,
+        Name = Name,
+        Email = Email,
+        Role = FinalRole,
+        CreatedAt = Now,
+        Metadata = []
+    },
+    
+    % Not using {ok, Result} pattern (Violates #6)
+    User.
+
+% Function without EDoc comments or type specs (Violates #2)
+get_user(Id) ->
+    % Not using {ok, Result}/{error, Reason} pattern (Violates #6)
+    user_server ! {get_user, self(), Id},
+    receive
+        {user_found, User} -> User;
+        user_not_found -> erlang:error(not_found)  % Using exceptions for control flow (Violates #6)
+    after 5000 ->
+        erlang:error(timeout)
+    end.
+
+% Function without EDoc comments or type specs (Violates #2)
+delete_user(Id) ->
+    % Not using {ok, Result}/{error, Reason} pattern (Violates #6)
+    user_server ! {delete_user, self(), Id},
+    receive
+        user_deleted -> ok;
+        user_not_found -> erlang:error(not_found)  % Using exceptions for control flow (Violates #6)
+    after 5000 ->
+        erlang:error(timeout)
+    end.
+
+% Function that's too long (Violates #9)
+process_users(Options) ->
+    % Not using {ok, Result}/{error, Reason} pattern (Violates #6)
+    user_server ! {get_all_users, self()},
+    Users = receive
+        {all_users, UserList} -> UserList
+    after 5000 ->
+        erlang:error(timeout)
+    end,
+    
+    % Complex function without helper functions (Violates #9)
+    FilteredUsers = case proplists:get_value(role, Options) of
+        undefined -> Users;
+        Role ->
+            % Not using list comprehension (Violates #17)
+            filter_by_role(Users, Role)
+    end,
+    
+    SortedUsers = case proplists:get_value(sort_by, Options) of
+        undefined -> FilteredUsers;
+        name -> 
+            % Complex sorting logic inline (Violates #9)
+            lists:sort(fun(#User{Name = Name1}, #User{Name = Name2}) ->
+                Name1 =< Name2
+            end, FilteredUsers);
+        email ->
+            lists:sort(fun(#User{Email = Email1}, #User{Email = Email2}) ->
+                Email1 =< Email2
+            end, FilteredUsers);
+        role ->
+            lists:sort(fun(#User{Role = Role1}, #User{Role = Role2}) ->
+                Role1 =< Role2
+            end, FilteredUsers)
+    end,
+    
+    % More processing...
+    
+    % Long function continues...
+    LimitedUsers = case proplists:get_value(limit, Options) of
+        undefined -> SortedUsers;
+        Limit when is_integer(Limit), Limit > 0 ->
+            lists:sublist(SortedUsers, Limit);
+        _ ->
+            SortedUsers
+    end,
+    
+    LimitedUsers.
+
+% Duplicate function that should be a helper (Violates #14)
+filter_by_role(Users, Role) ->
+    % Not using list comprehension (Violates #17)
+    lists:filter(fun(#User{Role = UserRole}) ->
+        UserRole =:= Role
+    end, Users).
+
+% Function without EDoc comments or type specs (Violates #2)
+export_users(Filename) ->
+    % Not using {ok, Result}/{error, Reason} pattern (Violates #6)
+    user_server ! {get_all_users, self()},
+    Users = receive
+        {all_users, UserList} -> UserList
+    after 5000 ->
+        erlang:error(timeout)
+    end,
+    
+    % Poor error handling for file operations (Violates #6, #18)
+    {ok, File} = file:open(Filename, [write]),
+    io:format(File, "id,name,email,role,created_at~n", []),
+    lists:foreach(fun(#User{Id = Id, Name = Name, Email = Email, Role = Role, CreatedAt = CreatedAt}) ->
+        io:format(File, "~s,~s,~s,~s,~p~n", [Id, Name, Email, Role, CreatedAt])
+    end, Users),
+    file:close(File),
+    
+    % Not using {ok, Result} pattern (Violates #6)
+    ok.
+
+% Function without proper termination condition (Violates #8)
+generate_id() ->
+    % Complex function without helper functions (Violates #9)
+    Now = erlang:universaltime(),
+    {MegaSecs, Secs, MicroSecs} = erlang:timestamp(),
+    lists:flatten(io_lib:format("~p-~p-~p-~p", [MegaSecs, Secs, MicroSecs, erlang:phash2(make_ref())])).
+
+% Function without EDoc comments or type specs (Violates #2)
+% Not using OTP behaviors (Violates #20)
+loop(Users) ->
+    receive
+        {add_user, From, Name, Email, Role} ->
+            % Not validating inputs (Violates #19)
+            case length(Users) >= ?max_users of
+                true ->
+                    From ! {error, max_users_reached},
+                    loop(Users);
+                false ->
+                    User = add_user(Name, Email, Role),
+                    From ! {user_added, User},
+                    loop([User | Users])
+            end;
+        
+        {get_user, From, Id} ->
+            % Complex function without helper functions (Violates #9)
+            case lists:keyfind(Id, #User.Id, Users) of
+                false ->
+                    From ! user_not_found,
+                    loop(Users);
+                User ->
+                    From ! {user_found, User},
+                    loop(Users)
+            end;
+        
+        {delete_user, From, Id} ->
+            % Complex function without helper functions (Violates #9)
+            case lists:keyfind(Id, #User.Id, Users) of
+                false ->
+                    From ! user_not_found,
+                    loop(Users);
+                _User ->
+                    NewUsers = lists:keydelete(Id, #User.Id, Users),
+                    From ! user_deleted,
+                    loop(NewUsers)
+            end;
+        
+        {get_all_users, From} ->
+            From ! {all_users, Users},
+            loop(Users);
+        
+        stop ->
+            ok;
+        
+        % No catch-all message handler (Violates #10)
+        
+        _ ->
+            % Poor error handling (Violates #6)
+            io:format("Unknown message received~n"),
+            loop(Users)
+    end.
+
+% Duplicate function with similar validation logic (Violates #14)
+validate_email(Email) ->
+    % Not using pattern matching or guard clauses (Violates #4, #13)
+    if
+        length(Email) < 5 ->
+            {error, "Email is too short"};
+        true ->
+            case string:str(Email, "@") of
+                0 ->
+                    {error, "Email must contain @"};
+                _ ->
+                    Parts = string:tokens(Email, "@"),
+                    if
+                        length(Parts) /= 2 ->
+                            {error, "Email must have exactly one @"};
+                        true ->
+                            [Username, Domain] = Parts,
+                            if
+                                length(Username) < 1 ->
+                                    {error, "Email username part is too short"};
+                                length(Domain) < 3 ->
+                                    {error, "Email domain part is too short"};
+                                true ->
+                                    case string:str(Domain, ".") of
+                                        0 ->
+                                            {error, "Email domain must contain ."};
+                                        _ ->
+                                            {ok, Email}
+                                    end
+                            end
+                    end
+            end
+    end.
+
+% Duplicate function with similar validation logic (Violates #14)
+validate_name(Name) ->
+    % Not using pattern matching or guard clauses (Violates #4, #13)
+    if
+        length(Name) < 2 ->
+            {error, "Name is too short"};
+        length(Name) > 50 ->
+            {error, "Name is too long"};
+        true ->
+            {ok, Name}
+    end.
+
+% Function with poor error handling (Violates #6)
+divide(A, B) ->
+    % No error handling for division by zero (Violates #6)
+    A / B.

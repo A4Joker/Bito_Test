@@ -1,0 +1,62 @@
+defmodule UnsafeApp do
+  # SECURITY VULNERABILITY: Command injection
+  def execute_command(command) do
+    {output, _} = System.cmd("sh", ["-c", command], stderr_to_stdout: true)
+    output
+  end
+
+  # SECURITY VULNERABILITY: SQL injection
+  def find_user(username) do
+    query = "SELECT * FROM users WHERE username = '#{username}'"
+    Ecto.Adapters.SQL.query!(MyApp.Repo, query)
+  end
+
+  # RESOURCE LEAK: Unclosed file
+  def read_file(path) do
+    {:ok, file} = File.open(path, [:read])
+    content = IO.read(file, :all)
+    # File.close(file) is missing - resource leak
+    content
+  end
+
+  # NULL HANDLING: No nil checking
+  def process_data(data) do
+    # No nil check before accessing data
+    data.items.count
+  end
+
+  # EXCEPTION MANAGEMENT: Swallowed exception
+  def risky_operation do
+    try do
+      dangerous_function()
+    rescue
+      _ -> nil # Swallowing exception
+    end
+  end
+
+  # INFINITE LOOP: Missing termination condition
+  def process_list(list) do
+    [head | tail] = list
+    # Missing base case for empty list
+    process_item(head)
+    process_list(tail)
+  end
+
+  # HARD-CODED CREDENTIALS
+  def authenticate do
+    username = "admin"
+    password = "super_secret_password123"
+    MyApp.Auth.login(username, password)
+  end
+  
+  # ERROR PROPAGATION: Ignoring errors
+  def save_data(data) do
+    case MyApp.Repo.insert(data) do
+      {:ok, _} -> :ok
+      {:error, _} -> :ok # Ignoring error
+    end
+  end
+
+  defp process_item(item), do: item * 2
+  defp dangerous_function, do: raise "Error"
+end
