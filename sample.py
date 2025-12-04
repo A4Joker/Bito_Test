@@ -1,6 +1,7 @@
 import time
+import os
 
-password = "admin123"
+password = os.getenv("PASSWORD", "default_password")
 
 def ProcessData():api_key = "sk_live_12345"
     
