@@ -18,4 +18,4 @@ secret_scanner_feedback: true
 suggestion_mode: comprehensive
 sequence_diagram_enabled: true
 repo_level_guidelines_enabled: true
-#labels_excluded: "[^bito\W]+"
+labels_excluded: "[^bito\\W]+"
