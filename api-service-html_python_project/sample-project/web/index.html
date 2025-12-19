@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample App</title>
+    <!-- Issue: Inline styles -->
+    <style>
+        body { margin: 0; padding: 0; }
+        .container { width: 100%; }
+    </style>
+</head>
+<body>
+    <!-- Issue: Missing lang attribute -->
+    
+    <!-- Issue: Div soup - too many nested divs -->
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="nav-item">
+                    <a href="#">Home</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Issue: Missing alt text -->
+        <img src="banner.jpg">
+        
+        <!-- Issue: Inline JavaScript -->
+        <button onclick="alert('Clicked!')">Click me</button>
+        
+        <!-- Issue: Deprecated HTML -->
+        <center>
+            <font size="5">Welcome</font>
+        </center>
+        
+        <!-- Issue: Missing form labels -->
+        <form>
+            <input type="text" name="username">
+            <input type="password" name="password">
+            <input type="submit">
+        </form>
+        
+        <!-- Issue: Table for layout -->
+        <table width="100%">
+            <tr>
+                <td>Left content</td>
+                <td>Right content</td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Issue: Script in head would be better -->
+    <script>
+        // Issue: Global variables
+        var userData = {};
+        
+        // Issue: Insecure practices
+        function login() {
+            var username = document.querySelector('[name="username"]').value;
+            var password = document.querySelector('[name="password"]').value;
+            
+            // Issue: Password in console
+            console.log("Logging in:", username, password);
+        }
+    </script>
+</body>
+</html>
