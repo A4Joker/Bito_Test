@@ -1,0 +1,29 @@
+Use snake_case for variable and function names.
+
+Use PascalCase for class names.
+
+Always include spaces around operators and after commas.
+
+Limit all lines to 79 characters or fewer.
+
+Always include a docstring for modules, classes, and functions.
+
+Never use global variables unnecessarily.
+
+Indent code with 4 spaces, never tabs.
+
+Avoid hardcoding values; use constants or configuration.
+
+Use if __name__ == "__main__": to protect executable code.
+
+Handle exceptions explicitly with try/except.
+
+Do not use wildcard imports (from module import *).
+
+Use descriptive variable names; avoid single letters unless in loops.
+
+Do not mix different data types in lists unless necessary.
+
+Follow proper import order: standard → third-party → local.
+
+Never leave unused variables or imports in code.
