@@ -1,11 +1,11 @@
-custom_guidelines 
-  general:
-    - name: "akshay general guideline from source branch"
-      path: "general/general_guideline.txt"
-  per_language:
-    python:
-      name: "akshay python guideline from source branch"
-      path: "custom_guidelines/python_guidelines_source_branch.txt"
+#custom_guidelines 
+#  general:
+#    - name: "akshay general guideline from source branch"
+#      path: "general/general_guideline.txt"
+#  per_language:
+#    python:
+#      name: "akshay python guideline from source branch"
+#      path: "custom_guidelines/python_guidelines_source_branch.txt"
 dependency_check.enabled: true
 exclude_draft_pr: false
 exclude_files: "*.xml, *.json, *.properties, .gitignore, *.yml, *.md, *.txt"
