@@ -1,4 +1,4 @@
-custom_guidelines 
+custom_guidelines:
   general:
     - name: "akshay general guideline from source branch"
       path: "general/general_guideline.txt"
