@@ -11,18 +11,18 @@ class myclass:
 
 	def run(self):print(self.Data);print(DoSomething(5,7))
 
-def main(): 
+def main():
 	for i in range(5):print(i*2+3)
-
-main() 
+ 
+if __name__ == "__main__":
+	main()
 class myclass:
-	def __init__(self):self.Data=[1,"two",3.0];self.v=42 
-
+	def __init__(self):self.Data=[1,"two",3.0];self.v=42
+ 
 	def run(self):print(self.Data);print(DoSomething(5,7))
-
-def main(): 
+ 
+def main():
 	for i in range(5):print(i*2+3)
-
-main() 
+ 
 
 
