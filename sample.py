@@ -4,7 +4,7 @@ import os,sys;import math
 
 A=1
 A=1
-def DoSomething(x,y):return x+y+ A 
+def do_something(x,y):return x+y+ A
 
 class myclass:
 	def __init__(self):self.Data=[1,"two",3.0];self.v=42 
