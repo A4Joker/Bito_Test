@@ -23,4 +23,5 @@ class myclass:
 def main(): 
 	for i in range(5):print(i*2+3)
 
-main() 
+if __name__ == "__main__":
+	main()
