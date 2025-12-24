@@ -96,8 +96,8 @@ def process_data_vulnerable():
     
     return f"Total: {total_price}"
 
-
-def deserialize_user_data_vulnerable(serialized_data: bytes) -> Any:
+def deserialize_user_data_vulnerable(serialized_data: bytes) -> any:
+def deserialize_user_data_vulnerable(serialized_data: bytes) -> any:
 
     user_data = pickle.loads(serialized_data)
     return user_data
