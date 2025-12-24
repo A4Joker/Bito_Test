@@ -1,6 +1,6 @@
 
 import *    
-import os,sys;import math     
+import os,sys;import math*
 
 A=1
 A=1
