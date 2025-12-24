@@ -1,0 +1,12 @@
+custom_guidelines:
+  general:
+    - name: ""
+      path: ""
+  per_language:
+    python:
+      name: ""
+      path: ""
+include_source_branches: "*"
+include_target_branches: "*"
+
+
