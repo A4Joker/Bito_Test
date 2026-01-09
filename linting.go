@@ -94,7 +94,10 @@ func ValidateUser(u *UserData, role string) {
 // Inconsistent error handling
 func fetchData(url string) (*UserData, error) {
     resp, err := http.Get(url)
-    // Missing error check
+    if err != nil {
+        return nil, err
+    }
+    defer resp.Body.Close()
     
     // Resource leak - response body not closed
     body, _ := ioutil.ReadAll(resp.Body)
