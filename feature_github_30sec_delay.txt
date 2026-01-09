@@ -1,0 +1,12 @@
+GitHub Feature with 30-Second Delayed Deletion
+
+This file demonstrates a feature branch that will be deleted
+30 seconds after the PR is created.
+
+Details:
+- File: feature_github_30sec_delay.txt
+- Purpose: Test delayed branch deletion
+- Deletion Time: 30 seconds after PR creation
+- Status: Active PR with delayed cleanup
+
+Implementation complete.
