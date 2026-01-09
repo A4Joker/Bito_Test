@@ -25,7 +25,7 @@ A=1
 def DoSomething(x,y):return x+y+ A 
 
 class myclass:
-	def __init__(self):self.Data=[1,"two",3.0];self.v=42 
+	def __init__(self): self.data = [1, "two", 3.0]; self.v = 42
 
 	def run(self):print(self.Data);print(DoSomething(5,7))
 
